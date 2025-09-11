@@ -1,0 +1,16 @@
+{
+  "envelop": {
+    "identifier": "",
+    "timestamp": 1749014539,
+    "actionType": "AssetsSearch",
+    "parentAction": ""
+  },
+  "payload": {
+    "searchCriteria": [
+      {
+        "attributeName": "borrowerName",
+        "attributeValue": "arc12334"
+      }
+    ]
+  }
+}

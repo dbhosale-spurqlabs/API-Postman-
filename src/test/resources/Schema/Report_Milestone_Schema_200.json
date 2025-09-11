@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "ndaSigned": {
+      "type": "integer"
+    },
+    "dataRoomAccessed": {
+      "type": "integer"
+    },
+    "linked": {
+      "type": "integer"
+    },
+    "invited": {
+      "type": "integer"
+    },
+    "declined": {
+      "type": "integer"
+    },
+    "removed": {
+      "type": "integer"
+    },
+    "reviewing": {
+      "type": "integer"
+    },
+    "expressedInterest": {
+      "type": "integer"
+    },
+    "committed": {
+      "type": "integer"
+    },
+    "allocated": {
+      "type": "integer"
+    },
+    "txnDocsExecuted": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ndaSigned",
+    "dataRoomAccessed",
+    "linked",
+    "invited",
+    "declined",
+    "removed",
+    "reviewing",
+    "expressedInterest",
+    "committed",
+    "allocated",
+    "txnDocsExecuted"
+  ]
+}

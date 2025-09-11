@@ -1,0 +1,104 @@
+{
+  "name": "KEC MENA United Energy MENA",
+  "dealroom_type": "PRIMARY_DEAL",
+  "dealroom_id": "{dealId}",
+  "internal_user": true,
+  "organisations": [
+    {
+      "name": "ADCB",
+      "role": "INVESTOR",
+      "orgTitles": "INVESTOR",
+      "orgRole": "INVESTOR",
+      "market_participant_id": "{dealCreatorMpId}",
+      "invited_by_user": "{dataRoomCreatorUserId}",
+      "users": [
+        {
+          "name": "",
+          "email": "raed.alsaheb@adcb.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "",
+          "email": "elsherif.hassan@adcb.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "",
+          "email": "mihir.joshi@adcb.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        }
+      ]
+    },
+    {
+      "name": "Arab African International Bank",
+      "role": "INVESTOR",
+      "orgTitles": "INVESTOR",
+      "orgRole": "INVESTOR",
+      "market_participant_id": "{dealCreatorMpId}",
+      "invited_by_user": "{dataRoomCreatorUserId}",
+      "users": [
+        {
+          "name": "Osama Abdelrehim",
+          "email": "oabdelrehim@aaib.com",
+          "user_id": "{dataRoomCreatorUserId}",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "Yomna  Hammad",
+          "email": "yomnahammad@aaib.com",
+          "user_id": "{dataRoomCreatorUserId}",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "",
+          "email": "reemabouzeid@aaib.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        }
+      ]
+    },
+    {
+      "name": "Bank ABC",
+      "role": "INVESTOR",
+      "orgTitles": "INVESTOR",
+      "orgRole": "INVESTOR",
+      "market_participant_id": "{dealCreatorMpId}",
+      "invited_by_user": "{dataRoomCreatorUserId}",
+      "users": [
+        {
+          "name": "",
+          "email": "kamran.baloch@bank-abc.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "Mohamed Amine Regaya",
+          "email": "mohamedamine.regaya@bank-abc.com",
+          "user_id": "{dataRoomCreatorUserId}",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        },
+        {
+          "name": "",
+          "email": "srikanth.palugulla@bank-abc.com",
+          "status": "NOT_ACCESSED",
+          "invited_by_user": "{dataRoomCreatorUserId}",
+          "roles": []
+        }
+      ]
+    }
+  ]
+}

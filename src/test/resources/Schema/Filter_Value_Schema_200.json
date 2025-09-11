@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "trancheCurrencies": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "countries": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "invitationGroups": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "groupName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "groupName"
+          ]
+        }
+      ]
+    },
+    "arrangers": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "mpId": {
+              "type": "string"
+            },
+            "mpName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "mpId",
+            "mpName"
+          ]
+        }
+      ]
+    },
+    "tranches": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "trancheId": {
+              "type": "string"
+            },
+            "trancheName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "trancheId",
+            "trancheName"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "trancheCurrencies",
+    "countries",
+    "invitationGroups",
+    "arrangers",
+    "tranches"
+  ]
+}

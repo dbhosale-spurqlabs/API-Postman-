@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "invitationStatus": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "designation",
+        "fullName",
+        "contactNumber",
+        "userEmail",
+        "invitationStatus"
+      ]
+    }
+  ]
+}

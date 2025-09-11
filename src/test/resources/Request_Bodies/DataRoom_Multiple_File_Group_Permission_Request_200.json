@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "file_id": "dataRoomFileResourceID",
+      "permissions": [
+        {
+          "type": "GROUP",
+          "id": "{dataRoomFileGroupID2}",
+          "is_active": true,
+          "view": true,
+          "download_original": true,
+          "download_pdf": true,
+          "upload": true,
+          "upload_nda": true,
+          "delete": false
+        },
+        {
+          "type": "GROUP",
+          "id": "{dataRoomFileGroupID1}",
+          "is_active": true,
+          "view": true,
+          "download_original": true,
+          "download_pdf": true,
+          "upload": true,
+          "upload_nda": true,
+          "delete": true
+        }
+      ]
+    }
+  ]
+}

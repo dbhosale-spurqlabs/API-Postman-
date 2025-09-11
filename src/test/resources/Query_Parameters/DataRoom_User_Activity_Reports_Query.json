@@ -1,0 +1,6 @@
+{
+  "type" : "primary",
+  "period" : "last_24_hour",
+  "page" : 1,
+  "size" : 10
+}

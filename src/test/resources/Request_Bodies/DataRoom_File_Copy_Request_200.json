@@ -1,0 +1,6 @@
+{
+  "type": "FILE",
+  "id": "{dataRoomFileId}",
+  "source_folder": "{dataRoomChildFolderID}",
+  "destination_folder": "{dataRoomRootFolderID}"
+}

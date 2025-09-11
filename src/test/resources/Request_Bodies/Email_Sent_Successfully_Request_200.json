@@ -1,0 +1,16 @@
+{
+  "to_emails": [
+    "test^@gmail.com",
+    "on^@inboxbear.com"
+  ],
+  "cc_emails": [
+    ""
+  ],
+  "subject": "New Message",
+  "email_body": "<p>tftg</p>",
+  "from_user_name": "Patrick braneli",
+  "from_org_name": "Alcentra",
+  "attachments": [],
+  "source_type": "PRIMARY",
+  "source_id": "{dealId}"
+}

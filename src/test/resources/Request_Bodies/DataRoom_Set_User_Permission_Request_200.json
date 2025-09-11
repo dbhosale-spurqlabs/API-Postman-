@@ -1,0 +1,15 @@
+{
+  "permissions": [
+    {
+      "type": "FOLDER",
+      "id": "{dataRoomChildFolderID}",
+      "is_active": false,
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": false,
+      "upload_nda": false,
+      "delete": false
+    }
+  ]
+}

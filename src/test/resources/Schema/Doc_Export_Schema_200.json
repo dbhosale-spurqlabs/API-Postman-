@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "index": {
+      "type": "integer"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "fileUrl": {
+          "type": "string"
+        },
+        "filePreviewUrl": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fileUrl",
+        "filePreviewUrl",
+        "fileName"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "index",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

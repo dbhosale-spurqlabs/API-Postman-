@@ -1,0 +1,2354 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "envelop": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "actionType": {
+          "type": "string"
+        },
+        "parentAction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier",
+        "timestamp",
+        "actionType",
+        "parentAction"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "loanId": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "borrowerName": {
+                  "type": "string"
+                },
+                "borrowerType": {
+                  "type": "string"
+                },
+                "borrowerCountry": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "industry": {
+                  "type": "string"
+                },
+                "sic": {
+                  "type": "string"
+                },
+                "parent": {
+                  "type": "string"
+                },
+                "guarantor": {
+                  "type": "string"
+                },
+                "lenderName": {
+                  "type": "string"
+                },
+                "loanCurrency": {
+                  "type": "string"
+                },
+                "loanAmount": {
+                  "type": "string"
+                },
+                "loanActiveDate": {
+                  "type": "integer"
+                },
+                "loanMarketSegment": {
+                  "type": "string"
+                },
+                "tenor": {
+                  "type": "integer"
+                },
+                "loanMaturityDate": {
+                  "type": "integer"
+                },
+                "loanPurpose": {
+                  "type": "string"
+                },
+                "trancheType": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "margin": {
+                  "type": "string"
+                },
+                "purpose": {
+                  "type": "string"
+                },
+                "deal": {
+                  "type": "string"
+                },
+                "dealSigningDate": {
+                  "type": "integer"
+                },
+                "sellOfferId": {
+                  "type": "string"
+                },
+                "sellOfferSize": {
+                  "type": "string"
+                },
+                "sellOfferPrice": {
+                  "type": "string"
+                },
+                "lenderNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "lenderShortNames": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loanId",
+                "origin",
+                "borrowerName",
+                "borrowerType",
+                "borrowerCountry",
+                "region",
+                "industry",
+                "sic",
+                "parent",
+                "guarantor",
+                "lenderName",
+                "loanCurrency",
+                "loanAmount",
+                "loanActiveDate",
+                "loanMarketSegment",
+                "tenor",
+                "loanMaturityDate",
+                "loanPurpose",
+                "trancheType",
+                "benchmark",
+                "margin",
+                "purpose",
+                "deal",
+                "dealSigningDate",
+                "sellOfferId",
+                "sellOfferSize",
+                "sellOfferPrice",
+                "lenderNames",
+                "lenderShortNames",
+                "score"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "assets"
+      ]
+    }
+  },
+  "required": [
+    "envelop",
+    "payload"
+  ]
+}

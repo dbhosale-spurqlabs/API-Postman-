@@ -1,0 +1,1287 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer"
+    },
+    "reqId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "error": {
+      "type": "null"
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        },
+        "pageNumber": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "next": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "total",
+        "totalPages",
+        "pageNumber",
+        "pageSize",
+        "next",
+        "previous"
+      ]
+    },
+    "result": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "userEmail": {
+              "type": "string"
+            },
+            "userDesignation": {
+              "type": "string"
+            },
+            "userMpId": {
+              "type": "string"
+            },
+            "userMpName": {
+              "type": "string"
+            },
+            "userCountry": {
+              "type": "string"
+            },
+            "originLoanId": {
+              "type": "null"
+            },
+            "borrowerName": {
+              "type": "string"
+            },
+            "borrowerType": {
+              "type": "string"
+            },
+            "borrowerCountry": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "guarantor": {
+              "type": "string"
+            },
+            "loanActiveDate": {
+              "type": "integer"
+            },
+            "loanMaturityDate": {
+              "type": "integer"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "trancheType": {
+              "type": "string"
+            },
+            "marketSegment": {
+              "type": "null"
+            },
+            "interestRate": {
+              "type": "integer"
+            },
+            "interestRateType": {
+              "type": "string"
+            },
+            "benchmark": {
+              "type": "null"
+            },
+            "margin": {
+              "type": "null"
+            },
+            "lenderName": {
+              "type": "string"
+            },
+            "lenderAgentName": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "loanPurpose": {
+              "type": "string"
+            },
+            "ranking": {
+              "type": "string"
+            },
+            "security": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "null"
+            },
+            "sellOfferSize": {
+              "type": "integer"
+            },
+            "sellOfferPrice": {
+              "type": "integer"
+            },
+            "minimumTicketSize": {
+              "type": "integer"
+            },
+            "maximumTicketSize": {
+              "type": "integer"
+            },
+            "sellOfferType": {
+              "type": "string"
+            },
+            "documentationType": {
+              "type": "string"
+            },
+            "riskParticipationFees": {
+              "type": "integer"
+            },
+            "expiryDate": {
+              "type": "integer"
+            },
+            "inviteOnly": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "acceptedAmount": {
+              "type": "integer"
+            },
+            "ndaDocId": {
+              "type": "null"
+            },
+            "dataRoomId": {
+              "type": "string"
+            },
+            "publishedByUserId": {
+              "type": "null"
+            },
+            "publishedByUserEmail": {
+              "type": "null"
+            },
+            "publishedByUserName": {
+              "type": "null"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "invitees": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userName": {
+                      "type": "string"
+                    },
+                    "userEmail": {
+                      "type": "string"
+                    },
+                    "userDesignation": {
+                      "type": "string"
+                    },
+                    "userMpId": {
+                      "type": "string"
+                    },
+                    "userMpName": {
+                      "type": "string"
+                    },
+                    "userCountry": {
+                      "type": "string"
+                    },
+                    "userDlId": {
+                      "type": "null"
+                    },
+                    "userContactNumber": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "userId",
+                    "userName",
+                    "userEmail",
+                    "userDesignation",
+                    "userMpId",
+                    "userMpName",
+                    "userCountry",
+                    "userDlId",
+                    "userContactNumber"
+                  ]
+                }
+              ]
+            },
+            "bids": {
+              "type": "array",
+              "items": {}
+            },
+            "bid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "userId",
+            "userName",
+            "userEmail",
+            "userDesignation",
+            "userMpId",
+            "userMpName",
+            "userCountry",
+            "originLoanId",
+            "borrowerName",
+            "borrowerType",
+            "borrowerCountry",
+            "region",
+            "industry",
+            "sic",
+            "parent",
+            "guarantor",
+            "loanActiveDate",
+            "loanMaturityDate",
+            "currency",
+            "trancheType",
+            "marketSegment",
+            "interestRate",
+            "interestRateType",
+            "benchmark",
+            "margin",
+            "lenderName",
+            "lenderAgentName",
+            "rating",
+            "loanPurpose",
+            "ranking",
+            "security",
+            "purpose",
+            "remarks",
+            "sellOfferSize",
+            "sellOfferPrice",
+            "minimumTicketSize",
+            "maximumTicketSize",
+            "sellOfferType",
+            "documentationType",
+            "riskParticipationFees",
+            "expiryDate",
+            "inviteOnly",
+            "state",
+            "acceptedAmount",
+            "ndaDocId",
+            "dataRoomId",
+            "publishedByUserId",
+            "publishedByUserEmail",
+            "publishedByUserName",
+            "publishedDate",
+            "invitees",
+            "bids",
+            "bid"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "userEmail": {
+              "type": "string"
+            },
+            "userDesignation": {
+              "type": "string"
+            },
+            "userMpId": {
+              "type": "string"
+            },
+            "userMpName": {
+              "type": "string"
+            },
+            "userCountry": {
+              "type": "string"
+            },
+            "originLoanId": {
+              "type": "null"
+            },
+            "borrowerName": {
+              "type": "string"
+            },
+            "borrowerType": {
+              "type": "string"
+            },
+            "borrowerCountry": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "guarantor": {
+              "type": "string"
+            },
+            "loanActiveDate": {
+              "type": "integer"
+            },
+            "loanMaturityDate": {
+              "type": "integer"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "trancheType": {
+              "type": "string"
+            },
+            "marketSegment": {
+              "type": "null"
+            },
+            "interestRate": {
+              "type": "integer"
+            },
+            "interestRateType": {
+              "type": "string"
+            },
+            "benchmark": {
+              "type": "null"
+            },
+            "margin": {
+              "type": "null"
+            },
+            "lenderName": {
+              "type": "string"
+            },
+            "lenderAgentName": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "loanPurpose": {
+              "type": "string"
+            },
+            "ranking": {
+              "type": "string"
+            },
+            "security": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "null"
+            },
+            "sellOfferSize": {
+              "type": "integer"
+            },
+            "sellOfferPrice": {
+              "type": "integer"
+            },
+            "minimumTicketSize": {
+              "type": "integer"
+            },
+            "maximumTicketSize": {
+              "type": "integer"
+            },
+            "sellOfferType": {
+              "type": "string"
+            },
+            "documentationType": {
+              "type": "string"
+            },
+            "riskParticipationFees": {
+              "type": "integer"
+            },
+            "expiryDate": {
+              "type": "integer"
+            },
+            "inviteOnly": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "acceptedAmount": {
+              "type": "integer"
+            },
+            "ndaDocId": {
+              "type": "string"
+            },
+            "dataRoomId": {
+              "type": "string"
+            },
+            "publishedByUserId": {
+              "type": "null"
+            },
+            "publishedByUserEmail": {
+              "type": "null"
+            },
+            "publishedByUserName": {
+              "type": "null"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "invitees": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userName": {
+                      "type": "string"
+                    },
+                    "userEmail": {
+                      "type": "string"
+                    },
+                    "userDesignation": {
+                      "type": "string"
+                    },
+                    "userMpId": {
+                      "type": "string"
+                    },
+                    "userMpName": {
+                      "type": "string"
+                    },
+                    "userCountry": {
+                      "type": "string"
+                    },
+                    "userDlId": {
+                      "type": "null"
+                    },
+                    "userContactNumber": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "userId",
+                    "userName",
+                    "userEmail",
+                    "userDesignation",
+                    "userMpId",
+                    "userMpName",
+                    "userCountry",
+                    "userDlId",
+                    "userContactNumber"
+                  ]
+                }
+              ]
+            },
+            "bids": {
+              "type": "array",
+              "items": {}
+            },
+            "bid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "userId",
+            "userName",
+            "userEmail",
+            "userDesignation",
+            "userMpId",
+            "userMpName",
+            "userCountry",
+            "originLoanId",
+            "borrowerName",
+            "borrowerType",
+            "borrowerCountry",
+            "region",
+            "industry",
+            "sic",
+            "parent",
+            "guarantor",
+            "loanActiveDate",
+            "loanMaturityDate",
+            "currency",
+            "trancheType",
+            "marketSegment",
+            "interestRate",
+            "interestRateType",
+            "benchmark",
+            "margin",
+            "lenderName",
+            "lenderAgentName",
+            "rating",
+            "loanPurpose",
+            "ranking",
+            "security",
+            "purpose",
+            "remarks",
+            "sellOfferSize",
+            "sellOfferPrice",
+            "minimumTicketSize",
+            "maximumTicketSize",
+            "sellOfferType",
+            "documentationType",
+            "riskParticipationFees",
+            "expiryDate",
+            "inviteOnly",
+            "state",
+            "acceptedAmount",
+            "ndaDocId",
+            "dataRoomId",
+            "publishedByUserId",
+            "publishedByUserEmail",
+            "publishedByUserName",
+            "publishedDate",
+            "invitees",
+            "bids",
+            "bid"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "userEmail": {
+              "type": "string"
+            },
+            "userDesignation": {
+              "type": "string"
+            },
+            "userMpId": {
+              "type": "string"
+            },
+            "userMpName": {
+              "type": "string"
+            },
+            "userCountry": {
+              "type": "string"
+            },
+            "originLoanId": {
+              "type": "null"
+            },
+            "borrowerName": {
+              "type": "string"
+            },
+            "borrowerType": {
+              "type": "string"
+            },
+            "borrowerCountry": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "guarantor": {
+              "type": "string"
+            },
+            "loanActiveDate": {
+              "type": "integer"
+            },
+            "loanMaturityDate": {
+              "type": "integer"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "trancheType": {
+              "type": "string"
+            },
+            "marketSegment": {
+              "type": "null"
+            },
+            "interestRate": {
+              "type": "integer"
+            },
+            "interestRateType": {
+              "type": "string"
+            },
+            "benchmark": {
+              "type": "null"
+            },
+            "margin": {
+              "type": "null"
+            },
+            "lenderName": {
+              "type": "string"
+            },
+            "lenderAgentName": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "loanPurpose": {
+              "type": "string"
+            },
+            "ranking": {
+              "type": "string"
+            },
+            "security": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "null"
+            },
+            "sellOfferSize": {
+              "type": "integer"
+            },
+            "sellOfferPrice": {
+              "type": "integer"
+            },
+            "minimumTicketSize": {
+              "type": "integer"
+            },
+            "maximumTicketSize": {
+              "type": "integer"
+            },
+            "sellOfferType": {
+              "type": "string"
+            },
+            "documentationType": {
+              "type": "string"
+            },
+            "riskParticipationFees": {
+              "type": "integer"
+            },
+            "expiryDate": {
+              "type": "integer"
+            },
+            "inviteOnly": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "acceptedAmount": {
+              "type": "integer"
+            },
+            "ndaDocId": {
+              "type": "null"
+            },
+            "dataRoomId": {
+              "type": "string"
+            },
+            "publishedByUserId": {
+              "type": "null"
+            },
+            "publishedByUserEmail": {
+              "type": "null"
+            },
+            "publishedByUserName": {
+              "type": "null"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "invitees": {
+              "type": "array",
+              "items": {}
+            },
+            "bids": {
+              "type": "array",
+              "items": {}
+            },
+            "bid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "userId",
+            "userName",
+            "userEmail",
+            "userDesignation",
+            "userMpId",
+            "userMpName",
+            "userCountry",
+            "originLoanId",
+            "borrowerName",
+            "borrowerType",
+            "borrowerCountry",
+            "region",
+            "industry",
+            "sic",
+            "parent",
+            "guarantor",
+            "loanActiveDate",
+            "loanMaturityDate",
+            "currency",
+            "trancheType",
+            "marketSegment",
+            "interestRate",
+            "interestRateType",
+            "benchmark",
+            "margin",
+            "lenderName",
+            "lenderAgentName",
+            "rating",
+            "loanPurpose",
+            "ranking",
+            "security",
+            "purpose",
+            "remarks",
+            "sellOfferSize",
+            "sellOfferPrice",
+            "minimumTicketSize",
+            "maximumTicketSize",
+            "sellOfferType",
+            "documentationType",
+            "riskParticipationFees",
+            "expiryDate",
+            "inviteOnly",
+            "state",
+            "acceptedAmount",
+            "ndaDocId",
+            "dataRoomId",
+            "publishedByUserId",
+            "publishedByUserEmail",
+            "publishedByUserName",
+            "publishedDate",
+            "invitees",
+            "bids",
+            "bid"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "userEmail": {
+              "type": "string"
+            },
+            "userDesignation": {
+              "type": "string"
+            },
+            "userMpId": {
+              "type": "string"
+            },
+            "userMpName": {
+              "type": "string"
+            },
+            "userCountry": {
+              "type": "string"
+            },
+            "originLoanId": {
+              "type": "null"
+            },
+            "borrowerName": {
+              "type": "string"
+            },
+            "borrowerType": {
+              "type": "string"
+            },
+            "borrowerCountry": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "guarantor": {
+              "type": "string"
+            },
+            "loanActiveDate": {
+              "type": "integer"
+            },
+            "loanMaturityDate": {
+              "type": "integer"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "trancheType": {
+              "type": "string"
+            },
+            "marketSegment": {
+              "type": "null"
+            },
+            "interestRate": {
+              "type": "integer"
+            },
+            "interestRateType": {
+              "type": "string"
+            },
+            "benchmark": {
+              "type": "null"
+            },
+            "margin": {
+              "type": "null"
+            },
+            "lenderName": {
+              "type": "string"
+            },
+            "lenderAgentName": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "loanPurpose": {
+              "type": "string"
+            },
+            "ranking": {
+              "type": "string"
+            },
+            "security": {
+              "type": "null"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "null"
+            },
+            "sellOfferSize": {
+              "type": "integer"
+            },
+            "sellOfferPrice": {
+              "type": "integer"
+            },
+            "minimumTicketSize": {
+              "type": "integer"
+            },
+            "maximumTicketSize": {
+              "type": "integer"
+            },
+            "sellOfferType": {
+              "type": "string"
+            },
+            "documentationType": {
+              "type": "string"
+            },
+            "riskParticipationFees": {
+              "type": "integer"
+            },
+            "expiryDate": {
+              "type": "integer"
+            },
+            "inviteOnly": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "acceptedAmount": {
+              "type": "integer"
+            },
+            "ndaDocId": {
+              "type": "null"
+            },
+            "dataRoomId": {
+              "type": "string"
+            },
+            "publishedByUserId": {
+              "type": "null"
+            },
+            "publishedByUserEmail": {
+              "type": "null"
+            },
+            "publishedByUserName": {
+              "type": "null"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "invitees": {
+              "type": "array",
+              "items": {}
+            },
+            "bids": {
+              "type": "array",
+              "items": {}
+            },
+            "bid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "userId",
+            "userName",
+            "userEmail",
+            "userDesignation",
+            "userMpId",
+            "userMpName",
+            "userCountry",
+            "originLoanId",
+            "borrowerName",
+            "borrowerType",
+            "borrowerCountry",
+            "region",
+            "industry",
+            "sic",
+            "parent",
+            "guarantor",
+            "loanActiveDate",
+            "loanMaturityDate",
+            "currency",
+            "trancheType",
+            "marketSegment",
+            "interestRate",
+            "interestRateType",
+            "benchmark",
+            "margin",
+            "lenderName",
+            "lenderAgentName",
+            "rating",
+            "loanPurpose",
+            "ranking",
+            "security",
+            "purpose",
+            "remarks",
+            "sellOfferSize",
+            "sellOfferPrice",
+            "minimumTicketSize",
+            "maximumTicketSize",
+            "sellOfferType",
+            "documentationType",
+            "riskParticipationFees",
+            "expiryDate",
+            "inviteOnly",
+            "state",
+            "acceptedAmount",
+            "ndaDocId",
+            "dataRoomId",
+            "publishedByUserId",
+            "publishedByUserEmail",
+            "publishedByUserName",
+            "publishedDate",
+            "invitees",
+            "bids",
+            "bid"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "string"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "userEmail": {
+              "type": "string"
+            },
+            "userDesignation": {
+              "type": "string"
+            },
+            "userMpId": {
+              "type": "string"
+            },
+            "userMpName": {
+              "type": "string"
+            },
+            "userCountry": {
+              "type": "string"
+            },
+            "originLoanId": {
+              "type": "null"
+            },
+            "borrowerName": {
+              "type": "string"
+            },
+            "borrowerType": {
+              "type": "string"
+            },
+            "borrowerCountry": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "industry": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "guarantor": {
+              "type": "string"
+            },
+            "loanActiveDate": {
+              "type": "integer"
+            },
+            "loanMaturityDate": {
+              "type": "integer"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "trancheType": {
+              "type": "string"
+            },
+            "marketSegment": {
+              "type": "null"
+            },
+            "interestRate": {
+              "type": "integer"
+            },
+            "interestRateType": {
+              "type": "string"
+            },
+            "benchmark": {
+              "type": "null"
+            },
+            "margin": {
+              "type": "null"
+            },
+            "lenderName": {
+              "type": "string"
+            },
+            "lenderAgentName": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "loanPurpose": {
+              "type": "string"
+            },
+            "ranking": {
+              "type": "string"
+            },
+            "security": {
+              "type": "null"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "null"
+            },
+            "sellOfferSize": {
+              "type": "integer"
+            },
+            "sellOfferPrice": {
+              "type": "integer"
+            },
+            "minimumTicketSize": {
+              "type": "integer"
+            },
+            "maximumTicketSize": {
+              "type": "integer"
+            },
+            "sellOfferType": {
+              "type": "string"
+            },
+            "documentationType": {
+              "type": "string"
+            },
+            "riskParticipationFees": {
+              "type": "integer"
+            },
+            "expiryDate": {
+              "type": "integer"
+            },
+            "inviteOnly": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "acceptedAmount": {
+              "type": "integer"
+            },
+            "ndaDocId": {
+              "type": "null"
+            },
+            "dataRoomId": {
+              "type": "string"
+            },
+            "publishedByUserId": {
+              "type": "null"
+            },
+            "publishedByUserEmail": {
+              "type": "null"
+            },
+            "publishedByUserName": {
+              "type": "null"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "invitees": {
+              "type": "array",
+              "items": {}
+            },
+            "bids": {
+              "type": "array",
+              "items": {}
+            },
+            "bid": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "userId",
+            "userName",
+            "userEmail",
+            "userDesignation",
+            "userMpId",
+            "userMpName",
+            "userCountry",
+            "originLoanId",
+            "borrowerName",
+            "borrowerType",
+            "borrowerCountry",
+            "region",
+            "industry",
+            "sic",
+            "parent",
+            "guarantor",
+            "loanActiveDate",
+            "loanMaturityDate",
+            "currency",
+            "trancheType",
+            "marketSegment",
+            "interestRate",
+            "interestRateType",
+            "benchmark",
+            "margin",
+            "lenderName",
+            "lenderAgentName",
+            "rating",
+            "loanPurpose",
+            "ranking",
+            "security",
+            "purpose",
+            "remarks",
+            "sellOfferSize",
+            "sellOfferPrice",
+            "minimumTicketSize",
+            "maximumTicketSize",
+            "sellOfferType",
+            "documentationType",
+            "riskParticipationFees",
+            "expiryDate",
+            "inviteOnly",
+            "state",
+            "acceptedAmount",
+            "ndaDocId",
+            "dataRoomId",
+            "publishedByUserId",
+            "publishedByUserEmail",
+            "publishedByUserName",
+            "publishedDate",
+            "invitees",
+            "bids",
+            "bid"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "reqId",
+    "timestamp",
+    "message",
+    "error",
+    "page",
+    "result"
+  ]
+}

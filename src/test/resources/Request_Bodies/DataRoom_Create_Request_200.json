@@ -1,0 +1,21 @@
+{
+  "name": "{borrowerName}",
+  "dealroom_type": "PRIMARY_DEAL",
+  "dealroom_id": "{dataRoomId}",
+  "organisations": [
+    {
+      "name": "Spurqlabs",
+      "orgTitles": "ARRANGER",
+      "orgRole": "ARRANGER",
+      "market_participant_id": "{dealCreatorMpId}",
+      "users": [
+        {
+          "name": "Arranger1 DemoSpurqlabs",
+          "email": "arranger1.spq@getnada.com",
+          "user_id": "{dealCreatorUserId}",
+          "status": "NOT_VIEWED"
+        }
+      ]
+    }
+  ]
+}

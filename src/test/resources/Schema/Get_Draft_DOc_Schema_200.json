@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "docType": {
+          "type": "string"
+        },
+        "responseDueDate": {
+          "type": "null"
+        },
+        "draftDocId": {
+          "type": "string"
+        },
+        "draftDocName": {
+          "type": "string"
+        },
+        "draftDocVersion": {
+          "type": "string"
+        },
+        "draftCreatedAt": {
+          "type": "integer"
+        },
+        "docFinalized": {
+          "type": "boolean"
+        },
+        "updatedAt": {
+          "type": "null"
+        },
+        "draftDocStatus": {
+          "type": "string"
+        },
+        "respondedMpCount": {
+          "type": "integer"
+        },
+        "viewedMpCount": {
+          "type": "integer"
+        },
+        "amendmentsRequestedMpCount": {
+          "type": "integer"
+        },
+        "acceptedMpCount": {
+          "type": "integer"
+        },
+        "viewedMps": {
+          "type": "object"
+        },
+        "amendmentsRequestedMps": {
+          "type": "object"
+        },
+        "acceptedMps": {
+          "type": "object"
+        },
+        "txnDocHistory": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "userId",
+        "mpId",
+        "docType",
+        "responseDueDate",
+        "draftDocId",
+        "draftDocName",
+        "draftDocVersion",
+        "draftCreatedAt",
+        "docFinalized",
+        "updatedAt",
+        "draftDocStatus",
+        "respondedMpCount",
+        "viewedMpCount",
+        "amendmentsRequestedMpCount",
+        "acceptedMpCount",
+        "viewedMps",
+        "amendmentsRequestedMps",
+        "acceptedMps",
+        "txnDocHistory"
+      ]
+    }
+  ]
+}

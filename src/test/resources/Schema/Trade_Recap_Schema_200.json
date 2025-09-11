@@ -1,0 +1,219 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "loanSyndicationId": {
+          "type": "string"
+        },
+        "responseId": {
+          "type": "string"
+        },
+        "trancheId": {
+          "type": "string"
+        },
+        "trancheResponseId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "arrangerAction": {
+          "type": "boolean"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "allocationAmount": {
+          "type": "null"
+        },
+        "dateTime": {
+          "type": "string"
+        },
+        "dateTimeVal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "userId",
+        "userEmail",
+        "userName",
+        "mpId",
+        "mpName",
+        "loanSyndicationId",
+        "responseId",
+        "trancheId",
+        "trancheResponseId",
+        "action",
+        "arrangerAction",
+        "currency",
+        "amount",
+        "allocationAmount",
+        "dateTime",
+        "dateTimeVal"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "loanSyndicationId": {
+          "type": "string"
+        },
+        "responseId": {
+          "type": "string"
+        },
+        "trancheId": {
+          "type": "string"
+        },
+        "trancheResponseId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "arrangerAction": {
+          "type": "boolean"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "allocationAmount": {
+          "type": "null"
+        },
+        "dateTime": {
+          "type": "string"
+        },
+        "dateTimeVal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "userId",
+        "userEmail",
+        "userName",
+        "mpId",
+        "mpName",
+        "loanSyndicationId",
+        "responseId",
+        "trancheId",
+        "trancheResponseId",
+        "action",
+        "arrangerAction",
+        "currency",
+        "amount",
+        "allocationAmount",
+        "dateTime",
+        "dateTimeVal"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "loanSyndicationId": {
+          "type": "string"
+        },
+        "responseId": {
+          "type": "string"
+        },
+        "trancheId": {
+          "type": "string"
+        },
+        "trancheResponseId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "arrangerAction": {
+          "type": "boolean"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "allocationAmount": {
+          "type": "null"
+        },
+        "dateTime": {
+          "type": "string"
+        },
+        "dateTimeVal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "userId",
+        "userEmail",
+        "userName",
+        "mpId",
+        "mpName",
+        "loanSyndicationId",
+        "responseId",
+        "trancheId",
+        "trancheResponseId",
+        "action",
+        "arrangerAction",
+        "currency",
+        "amount",
+        "allocationAmount",
+        "dateTime",
+        "dateTimeVal"
+      ]
+    }
+  ]
+}

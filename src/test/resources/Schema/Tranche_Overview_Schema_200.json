@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "investorId": {
+      "type": "string"
+    },
+    "investorLogoUrl": {
+      "type": "string"
+    },
+    "mpId": {
+      "type": "string"
+    },
+    "mpName": {
+      "type": "string"
+    },
+    "mpCountry": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "userEmail": {
+      "type": "string"
+    },
+    "userContact": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "rejectionReason": {
+      "type": "string"
+    },
+    "invitationGroupId": {
+      "type": "null"
+    },
+    "commitmentLetterId": {
+      "type": "null"
+    },
+    "invitedByArranger": {
+      "type": "object",
+      "properties": {
+        "arrangerId": {
+          "type": "string"
+        },
+        "arrangerLogoUrl": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "mpCountry": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userContact": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "arrangerId",
+        "arrangerLogoUrl",
+        "mpId",
+        "mpName",
+        "mpCountry",
+        "userId",
+        "userName",
+        "userEmail",
+        "userContact",
+        "role"
+      ]
+    },
+    "invitedAt": {
+      "type": "integer"
+    },
+    "investorProbability": {
+      "type": "string"
+    },
+    "investorTrancheInterests": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "trancheId": {
+              "type": "string"
+            },
+            "trancheName": {
+              "type": "string"
+            },
+            "dealCurrency": {
+              "type": "string"
+            },
+            "dealSize": {
+              "type": "integer"
+            },
+            "expressionInterestAmount": {
+              "type": "null"
+            },
+            "estimatedCommitmentAmount": {
+              "type": "integer"
+            },
+            "estimatedCommitmentPercentage": {
+              "type": "integer"
+            },
+            "finalCommitmentAmount": {
+              "type": "null"
+            },
+            "allocationAmount": {
+              "type": "null"
+            },
+            "allocated": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "trancheId",
+            "trancheName",
+            "dealCurrency",
+            "dealSize",
+            "expressionInterestAmount",
+            "estimatedCommitmentAmount",
+            "estimatedCommitmentPercentage",
+            "finalCommitmentAmount",
+            "allocationAmount",
+            "allocated",
+            "state",
+            "createdAt"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "investorId",
+    "investorLogoUrl",
+    "mpId",
+    "mpName",
+    "mpCountry",
+    "userId",
+    "userName",
+    "userEmail",
+    "userContact",
+    "role",
+    "state",
+    "rejectionReason",
+    "invitationGroupId",
+    "commitmentLetterId",
+    "invitedByArranger",
+    "invitedAt",
+    "investorProbability",
+    "investorTrancheInterests"
+  ]
+}

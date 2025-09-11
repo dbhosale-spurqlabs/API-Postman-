@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "data_room": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "activity_name": {
+          "type": "string"
+        },
+        "activity_description": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "org_name": {
+          "type": "string"
+        },
+        "activity_display_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "data_room",
+        "user",
+        "activity_name",
+        "activity_description",
+        "created_at",
+        "user_name",
+        "org_name",
+        "activity_display_name"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

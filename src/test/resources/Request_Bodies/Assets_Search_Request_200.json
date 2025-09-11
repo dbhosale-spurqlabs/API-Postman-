@@ -1,0 +1,16 @@
+{
+  "envelop": {
+    "identifier": "603215e9-7672-4c55-8ec1-1dc62d39a7df",
+    "timestamp": 1752232653,
+    "actionType": "AssetsSearch",
+    "parentAction": ""
+  },
+  "payload": {
+    "searchCriteria": [
+      {
+        "attributeName": "borrowerName",
+        "attributeValue": "Tata Capital Ltd"
+      }
+    ]
+  }
+}

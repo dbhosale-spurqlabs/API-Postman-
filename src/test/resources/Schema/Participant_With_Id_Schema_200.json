@@ -1,0 +1,251 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "page": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "marketParticipantId": {
+              "type": "string"
+            },
+            "nameOfOrganization": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "countryOfDomicile": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "regulator": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "logoUrl": {
+              "type": "null"
+            },
+            "creditRatings": {
+              "type": "object",
+              "properties": {
+                "moodyRating": {
+                  "type": "string"
+                },
+                "fitchRating": {
+                  "type": "string"
+                },
+                "sAndPRating": {
+                  "type": "string"
+                },
+                "equivalentRating": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "moodyRating",
+                "fitchRating",
+                "sAndPRating",
+                "equivalentRating"
+              ]
+            },
+            "users": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "extUserId": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "userName": {
+                      "type": "string"
+                    },
+                    "designation": {
+                      "type": "string"
+                    },
+                    "contactNumber": {
+                      "type": "string"
+                    },
+                    "department": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "last_login": {
+                      "type": "string"
+                    },
+                    "lastLoginDatetime": {
+                      "type": "string"
+                    },
+                    "isEmailVerified": {
+                      "type": "boolean"
+                    },
+                    "isPasswordUpdated": {
+                      "type": "boolean"
+                    },
+                    "market_participant_id": {
+                      "type": "string"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "mp_is_automatic_live": {
+                      "type": "boolean"
+                    },
+                    "org_name": {
+                      "type": "string"
+                    },
+                    "mp_live_from": {
+                      "type": "string"
+                    },
+                    "registration_date": {
+                      "type": "string"
+                    },
+                    "mp_status": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "is_registered": {
+                      "type": "boolean"
+                    },
+                    "is_trained": {
+                      "type": "boolean"
+                    },
+                    "include_to_lb_directory": {
+                      "type": "boolean"
+                    },
+                    "isRequestInitiator": {
+                      "type": "boolean"
+                    },
+                    "isRequestAcceptor": {
+                      "type": "boolean"
+                    },
+                    "isCurrentUser": {
+                      "type": "boolean"
+                    },
+                    "isActive": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "extUserId",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "userName",
+                    "designation",
+                    "contactNumber",
+                    "department",
+                    "phone",
+                    "roles",
+                    "last_login",
+                    "lastLoginDatetime",
+                    "isEmailVerified",
+                    "isPasswordUpdated",
+                    "market_participant_id",
+                    "user_id",
+                    "mp_is_automatic_live",
+                    "org_name",
+                    "mp_live_from",
+                    "registration_date",
+                    "mp_status",
+                    "created_at",
+                    "country",
+                    "is_registered",
+                    "is_trained",
+                    "include_to_lb_directory",
+                    "isRequestInitiator",
+                    "isRequestAcceptor",
+                    "isCurrentUser",
+                    "isActive"
+                  ]
+                }
+              ]
+            },
+            "partnershipStatus": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "marketParticipantId",
+            "nameOfOrganization",
+            "category",
+            "city",
+            "countryOfDomicile",
+            "address",
+            "regulator",
+            "status",
+            "logoUrl",
+            "creditRatings",
+            "users",
+            "partnershipStatus"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "page",
+    "data"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": [
+    {
+      "permission_id": "{dataRoomAdminId}",
+      "user_role": "ADMIN",
+      "organisations": [
+        "ALL"
+      ],
+      "reports": true,
+      "permissions": "MANAGE",
+      "can_upload": true
+    }
+  ]
+}

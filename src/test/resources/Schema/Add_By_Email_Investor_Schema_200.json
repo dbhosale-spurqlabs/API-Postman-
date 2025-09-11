@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "abs@abs.com": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "abs@abs.com"
+  ]
+}

@@ -1,0 +1,1429 @@
+{
+	"info": {
+		"_postman_id": "5c54a97b-dec5-441c-af59-7e23ab8bed2b",
+		"name": "Secondary API - Seller Side",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48259869",
+		"_collection_link": "https://discoverdollarqa.postman.co/workspace/LoanBook~8ae35bfc-d782-4386-8c30-feebed5730b2/collection/44681169-5c54a97b-dec5-441c-af59-7e23ab8bed2b?action=share&source=collection_link&creator=48259869"
+	},
+	"item": [
+		{
+			"name": "Active Sell Offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=MY",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active Sell Offer - Country",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=MY&borrowerCountry=India",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						},
+						{
+							"key": "borrowerCountry",
+							"value": "India"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active sell offer - Currency",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=MY&currency=INR",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						},
+						{
+							"key": "currency",
+							"value": "INR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active Sell Offer - Market Segment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=MY&marketSegment=Asset%20Based",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						},
+						{
+							"key": "marketSegment",
+							"value": "Asset%20Based"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active Sell Offer - Offer Size",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=MY&minSellOfferSize=1000000&maxSellOfferSize=2000000",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						},
+						{
+							"key": "minSellOfferSize",
+							"value": "1000000"
+						},
+						{
+							"key": "maxSellOfferSize",
+							"value": "2000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Draft Sell Offer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"approveType\": \"NO_APPROVERS\",\r\n    \"invitees\": [],\r\n    \"inviteeDistributionLists\": [],\r\n    \"inviteeEmails\": [],\r\n    \"benchmark\": \"\",\r\n    \"borrowerCountry\": \"Åland Islands\",\r\n    \"borrowerName\": \"NewABC\",\r\n    \"borrowerType\": \"Corporate\",\r\n    \"deal\": \"\",\r\n    \"guarantor\": \"\",\r\n    \"industry\": \"Automotive\",\r\n    \"interestRate\": 0,\r\n    \"interestRateType\": \"Fixed\",\r\n    \"lenderName\": \"\",\r\n    \"loanActiveDate\": 0,\r\n    \"lenderAgentName\": \"\",\r\n    \"loanAmount\": 0,\r\n    \"loanCurrency\": \"\",\r\n    \"loanPurpose\": \"\",\r\n    \"security\": \"\",\r\n    \"loanType\": \"\",\r\n    \"margin\": 0,\r\n    \"loanMarketSegment\": \"\",\r\n    \"parent\": \"\",\r\n    \"purpose\": \"\",\r\n    \"ranking\": \"\",\r\n    \"rating\": \"\",\r\n    \"region\": \"\",\r\n    \"sic\": \"\",\r\n    \"tenor\": 0,\r\n    \"tranche\": \"\",\r\n    \"trancheActiveDate\": 0,\r\n    \"trancheAmount\": 0,\r\n    \"trancheCurrency\": \"\",\r\n    \"trancheMaturityDate\": 0,\r\n    \"trancheType\": \"Acquisition Facility\",\r\n    \"loanMaturityDate\": 1754505000000,\r\n    \"dealSigningDate\": 0,\r\n    \"observers\": [],\r\n    \"documentationType\": null,\r\n    \"expiryDate\": 0,\r\n    \"maximumTicketSize\": 0,\r\n    \"minimumTicketSize\": 0,\r\n    \"otherNotes\": \"\",\r\n    \"riskParticipationFees\": 0,\r\n    \"sellOfferPrice\": 0,\r\n    \"sellOfferSize\": 0,\r\n    \"sellOfferType\": \"\",\r\n    \"ndaDocId\": \"a622c297-50c9-468a-af9e-11862169a0bb\",\r\n    \"inviteOnly\": true,\r\n    \"currency\": \"AFN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/draft",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"draft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Sell Offer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"approveType\": \"NO_APPROVERS\",\r\n    \"invitees\": [],\r\n    \"inviteeDistributionLists\": [],\r\n    \"inviteeEmails\": [],\r\n    \"benchmark\": \"\",\r\n    \"borrowerCountry\": \"Åland Islands\",\r\n    \"borrowerName\": \"NewABC\",\r\n    \"borrowerType\": \"Corporate\",\r\n    \"deal\": \"\",\r\n    \"guarantor\": \"\",\r\n    \"industry\": \"Automotive\",\r\n    \"interestRate\": 0,\r\n    \"interestRateType\": \"Fixed\",\r\n    \"lenderName\": \"\",\r\n    \"loanActiveDate\": 0,\r\n    \"lenderAgentName\": \"\",\r\n    \"loanAmount\": \"1000000\",\r\n    \"loanCurrency\": \"\",\r\n    \"loanPurpose\": \"\",\r\n    \"security\": \"\",\r\n    \"loanType\": \"\",\r\n    \"margin\": 0,\r\n    \"loanMarketSegment\": \"\",\r\n    \"parent\": \"\",\r\n    \"purpose\": \"\",\r\n    \"ranking\": \"\",\r\n    \"rating\": \"\",\r\n    \"region\": \"\",\r\n    \"sic\": \"\",\r\n    \"tenor\": 0,\r\n    \"tranche\": \"\",\r\n    \"trancheActiveDate\": 0,\r\n    \"trancheAmount\": 0,\r\n    \"trancheCurrency\": \"\",\r\n    \"trancheMaturityDate\": 0,\r\n    \"trancheType\": \"Acquisition Facility\",\r\n    \"loanMaturityDate\": 1754505000000,\r\n    \"dealSigningDate\": 0,\r\n    \"observers\": [],\r\n    \"documentationType\": \"LSTA\",\r\n    \"expiryDate\": 0,\r\n    \"maximumTicketSize\": 1000000,\r\n    \"minimumTicketSize\": 1000000,\r\n    \"otherNotes\": \"\",\r\n    \"riskParticipationFees\": 0,\r\n    \"sellOfferPrice\": \"10\",\r\n    \"sellOfferSize\": \"1000000\",\r\n    \"sellOfferType\": \"OUTRIGHT_SALE\",\r\n    \"ndaDocId\": \"a622c297-50c9-468a-af9e-11862169a0bb\",\r\n    \"inviteOnly\": true,\r\n    \"currency\": \"AFN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/draft/cacc8b95-0726-443e-b2c1-c7cf57637633",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"draft",
+						"cacc8b95-0726-443e-b2c1-c7cf57637633"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participants List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/participants?status=LIVE&page=1&size=1&sort_by=participantName&partnerStatus=-DECLINED",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"participants"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "LIVE"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						},
+						{
+							"key": "sort_by",
+							"value": "participantName"
+						},
+						{
+							"key": "partnerStatus",
+							"value": "-DECLINED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top Participants List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/credit-preferences/top-participants-match",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"credit-preferences",
+						"top-participants-match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Latest Version",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/documents/a622c297-50c9-468a-af9e-11862169a0bb/versions/latest",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"documents",
+						"a622c297-50c9-468a-af9e-11862169a0bb",
+						"versions",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publish Sell Offer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"approveType\": \"NO_APPROVERS\",\r\n    \"invitees\": [],\r\n    \"inviteeDistributionLists\": [],\r\n    \"inviteeEmails\": [],\r\n    \"benchmark\": \"\",\r\n    \"borrowerCountry\": \"Åland Islands\",\r\n    \"borrowerName\": \"NewABC\",\r\n    \"borrowerType\": \"Corporate\",\r\n    \"deal\": \"\",\r\n    \"guarantor\": \"\",\r\n    \"industry\": \"Automotive\",\r\n    \"interestRate\": 0,\r\n    \"interestRateType\": \"Fixed\",\r\n    \"lenderName\": \"\",\r\n    \"loanActiveDate\": 0,\r\n    \"lenderAgentName\": \"\",\r\n    \"loanAmount\": \"1000000\",\r\n    \"loanCurrency\": \"\",\r\n    \"loanPurpose\": \"\",\r\n    \"security\": \"\",\r\n    \"loanType\": \"\",\r\n    \"margin\": 0,\r\n    \"loanMarketSegment\": \"\",\r\n    \"parent\": \"\",\r\n    \"purpose\": \"\",\r\n    \"ranking\": \"\",\r\n    \"rating\": \"\",\r\n    \"region\": \"\",\r\n    \"sic\": \"\",\r\n    \"tenor\": 0,\r\n    \"tranche\": \"\",\r\n    \"trancheActiveDate\": 0,\r\n    \"trancheAmount\": 0,\r\n    \"trancheCurrency\": \"\",\r\n    \"trancheMaturityDate\": 0,\r\n    \"trancheType\": \"Acquisition Facility\",\r\n    \"loanMaturityDate\": 1754505000000,\r\n    \"dealSigningDate\": 0,\r\n    \"observers\": [],\r\n    \"documentationType\": \"LSTA\",\r\n    \"expiryDate\": 0,\r\n    \"maximumTicketSize\": 1000000,\r\n    \"minimumTicketSize\": 1000000,\r\n    \"otherNotes\": \"\",\r\n    \"riskParticipationFees\": 0,\r\n    \"sellOfferPrice\": \"10\",\r\n    \"sellOfferSize\": \"1000000\",\r\n    \"sellOfferType\": \"OUTRIGHT_SALE\",\r\n    \"ndaDocId\": \"a622c297-50c9-468a-af9e-11862169a0bb\",\r\n    \"inviteOnly\": true,\r\n    \"currency\": \"AFN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/draft/cacc8b95-0726-443e-b2c1-c7cf57637633/publish",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"draft",
+						"cacc8b95-0726-443e-b2c1-c7cf57637633",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Sell Offer- Enter Deal Room",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"cacc8b95-0726-443e-b2c1-c7cf57637633"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Distribution List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/participants/my/dl",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"participants",
+						"my",
+						"dl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Buyers",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"userId\":\"62d68d6c-c7ca-4f80-908b-7deaf712e7cc\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I2\",\"userDesignation\":\"VP syndications\",\"userName\":\"Investor2 I2DemoSpurqlabs_I2\",\"userContactNumber\":null,\"userEmail\":\"investor2.spq@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"b6c3ff96-3655-4bc9-aade-fc4f9dead8d8\",\"userMpId\":null,\"userMpName\":\"Spurqlabs\",\"userDesignation\":\"Head Loan Syndications\",\"userName\":\"Arranger1 DemoSpurqlabs\",\"userContactNumber\":null,\"userEmail\":\"arranger1.spq@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"5b2b2153-fbb7-4d90-9859-0fe141fb5f91\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I1\",\"userDesignation\":\"VP syndications\",\"userName\":\"Investor1 I1DemoSpurqlabs_I1\",\"userContactNumber\":null,\"userEmail\":\"investor1.spq@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"f7462b51-d609-46cb-91b0-840b68b7d003\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I1\",\"userDesignation\":\"aaaa\",\"userName\":\"tcp spl\",\"userContactNumber\":null,\"userEmail\":\"tcp@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"a825f06b-1f88-44b5-8074-a7b3a52f8060\",\"userMpId\":null,\"userMpName\":\"Spurqlabs\",\"userDesignation\":\"Manager\",\"userName\":\"check delete\",\"userContactNumber\":null,\"userEmail\":\"checkdelete@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"c4e6ace1-32c1-4460-aa39-a002e343c305\",\"userMpId\":null,\"userMpName\":\"Spurqlabs\",\"userDesignation\":\"test\",\"userName\":\"test test\",\"userContactNumber\":null,\"userEmail\":\"test@test.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"8ae2c875-0079-480f-885d-5c79adcec1ab\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I1\",\"userDesignation\":\"Admin\",\"userName\":\"Investor15 Spurqlabs\",\"userContactNumber\":null,\"userEmail\":\"investor15@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"c3679cb6-f77c-4a08-a9d5-d8ba03e33291\",\"userMpId\":null,\"userMpName\":\"Spurqlabs\",\"userDesignation\":\"Test\",\"userName\":\"Vaibhav XYZ\",\"userContactNumber\":null,\"userEmail\":\"vaibhav3.spq@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"a2bc6f14-3436-40f9-96e1-8364213e04c8\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I1\",\"userDesignation\":\"Tester\",\"userName\":\"Vaibhav ABC\",\"userContactNumber\":null,\"userEmail\":\"vaibhav2.spq@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"a94bfa8c-1110-4081-9a69-10507827cf75\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_I1\",\"userDesignation\":\"User\",\"userName\":\"Test ` SIT\",\"userContactNumber\":null,\"userEmail\":\"testSit@getnada.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"4cf69593-3afc-453e-b1c3-451470213b68\",\"userMpId\":null,\"userMpName\":\"AAIB\",\"userDesignation\":\"CEO\",\"userName\":\"AAIB First\",\"userContactNumber\":null,\"userEmail\":\"aaib1@tafmail.com\",\"userDlId\":\"49d82f0c-39b2-4dc2-abce-4e1e20b2efdf\"},{\"userId\":\"e3655b63-f100-4683-8308-a2b2cafa6eb8\",\"userMpId\":null,\"userMpName\":\"Spurqlabs_AddColleague\",\"userDesignation\"Show more",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633/update-buyers",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"cacc8b95-0726-443e-b2c1-c7cf57637633",
+						"update-buyers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder Structure - Data Room",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/dataroom/8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de/folders",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"dataroom",
+						"8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de",
+						"folders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Permission of Folder",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/dataroom/8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de/permissions",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"dataroom",
+						"8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Root Folder",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/dataroom/8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de/folders/aee739dc-7f27-4cd2-8775-3abe1196d969",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"dataroom",
+						"8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de",
+						"folders",
+						"aee739dc-7f27-4cd2-8775-3abe1196d969"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload NDA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "{{Accept}}"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9,hi;q=0.8"
+					},
+					{
+						"key": "origin",
+						"value": "https://sit.loan-book.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://sit.loan-book.com/deal-room/cacc8b95-0726-443e-b2c1-c7cf57637633"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileBody",
+							"type": "file",
+							"src": [
+								"NDA.pdf",
+								"/C:/Users/Public/One Drive/OneDrive - SpurQLabs/Desktop/NDA Folder/NDA.pdf"
+							]
+						},
+						{
+							"key": "fileName",
+							"value": "NDA.pdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/documents",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"documents"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://sit.loan-book.com/api/v1/documents' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9,hi;q=0.8' \\\r\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundaryc4ndVoV6jqAdKKz9' \\\r\n  -b 'ajs_anonymous_id=%22bce1fd4b-af13-467a-998c-8455342e1183%22; OauthHMAC=NzI4NTMyZjgyYWI4MDFkOWQ0NzZiYWY1ODdlNDJiYzE5N2FmYmM2YTc0ODkyZTk3NDVjYTE4ZGY5YzEyYzhmMA==; OauthExpires=1754979429; BearerToken=eyJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJlNmMwOWRlZC00NmY0LTQzZWItYmVmZC1mZTcyMDQ1ZDk1MDYiLCJpc3MiOiJodHRwczovL2Rldm5ld2JyaWRnZWZpbnRlY2guYjJjbG9naW4uY29tL2M1YzAzYTM4LTlkZDItNDdkYS04YzA4LTY2ZGQ0ZTk4OWExMy92Mi4wLyIsImV4cCI6MTc1NDk3OTQyOSwibmJmIjoxNzU0ODkzMDI5LCJvaWQiOiI4NjgwNGViOC0xMjU4LTQ4ZWUtOTA1OC01MGRmZWNhNDkzMmMiLCJzdWIiOiI4NjgwNGViOC0xMjU4LTQ4ZWUtOTA1OC01MGRmZWNhNDkzMmMiLCJuYW1lIjoiQXJyYW5nZXIxRGVtb1NwdXJxbGFic3daSWVXN3pKIiwiZ2l2ZW5fbmFtZSI6IkFycmFuZ2VyMSIsImpvYlRpdGxlIjoiSGVhZCBMb2FuIFN5bmRpY2F0aW9ucyIsImZhbWlseV9uYW1lIjoiRGVtb1NwdXJxbGFicyIsImV4dGVuc2lvbl9waG9uZSI6Iis0NDc4Mzk4MzI5ODIiLCJleHRlbnNpb25fbWFya2V0UGFydGljaXBhbnRJZCI6ImE5NGEzYTA4LWJhOWEtNGYwYS04ODYwLWU1ZWU0NDk2YzVlMSIsImV4dGVuc2lvbl9pc19yZWdpc3RlcmVkIjp0cnVlLCJleHRlbnNpb25faXNNUExpdmUiOnRydWUsImV4dGVuc2lvbl9yZWFsbVJvbGVzIjoiQURNSU5JU1RSQVRPUiIsImVtYWlscyI6WyJhcnJhbmdlcjEuc3BxQGdldG5hZGEuY29tIl0sInRmcCI6IkIyQ18xX1NpZ25JbiIsImF6cCI6ImU2YzA5ZGVkLTQ2ZjQtNDNlYi1iZWZkLWZlNzIwNDVkOTUwNiIsInZlciI6IjEuMCIsImlhdCI6MTc1NDg5MzAyOX0.XfHkpQZbEmwsT4tvH1ORlA_7-NF4OFzDruP5V3z8ENC6sqmmxArC9W429UUXJhMf5eyMOijalCoeOMqK2hVKWifJY2v5pWfshPSigntSAulVVg7Y87fhBmius2EhmhbZgjj-jytZ54sx6Ch8nupBfo5k1O4P_p81ioVDwDOaC1ttZzkWsBYcGXmlYA1dLEdP4L8GN1SrPp5E5XxO-IWFjwPRF2e0RDsEn8a7Z-CCwXfjyoo8GCa3E-IyBWjLyFFGwCy-tluZhd70yEVqeWEJwU_RhEB1ZTQmroBUIqrmoolJZbv7HWFppC886mz-DGqcFG6_QhDb5yNSK9VzxAedqA' \\\r\n  -H 'origin: https://sit.loan-book.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://sit.loan-book.com/deal-room/cacc8b95-0726-443e-b2c1-c7cf57637633' \\\r\n  -H 'sec-ch-ua: \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"' \\\r\n  -H 'sec-ch-ua-mobile: ?1' \\\r\n  -H 'sec-ch-ua-platform: \"Android\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36' \\\r\n  --data-raw $'------WebKitFormBoundaryc4ndVoV6jqAdKKz9\\r\\nContent-Disposition: form-data; name=\"fileBody\"; filename=\"NDA.pdf\"\\r\\nContent-Type: application/pdf\\r\\n\\r\\n\\r\\n------WebKitFormBoundaryc4ndVoV6jqAdKKz9\\r\\nContent-Disposition: form-data; name=\"fileName\"\\r\\n\\r\\nNDA.pdf\\r\\n------WebKitFormBoundaryc4ndVoV6jqAdKKz9--\\r\\n'"
+			},
+			"response": []
+		},
+		{
+			"name": "Submit NDA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633/nda-doc?ndaDocId=13382a93-8143-44f5-aee9-91c38b9fb567",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"cacc8b95-0726-443e-b2c1-c7cf57637633",
+						"nda-doc"
+					],
+					"query": [
+						{
+							"key": "ndaDocId",
+							"value": "13382a93-8143-44f5-aee9-91c38b9fb567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DataRoom Activity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"0bf311d9-a4f9-4dc3-a6f3-c1f337f0a76c\",\r\n    \"user_name\": \"Arranger1 DemoSpurqlabs\",\r\n    \"organisation_name\": \"Spurqlabs\",\r\n    \"activity_name\": \"file_uploading\",\r\n    \"activity_display_name\": \"File Upload\",\r\n    \"activity_description\": \"NDA_1754906459.pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/dataroom/8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de/activity?type=primary",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"dataroom",
+						"8b7ce343-5a0a-48c3-ab0b-ce6a0ec138de",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "primary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/profiles/my",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profiles",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Sell Offer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"cacc8b95-0726-443e-b2c1-c7cf57637633\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/delete",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Offer Partnership Status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/8b690a17-7157-461a-b7c7-554edcf05675/seller-partnership?sellerPartnership=false",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"8b690a17-7157-461a-b7c7-554edcf05675",
+						"seller-partnership"
+					],
+					"query": [
+						{
+							"key": "sellerPartnership",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Circling Date",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/8b690a17-7157-461a-b7c7-554edcf05675/circling-date?circlingDate=1755023400000",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"8b690a17-7157-461a-b7c7-554edcf05675",
+						"circling-date"
+					],
+					"query": [
+						{
+							"key": "circlingDate",
+							"value": "1755023400000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Offer Recap",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/8b690a17-7157-461a-b7c7-554edcf05675/recap",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"8b690a17-7157-461a-b7c7-554edcf05675",
+						"recap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download Sell offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/fc797fcb-c152-4eda-8ae3-48fa054e50f4/download",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"fc797fcb-c152-4eda-8ae3-48fa054e50f4",
+						"download"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Draft Sell Offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=DRAFT&type=MY",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "DRAFT"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Draft Bulk Sell Offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/draft/bulk-files?page=0&size=10",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"draft",
+						"bulk-files"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Details Bulk Sell offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=DRAFT&type=MY&bulkFileId=617c7f6d-b703-4006-b08f-959ade425e5c",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "DRAFT"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						},
+						{
+							"key": "bulkFileId",
+							"value": "617c7f6d-b703-4006-b08f-959ade425e5c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publish Bulk Files",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sellOfferIds\":[\"15d11fb5-5bee-4423-80e8-74ba9dcd7804\"],\"inviteOnly\":false,\"invitees\":[]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/draft/bulk-files/617c7f6d-b703-4006-b08f-959ade425e5c/publish",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"draft",
+						"bulk-files",
+						"617c7f6d-b703-4006-b08f-959ade425e5c",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Approval Sell Offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=SUBMITTED&type=MY",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "SUBMITTED"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Sell offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=CLOSED&type=MY",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "CLOSED"
+						},
+						{
+							"key": "type",
+							"value": "MY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Closing Instruction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"isManualDocUpload\":false,\"accrualTreatment\":\"NO_ACCRUED_INTERESTS\",\"docType\":\"LMA_PAR\",\"settlementType\":\"OUTRIGHT_SALE\",\"transferFee\":\"PAID_BY_SELLER\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/dc8f3e99-8395-48ff-83e7-9dbff595bf49/closing-instructions",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"dc8f3e99-8395-48ff-83e7-9dbff595bf49",
+						"closing-instructions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,270 @@
+{
+  "originLoanId": null,
+  "borrowerName": "{borrowerName}",
+  "borrowerCountry": "",
+  "borrowerType": "",
+  "region": "",
+  "industry": "",
+  "sic": "",
+  "parent": "",
+  "guarantor": "",
+  "launchDate": 1749234600000,
+  "commitmentDate": 1750271400000,
+  "tranches": [
+    {
+      "dealCurrency": "INR",
+      "dealSize": "100000000000",
+      "dealSizeOption": "1000000",
+      "tenorMaturity": 24,
+      "loanPurpose": "",
+      "trancheType": "",
+      "marketSegment": "",
+      "rating": "",
+      "ranking": "",
+      "securityValues": [],
+      "trancheName": "Tranche-1",
+      "interestRateType": "",
+      "interestRate": null,
+      "margin": null,
+      "benchmark": "",
+      "minTicketSize": null,
+      "maxTicketSize": null,
+      "actualDealSizeUnit": ""
+    }
+  ],
+  "documentationType": "LMA",
+  "notes": "",
+  "ndaDocId": null,
+  "invitationLetterId": null,
+  "docs": [],
+  "ndaType": "NONE",
+  "ndaResponseType": null,
+  "ndaResponseMethod": null,
+  "arrangers": [
+    {
+      "arrangerMpId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "arrangerOrganization": "Spurqlabs",
+      "arrangerDesignation": "Head Loan Syndications",
+      "arrangerFullName": "Arranger1 DemoSpurqlabs",
+      "arrangerContactNumber": "",
+      "arrangerEmailId": "arranger1.spq@getnada.com",
+      "arrangerSelectedFromDl": null,
+      "arrangerRoles": [
+        "ARRANGER"
+      ],
+      "userRoles": [
+        "DEAL_CREATOR"
+      ]
+    },
+    {
+      "arrangerOrganization": "abs",
+      "arrangerDesignation": "",
+      "arrangerFullName": null,
+      "arrangerContactNumber": "",
+      "arrangerEmailId": "abs@abs.com",
+      "arrangerSelectedFromDl": null,
+      "arrangerRoles": [
+        "ARRANGER"
+      ],
+      "userRoles": [
+        "DEAL_ADMIN"
+      ]
+    },
+    {
+      "arrangerUserId": "ec9e9d9d-f717-4fb9-91b2-5ac7f56333a6",
+      "arrangerMpId": "f15c5915-b7bc-4d6e-960d-8f2373cc51b8",
+      "arrangerOrganization": "Ab_de_villiers",
+      "arrangerDesignation": "CEO",
+      "arrangerFullName": "Ab de villiers",
+      "arrangerContactNumber": "+919087678909",
+      "arrangerEmailId": "ab_de_villiers@tupmail.com",
+      "arrangerSelectedFromDl": null,
+      "arrangerRoles": [
+        "MANDATED_LEAD_ARRANGER"
+      ],
+      "userRoles": [
+        "DEAL_ADMIN"
+      ]
+    }
+  ],
+  "arrangerOrgs": [
+    {
+      "id": null,
+      "mpId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "mpName": "Spurqlabs",
+      "countryOfDomicile": "United Kingdom",
+      "titles": [
+        "ARRANGER"
+      ],
+      "users": [
+        {
+          "userEmail": "arranger1.spq@getnada.com",
+          "userFirstName": "Arranger1",
+          "userLastName": "DemoSpurqlabs",
+          "userDesignation": "Head Loan Syndications",
+          "roles": [
+            "DEAL_CREATOR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": null,
+      "mpId": null,
+      "mpName": "abs",
+      "titles": [
+        "ARRANGER"
+      ],
+      "users": [
+        {
+          "userEmail": "abs@abs.com",
+          "roles": [
+            "DEAL_ADMIN"
+          ]
+        }
+      ]
+    },
+    {
+      "id": null,
+      "mpId": "f15c5915-b7bc-4d6e-960d-8f2373cc51b8",
+      "mpName": "Ab_de_villiers",
+      "countryOfDomicile": "India",
+      "titles": [
+        "MANDATED_LEAD_ARRANGER"
+      ],
+      "users": [
+        {
+          "userEmail": "ab_de_villiers@tupmail.com",
+          "userName": "Ab de villiers",
+          "userFirstName": "Ab",
+          "userLastName": "de villiers",
+          "userDesignation": "CEO",
+          "roles": [
+            "DEAL_ADMIN"
+          ]
+        }
+      ]
+    }
+  ],
+  "lenders": [],
+  "investors": [],
+  "inviteOnly": true,
+  "invitees": [],
+  "inviteeDistributionLists": [],
+  "dealTeamDetails": [],
+  "topActiveLenders": [],
+  "marketSoundingData": [],
+  "inviteLenderPermission": "NOT_ALLOWED",
+  "arrangerInvitees": [
+    {
+      "nameOfOrganization": "Spurqlabs",
+      "countryOfDomicile": "United Kingdom",
+      "marketParticipantId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "logoUrl": null,
+      "users": [
+        {
+          "firstName": "Arranger1",
+          "lastName": "DemoSpurqlabs",
+          "email": "arranger1.spq@getnada.com",
+          "isMPLive": true,
+          "marketParticipantId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+          "user_id": "0bf311d9-a4f9-4dc3-a6f3-c1f337f0a76c",
+          "roles": [
+            "ADMINISTRATOR"
+          ],
+          "org_name": "Spurqlabs",
+          "org_country": "United Kingdom",
+          "designation": "Head Loan Syndications",
+          "phone_number": "+447839832982",
+          "userRoles": [
+            "DEAL_CREATOR"
+          ],
+          "arrangerRoles": [
+            "ARRANGER"
+          ]
+        }
+      ],
+      "isOpenAction": false
+    },
+    {
+      "nameOfOrganization": "abs",
+      "users": [
+        {
+          "lenderOrganization": "abs",
+          "lenderDesignation": "Undefined",
+          "lenderFullName": "Undefined",
+          "lenderEmailId": "abs@abs.com",
+          "email": "abs@abs.com",
+          "arrangerRoles": [
+            "ARRANGER"
+          ],
+          "userRoles": [
+            "DEAL_ADMIN"
+          ]
+        }
+      ]
+    },
+    {
+      "marketParticipantId": "f15c5915-b7bc-4d6e-960d-8f2373cc51b8",
+      "nameOfOrganization": "Ab_de_villiers",
+      "category": "Private Bank",
+      "city": null,
+      "countryOfDomicile": "India",
+      "address": null,
+      "regulator": null,
+      "status": "LIVE",
+      "logoUrl": null,
+      "creditRatings": {
+        "moodyRating": "Not Rated",
+        "fitchRating": "Not Rated",
+        "sAndPRating": "Not Rated",
+        "equivalentRating": "Not Rated"
+      },
+      "users": [
+        {
+          "extUserId": "ec9e9d9d-f717-4fb9-91b2-5ac7f56333a6",
+          "firstName": "Ab",
+          "lastName": "de villiers",
+          "email": "ab_de_villiers@tupmail.com",
+          "userName": "Ab de villiers",
+          "designation": "CEO",
+          "contactNumber": "+919087678909",
+          "department": "",
+          "phone": "+919087678909",
+          "roles": [
+            "ADMINISTRATOR"
+          ],
+          "last_login": "2025-05-27 13:39:22+00:00",
+          "lastLoginDatetime": "2025-05-27 13:39:22+00:00",
+          "isEmailVerified": true,
+          "isPasswordUpdated": true,
+          "market_participant_id": "f15c5915-b7bc-4d6e-960d-8f2373cc51b8",
+          "user_id": "f880c8b7-28c2-4d19-83d7-273573ae054f",
+          "mp_is_automatic_live": false,
+          "org_name": "Ab_de_villiers",
+          "mp_live_from": "2025-05-20 07:25:33.823576+00:00",
+          "registration_date": "2025-05-20 07:24:29.371297+00:00",
+          "mp_status": "LIVE",
+          "created_at": "2025-05-20 07:24:31.486490+00:00",
+          "country": "India",
+          "is_registered": true,
+          "is_trained": false,
+          "include_to_lb_directory": true,
+          "isRequestInitiator": false,
+          "isRequestAcceptor": false,
+          "isCurrentUser": false,
+          "isActive": true,
+          "selected": true,
+          "userRoles": [
+            "DEAL_ADMIN"
+          ],
+          "arrangerRoles": [
+            "MANDATED_LEAD_ARRANGER"
+          ]
+        }
+      ],
+      "partnershipStatus": null
+    }
+  ],
+  "arrangerInviteeDistributionLists": []
+}

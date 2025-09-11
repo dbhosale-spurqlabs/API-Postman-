@@ -1,0 +1,25 @@
+{
+  "permissions": [
+    {
+      "type": "MARKET_PARTICIPANT",
+      "id": "{dataRoomfolderMPID1}",
+      "is_active": true,
+      "view": false,
+      "download_original": false,
+      "download_pdf": false,
+      "upload": false,
+      "delete": false
+    },
+    {
+      "type": "MARKET_PARTICIPANT",
+      "id": "{dataRoomfolderMPID2}",
+      "is_active": true,
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": true,
+      "upload_nda": true,
+      "delete": true
+    }
+  ]
+}

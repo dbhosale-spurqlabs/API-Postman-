@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "user_name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "org_name": {
+              "type": "string"
+            },
+            "org_role": {
+              "type": "string"
+            },
+            "dataroom_user_mp_id": {
+              "type": "string"
+            },
+            "user_role": {
+              "type": "string"
+            },
+            "organisations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "permissions": {
+              "type": "string"
+            },
+            "reports": {
+              "type": "boolean"
+            },
+            "can_upload": {
+              "type": "boolean"
+            },
+            "dataroom_id": {
+              "type": "string"
+            },
+            "dataroom_user_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "user_name",
+            "email",
+            "org_name",
+            "org_role",
+            "dataroom_user_mp_id",
+            "user_role",
+            "organisations",
+            "permissions",
+            "reports",
+            "can_upload",
+            "dataroom_id",
+            "dataroom_user_id"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

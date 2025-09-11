@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "priorityOrder": {
+          "type": "integer"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
+        "arrangerInvestorId": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "allocationApproved": {
+          "type": "boolean"
+        },
+        "allocationApprovedDate": {
+          "type": "null"
+        },
+        "allocationApprovedByUserId": {
+          "type": "null"
+        },
+        "titles": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "users": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "userEmail": {
+                  "type": "string"
+                },
+                "userDesignation": {
+                  "type": "string"
+                },
+                "userContact": {
+                  "type": "string"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "invitedInvestorsCount": {
+                  "type": "integer"
+                },
+                "bookRunningGroupBy": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "userId",
+                "userName",
+                "userEmail",
+                "userDesignation",
+                "userContact",
+                "roles",
+                "invitedInvestorsCount",
+                "bookRunningGroupBy"
+              ]
+            }
+          ]
+        },
+        "invitedInvestorsCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "mpId",
+        "mpName",
+        "priorityOrder",
+        "logoUrl",
+        "arrangerInvestorId",
+        "country",
+        "allocationApproved",
+        "allocationApprovedDate",
+        "allocationApprovedByUserId",
+        "titles",
+        "users",
+        "invitedInvestorsCount"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "mpId": {
+          "type": "string"
+        },
+        "mpName": {
+          "type": "string"
+        },
+        "priorityOrder": {
+          "type": "integer"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
+        "arrangerInvestorId": {
+          "type": "null"
+        },
+        "country": {
+          "type": "string"
+        },
+        "allocationApproved": {
+          "type": "boolean"
+        },
+        "allocationApprovedDate": {
+          "type": "null"
+        },
+        "allocationApprovedByUserId": {
+          "type": "null"
+        },
+        "titles": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "users": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "userEmail": {
+                  "type": "string"
+                },
+                "userDesignation": {
+                  "type": "string"
+                },
+                "userContact": {
+                  "type": "string"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {}
+                },
+                "invitedInvestorsCount": {
+                  "type": "integer"
+                },
+                "bookRunningGroupBy": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "userId",
+                "userName",
+                "userEmail",
+                "userDesignation",
+                "userContact",
+                "roles",
+                "invitedInvestorsCount",
+                "bookRunningGroupBy"
+              ]
+            }
+          ]
+        },
+        "invitedInvestorsCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "mpId",
+        "mpName",
+        "priorityOrder",
+        "logoUrl",
+        "arrangerInvestorId",
+        "country",
+        "allocationApproved",
+        "allocationApprovedDate",
+        "allocationApprovedByUserId",
+        "titles",
+        "users",
+        "invitedInvestorsCount"
+      ]
+    }
+  ]
+}

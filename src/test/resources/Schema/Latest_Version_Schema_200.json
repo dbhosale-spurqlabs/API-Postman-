@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "type": { "type": ["string", "null"] },
+    "shortDescription": { "type": ["string", "null"] },
+    "longDescription": { "type": ["string", "null"] },
+    "index": { "type": ["integer", "null"] },
+    "success": { "type": ["string", "null"] },
+    "success_message": { "type": ["string", "null"] },
+    "data": {
+      "type": "object",
+      "properties": {
+        "documentId": { "type": ["string", "null"] },
+        "versionNumber": { "type": ["integer", "null"] },
+        "createdDate": { "type": ["string", "null"] },
+        "extUserId": { "type": ["string", "null"] },
+        "fileName": { "type": ["string", "null"] },
+        "type": { "type": ["string", "null"] },
+        "s3_bucket": { "type": ["string", "null"] },
+        "fileUrl": { "type": ["string", "null"] },
+        "filePreviewUrl": { "type": ["string", "null"] }
+      },
+      "required": ["documentId", "versionNumber", "fileName"]
+    }
+  },
+  "required": ["data"]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "investors": {
+      "type": "integer"
+    },
+    "linked": {
+      "type": "integer"
+    },
+    "invited": {
+      "type": "integer"
+    },
+    "declined": {
+      "type": "integer"
+    },
+    "removed": {
+      "type": "integer"
+    },
+    "reviewing": {
+      "type": "integer"
+    },
+    "expressedInterest": {
+      "type": "integer"
+    },
+    "committed": {
+      "type": "integer"
+    },
+    "allocated": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "investors",
+    "linked",
+    "invited",
+    "declined",
+    "removed",
+    "reviewing",
+    "expressedInterest",
+    "committed",
+    "allocated"
+  ]
+}

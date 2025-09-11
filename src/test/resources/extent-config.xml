@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <!-- report theme -->
+        <theme>dark</theme>
+    
+        <!-- document encoding -->
+        <encoding>UTF-8</encoding>
+        
+        <!-- protocol for script and stylesheets -->
+        <protocol>https</protocol>
+        
+        <!-- title of the document -->
+        <documentTitle>LoanBook API Automation Report</documentTitle>
+        
+        <!-- report name - displayed at top-nav -->
+        <reportName>API Automation Test Report</reportName>
+        
+        <!-- location of charts in the test view -->
+        <testViewChartLocation>bottom</testViewChartLocation>
+        
+        <!-- custom javascript -->
+        <scripts>
+            <![CDATA[
+                $(document).ready(function() {
+                    
+                });
+            ]]>
+        </scripts>
+        
+        <!-- custom styles -->
+        <styles>
+            <![CDATA[
+                
+            ]]>
+        </styles>
+    </configuration>
+</extentreports>

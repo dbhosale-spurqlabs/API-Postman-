@@ -1,0 +1,418 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "trancheList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "trancheName": {
+              "type": "string"
+            },
+            "dealSize": {
+              "type": "integer"
+            },
+            "dealCurrency": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "integer"
+            },
+            "subscribedPercentage": {
+              "type": "integer"
+            },
+            "interestedInvestorsCount": {
+              "type": "integer"
+            },
+            "committedInvestorsCount": {
+              "type": "integer"
+            },
+            "totalCommitmentValue": {
+              "type": "integer"
+            },
+            "remainingTrancheValue": {
+              "type": "integer"
+            },
+            "totalCommitmentPercentage": {
+              "type": "integer"
+            },
+            "remainingTranchePercentage": {
+              "type": "integer"
+            },
+            "totalShortlistedValue": {
+              "type": "integer"
+            },
+            "usersInInterestedInvestorsCount": {
+              "type": "integer"
+            },
+            "probabilityAdjustedTotalCommitmentValue": {
+              "type": "number"
+            },
+            "investorsInterests": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "investorId": {
+                      "type": "string"
+                    },
+                    "investorLogoUrl": {
+                      "type": "string"
+                    },
+                    "mpId": {
+                      "type": "null"
+                    },
+                    "mpName": {
+                      "type": "string"
+                    },
+                    "mpCountry": {
+                      "type": "null"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "invitedByArranger": {
+                      "type": "object",
+                      "properties": {
+                        "arrangerId": {
+                          "type": "string"
+                        },
+                        "arrangerLogoUrl": {
+                          "type": "string"
+                        },
+                        "mpId": {
+                          "type": "string"
+                        },
+                        "mpName": {
+                          "type": "string"
+                        },
+                        "mpCountry": {
+                          "type": "string"
+                        },
+                        "userId": {
+                          "type": "string"
+                        },
+                        "userName": {
+                          "type": "string"
+                        },
+                        "userEmail": {
+                          "type": "string"
+                        },
+                        "userContact": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "arrangerId",
+                        "arrangerLogoUrl",
+                        "mpId",
+                        "mpName",
+                        "mpCountry",
+                        "userId",
+                        "userName",
+                        "userEmail",
+                        "userContact",
+                        "role"
+                      ]
+                    },
+                    "dealCurrency": {
+                      "type": "string"
+                    },
+                    "commitmentAmount": {
+                      "type": "null"
+                    },
+                    "commitmentPercentage": {
+                      "type": "integer"
+                    },
+                    "shortlistedAmount": {
+                      "type": "integer"
+                    },
+                    "shortlistedAPercentage": {
+                      "type": "integer"
+                    },
+                    "allocatedAmount": {
+                      "type": "null"
+                    },
+                    "expressionInterestAmount": {
+                      "type": "null"
+                    },
+                    "estimatedCommitmentAmount": {
+                      "type": "null"
+                    },
+                    "investorProbability": {
+                      "type": "null"
+                    },
+                    "finalCommitmentAmount": {
+                      "type": "integer"
+                    },
+                    "finalCommitmentPercentage": {
+                      "type": "integer"
+                    },
+                    "allocationAmount": {
+                      "type": "integer"
+                    },
+                    "allocationPercentage": {
+                      "type": "integer"
+                    },
+                    "shortlisted": {
+                      "type": "boolean"
+                    },
+                    "allocated": {
+                      "type": "boolean"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "pinnedNote": {
+                      "type": "null"
+                    },
+                    "createdAt": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "investorId",
+                    "investorLogoUrl",
+                    "mpId",
+                    "mpName",
+                    "mpCountry",
+                    "role",
+                    "invitedByArranger",
+                    "dealCurrency",
+                    "commitmentAmount",
+                    "commitmentPercentage",
+                    "shortlistedAmount",
+                    "shortlistedAPercentage",
+                    "allocatedAmount",
+                    "expressionInterestAmount",
+                    "estimatedCommitmentAmount",
+                    "investorProbability",
+                    "finalCommitmentAmount",
+                    "finalCommitmentPercentage",
+                    "allocationAmount",
+                    "allocationPercentage",
+                    "shortlisted",
+                    "allocated",
+                    "state",
+                    "pinnedNote",
+                    "createdAt"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "investorId": {
+                      "type": "string"
+                    },
+                    "investorLogoUrl": {
+                      "type": "string"
+                    },
+                    "mpId": {
+                      "type": "string"
+                    },
+                    "mpName": {
+                      "type": "string"
+                    },
+                    "mpCountry": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "invitedByArranger": {
+                      "type": "object",
+                      "properties": {
+                        "arrangerId": {
+                          "type": "string"
+                        },
+                        "arrangerLogoUrl": {
+                          "type": "string"
+                        },
+                        "mpId": {
+                          "type": "string"
+                        },
+                        "mpName": {
+                          "type": "string"
+                        },
+                        "mpCountry": {
+                          "type": "string"
+                        },
+                        "userId": {
+                          "type": "string"
+                        },
+                        "userName": {
+                          "type": "string"
+                        },
+                        "userEmail": {
+                          "type": "string"
+                        },
+                        "userContact": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "arrangerId",
+                        "arrangerLogoUrl",
+                        "mpId",
+                        "mpName",
+                        "mpCountry",
+                        "userId",
+                        "userName",
+                        "userEmail",
+                        "userContact",
+                        "role"
+                      ]
+                    },
+                    "dealCurrency": {
+                      "type": "string"
+                    },
+                    "commitmentAmount": {
+                      "type": "null"
+                    },
+                    "commitmentPercentage": {
+                      "type": "integer"
+                    },
+                    "shortlistedAmount": {
+                      "type": "null"
+                    },
+                    "shortlistedAPercentage": {
+                      "type": "integer"
+                    },
+                    "allocatedAmount": {
+                      "type": "null"
+                    },
+                    "expressionInterestAmount": {
+                      "type": "null"
+                    },
+                    "estimatedCommitmentAmount": {
+                      "type": "integer"
+                    },
+                    "investorProbability": {
+                      "type": "string"
+                    },
+                    "finalCommitmentAmount": {
+                      "type": "null"
+                    },
+                    "finalCommitmentPercentage": {
+                      "type": "integer"
+                    },
+                    "allocationAmount": {
+                      "type": "null"
+                    },
+                    "allocationPercentage": {
+                      "type": "integer"
+                    },
+                    "shortlisted": {
+                      "type": "boolean"
+                    },
+                    "allocated": {
+                      "type": "boolean"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "pinnedNote": {
+                      "type": "null"
+                    },
+                    "createdAt": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "investorId",
+                    "investorLogoUrl",
+                    "mpId",
+                    "mpName",
+                    "mpCountry",
+                    "role",
+                    "invitedByArranger",
+                    "dealCurrency",
+                    "commitmentAmount",
+                    "commitmentPercentage",
+                    "shortlistedAmount",
+                    "shortlistedAPercentage",
+                    "allocatedAmount",
+                    "expressionInterestAmount",
+                    "estimatedCommitmentAmount",
+                    "investorProbability",
+                    "finalCommitmentAmount",
+                    "finalCommitmentPercentage",
+                    "allocationAmount",
+                    "allocationPercentage",
+                    "shortlisted",
+                    "allocated",
+                    "state",
+                    "pinnedNote",
+                    "createdAt"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "trancheName",
+            "dealSize",
+            "dealCurrency",
+            "createdAt",
+            "subscribedPercentage",
+            "interestedInvestorsCount",
+            "committedInvestorsCount",
+            "totalCommitmentValue",
+            "remainingTrancheValue",
+            "totalCommitmentPercentage",
+            "remainingTranchePercentage",
+            "totalShortlistedValue",
+            "usersInInterestedInvestorsCount",
+            "probabilityAdjustedTotalCommitmentValue",
+            "investorsInterests"
+          ]
+        }
+      ]
+    },
+    "invitedByArrangers": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "arrangerId": {
+              "type": "string"
+            },
+            "mpName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "arrangerId",
+            "mpName"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "trancheList",
+    "invitedByArrangers"
+  ]
+}

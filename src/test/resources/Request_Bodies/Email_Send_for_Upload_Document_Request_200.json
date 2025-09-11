@@ -1,0 +1,9 @@
+{
+  "emailIds": [
+    "arranger1.spq@getnada.com",
+    "av@getnada.com"
+  ],
+  "emailSubject": "Action Required: Transaction documents",
+  "emailBody": "<p><strong>Transaction Document(s) have been uploaded.</strong></p><p>Hello,</p><p>Transaction document(s) for the loan syndication - {borrowerName} have been uploaded. </p><p>1. | Draft | Trans Doc</p><p>Please click below to review: </p><p><a href=\"lender-deal-closing\" rel=\"noopener noreferrer\" target=\"_blank\"><strong>Transaction Documents</strong></a><strong> </strong></p><p><strong>Sincerely, </strong></p><p><strong>Team LoanBook.</strong></p>",
+  "emailAttachments": []
+}

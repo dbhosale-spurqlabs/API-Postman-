@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "fileName": { "type": "string" },
+    "fileSize": { "type": "integer" },
+    "contentType": { "type": "string" },
+    "uploadedBy": { "type": "string" },
+    "uploadedAt": { "type": "integer" },
+    "versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "versionNumber": { "type": "integer" },
+          "uploadedAt": { "type": "integer" }
+        },
+        "required": ["id", "versionNumber", "uploadedAt"]
+      }
+    }
+  },
+  "required": ["id", "fileName", "fileSize", "contentType", "uploadedBy", "uploadedAt", "versions"]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "envelop": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "actionType": {
+          "type": "string"
+        },
+        "parentAction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier",
+        "timestamp",
+        "actionType",
+        "parentAction"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "assets"
+      ]
+    }
+  },
+  "required": [
+    "envelop",
+    "payload"
+  ]
+}

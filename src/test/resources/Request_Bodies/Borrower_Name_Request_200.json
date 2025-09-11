@@ -1,0 +1,16 @@
+{
+  "envelop": {
+    "identifier": "07a64e2a-0dc6-4272-a4cb-5b24872205c0",
+    "timestamp": 1751625165,
+    "actionType": "AssetsSearch",
+    "parentAction": ""
+  },
+  "payload": {
+    "searchCriteria": [
+      {
+        "attributeName": "borrowerName",
+        "attributeValue": "ABC"
+      }
+    ]
+  }
+}

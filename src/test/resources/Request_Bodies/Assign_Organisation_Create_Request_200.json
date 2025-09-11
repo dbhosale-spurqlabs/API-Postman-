@@ -1,0 +1,7 @@
+{
+  "group_id": "{dataRoomFileGroupID2}",
+  "organisations": [
+    "{dealCreatorMpId}"
+  ],
+  "action": "REMOVE"
+}

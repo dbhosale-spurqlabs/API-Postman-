@@ -1,0 +1,9 @@
+{
+  "trancheResponses": [
+    {
+      "id": "{trancheId}",
+      "amount": 33333333
+    }
+  ],
+  "investorProbability": "LOW"
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "symphony_user_id": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "symphony_user_id",
+        "email",
+        "firstName",
+        "lastName",
+        "displayName",
+        "title",
+        "companyName"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

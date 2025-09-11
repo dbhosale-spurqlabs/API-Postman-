@@ -1,0 +1,134 @@
+{
+  "id": "{dealID}",
+  "originLoanId": null,
+  "userId": "{dealCreatorUserId}",
+  "userName": "Arranger1 DemoSpurqlabs",
+  "userDesignation": "Head Loan Syndications",
+  "mpId": "{dealCreatorMpId}",
+  "mpName": "Spurqlabs",
+  "arrangerLegalName": null,
+  "borrowerName": "{borrowerName}",
+  "borrowerCountry": "",
+  "borrowerType": "",
+  "region": "",
+  "industry": "",
+  "sic": "",
+  "parent": "",
+  "guarantor": "",
+  "documentationType": "LMA",
+  "commitmentDate": 1750789800000,
+  "launchDate": 1749061800000,
+  "publishedDate": 0,
+  "notes": "",
+  "inviteOnly": true,
+  "state": "DRAFT",
+  "dataRoomId": null,
+  "ndaDocId": null,
+  "mine": true,
+  "creatorMp": true,
+  "arranger": true,
+  "invitationStatus": null,
+  "ndaType": "NONE",
+  "ndaResponseMethod": null,
+  "ndaResponseType": null,
+  "inviteLenderPermission": "NOT_ALLOWED",
+  "tranches": [
+    {
+      "id": "856ed79d-fee6-4bab-a651-66a9fd1d7bd9",
+      "trancheName": "Tranche-1",
+      "dealSize": "222222222222000000",
+      "dealSizeOption": "1000000",
+      "dealCurrency": "AED",
+      "tenorMaturity": 2,
+      "loanPurpose": "",
+      "trancheType": "",
+      "marketSegment": "",
+      "rating": "",
+      "ranking": "",
+      "securityValues": [],
+      "interestRateType": "",
+      "interestRate": null,
+      "benchmark": "",
+      "margin": null,
+      "minTicketSize": null,
+      "maxTicketSize": null,
+      "acceptedAmount": 0,
+      "createdAt": "2025-07-07T12:50:17.578",
+      "trancheResponses": [],
+      "actualDealSizeUnit": ""
+    }
+  ],
+  "docs": [],
+  "arrangers": [
+    {
+      "arrangerMpId": "{dealCreatorMpId}",
+      "arrangerOrganization": "Spurqlabs",
+      "arrangerDesignation": "Head Loan Syndications",
+      "arrangerFullName": "Arranger1 DemoSpurqlabs",
+      "arrangerContactNumber": "",
+      "arrangerEmailId": "arranger1.spq@getnada.com",
+      "arrangerSelectedFromDl": null,
+      "arrangerRoles": [
+        "ARRANGER"
+      ],
+      "userRoles": [
+        "DEAL_CREATOR"
+      ]
+    }
+  ],
+  "arrangerOrgs": [
+    {
+      "id": null,
+      "mpId": null,
+      "mpName": "Spurqlabs",
+      "countryOfDomicile": "United Kingdom",
+      "titles": [
+        "ARRANGER"
+      ],
+      "users": [
+        {
+          "userEmail": "arranger1.spq@getnada.com",
+          "userName": "Arranger1 DemoSpurqlabs",
+          "userFirstName": "Arranger1",
+          "userLastName": "DemoSpurqlabs",
+          "userDesignation": "Head Loan Syndications",
+          "roles": [
+            "DEAL_CREATOR"
+          ]
+        }
+      ]
+    }
+  ],
+  "lenders": [],
+  "responses": [],
+  "accessRequests": [],
+  "cps": [],
+  "allocationApprovers": [],
+  "arrangerInviteeEmails": [],
+  "arrangerInviteeDistributionLists": [],
+  "arrangerInvitees": [
+    {
+      "marketParticipantId": "{dealCreatorMpId}",
+      "countryOfDomicile": "United Kingdom",
+      "nameOfOrganization": "Spurqlabs",
+      "users": [
+        {
+          "arrangerRoles": [
+            "ARRANGER"
+          ],
+          "userName": "Arranger1 DemoSpurqlabs",
+          "firstName": "Arranger1",
+          "lastName": "DemoSpurqlabs",
+          "designation": "Head Loan Syndications",
+          "userRoles": [
+            "DEAL_CREATOR"
+          ],
+          "email": "arranger1.spq@getnada.com"
+        }
+      ]
+    }
+  ],
+  "investors": [],
+  "invitees": [],
+  "inviteeDistributionLists": []
+}

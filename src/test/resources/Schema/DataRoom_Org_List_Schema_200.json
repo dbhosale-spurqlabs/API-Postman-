@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "market_participant_name": {
+              "type": "string"
+            },
+            "orgRole": {
+              "type": "string"
+            },
+            "orgTitles": {
+              "type": "string"
+            },
+            "is_active": {
+              "type": "boolean"
+            },
+            "market_participant_id": {
+              "type": "string"
+            },
+            "is_deal_creator": {
+              "type": "boolean"
+            },
+            "organisation_role": {
+              "type": "string"
+            },
+            "organisation_titles": {
+              "type": "string"
+            },
+            "users": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "last_action_at": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "last_visit_date": {
+                      "type": "string"
+                    },
+                    "dataroom_org_id": {
+                      "type": "string"
+                    },
+                    "user_role": {
+                      "type": "string"
+                    },
+                    "can_upload": {
+                      "type": "boolean"
+                    },
+                    "user_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "last_action_at",
+                    "email",
+                    "status",
+                    "is_active",
+                    "last_visit_date",
+                    "dataroom_org_id",
+                    "user_role",
+                    "can_upload",
+                    "user_name"
+                  ]
+                }
+              ]
+            },
+            "groups": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "is_amended": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "market_participant_name",
+            "orgRole",
+            "orgTitles",
+            "is_active",
+            "market_participant_id",
+            "is_deal_creator",
+            "organisation_role",
+            "organisation_titles",
+            "users",
+            "groups",
+            "is_amended"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "market_participant_name": {
+              "type": "string"
+            },
+            "orgRole": {
+              "type": "string"
+            },
+            "orgTitles": {
+              "type": "string"
+            },
+            "is_active": {
+              "type": "boolean"
+            },
+            "market_participant_id": {
+              "type": "string"
+            },
+            "is_deal_creator": {
+              "type": "boolean"
+            },
+            "organisation_role": {
+              "type": "string"
+            },
+            "organisation_titles": {
+              "type": "string"
+            },
+            "users": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "last_action_at": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "last_visit_date": {
+                      "type": "string"
+                    },
+                    "dataroom_org_id": {
+                      "type": "string"
+                    },
+                    "user_role": {
+                      "type": "string"
+                    },
+                    "can_upload": {
+                      "type": "boolean"
+                    },
+                    "user_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "last_action_at",
+                    "email",
+                    "status",
+                    "is_active",
+                    "last_visit_date",
+                    "dataroom_org_id",
+                    "user_role",
+                    "can_upload",
+                    "user_name"
+                  ]
+                }
+              ]
+            },
+            "groups": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "is_amended": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "market_participant_name",
+            "orgRole",
+            "orgTitles",
+            "is_active",
+            "market_participant_id",
+            "is_deal_creator",
+            "organisation_role",
+            "organisation_titles",
+            "users",
+            "groups",
+            "is_amended"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

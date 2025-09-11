@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": ["folder_id", "folder_name", "folder_structure", "resources"],
+      "properties": {
+        "folder_id": { "type": "string" },
+        "folder_name": { "type": "string" },
+        "folder_structure": { "type": "array" },
+        "resources": { "type": "array" }
+      }
+    }
+  },
+  "required": ["data"]
+}

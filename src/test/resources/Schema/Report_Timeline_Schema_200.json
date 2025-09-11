@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "setupDate": {
+      "type": "array",
+      "items": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "invitationDates": {
+      "type": "array",
+      "items": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "commitmentDatesDates": {
+      "type": "array",
+      "items": {}
+    },
+    "allocationProgressDates": {
+      "type": "array",
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "cpsProgressDates": {
+      "type": "array",
+      "items": {}
+    },
+    "txnDocsExecutionProgressDates": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "setupDate",
+    "invitationDates",
+    "commitmentDatesDates",
+    "allocationProgressDates",
+    "cpsProgressDates",
+    "txnDocsExecutionProgressDates"
+  ]
+}

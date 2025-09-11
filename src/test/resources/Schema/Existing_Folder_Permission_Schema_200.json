@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "folder_name": {
+          "type": "string"
+        },
+        "folder_id": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "original_name": {
+                  "type": "null"
+                },
+                "is_active": {
+                  "type": "boolean"
+                },
+                "index": {
+                  "type": "string"
+                },
+                "document_id": {
+                  "type": "string"
+                },
+                "is_nda": {
+                  "type": "boolean"
+                },
+                "viewed_by": {
+                  "type": "array",
+                  "items": {}
+                },
+                "parent_folder": {
+                  "type": "string"
+                },
+                "creator_user_id": {
+                  "type": "string"
+                },
+                "permissions": {
+                  "type": "object",
+                  "properties": {
+                    "is_active": {
+                      "type": "boolean"
+                    },
+                    "view": {
+                      "type": "boolean"
+                    },
+                    "download_original": {
+                      "type": "boolean"
+                    },
+                    "download_pdf": {
+                      "type": "boolean"
+                    },
+                    "upload": {
+                      "type": "boolean"
+                    },
+                    "delete": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "is_active",
+                    "view",
+                    "download_original",
+                    "download_pdf",
+                    "upload",
+                    "delete"
+                  ]
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "created_at",
+                "name",
+                "original_name",
+                "is_active",
+                "index",
+                "document_id",
+                "is_nda",
+                "viewed_by",
+                "parent_folder",
+                "creator_user_id",
+                "permissions",
+                "notes"
+              ]
+            }
+          ]
+        },
+        "folder_structure": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "folder_id": {
+                  "type": "string"
+                },
+                "folder_name": {
+                  "type": "string"
+                },
+                "folder_index": {
+                  "type": "string"
+                },
+                "parent_id": {
+                  "type": "string"
+                },
+                "subfolder": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "required": [
+                "folder_id",
+                "folder_name",
+                "folder_index",
+                "parent_id",
+                "subfolder"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "folder_name",
+        "folder_id",
+        "resources",
+        "folder_structure"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

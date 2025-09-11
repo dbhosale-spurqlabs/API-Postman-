@@ -1,0 +1,12 @@
+{
+  "resources": [
+    {
+      "id": "{dataRoomFileResourceID}",
+      "name": "NDA_1753247900.pdf",
+      "type": "FILE"
+    }
+  ],
+  "subject": "Documents uploaded for {borrowerName}",
+  "email_body": "<p>Hello, </p><p>Spurqlabs has uploaded new document(s) for the syndicated loan facility for NewBorrower_1753247591584.</p><p>You may review the information by clicking below. </p><p><a href=\"{dataroom_link}\" rel=\"noopener noreferrer\" target=\"_blank\">Click Here</a></p><p>Sincerely,</p><p>Team LoanBook.</p>",
+  "is_add_files": true
+}

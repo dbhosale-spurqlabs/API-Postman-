@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "updatedBuyers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": { "type": "string" },
+          "userMpId": { "type": "string", "nullable": true },
+          "userMpName": { "type": "string" },
+          "userDesignation": { "type": "string" },
+          "userName": { "type": "string" },
+          "userContactNumber": { "type": "string", "nullable": true },
+          "userEmail": { "type": "string" },
+          "userDlId": { "type": "string" }
+        },
+        "required": ["userId", "userMpName", "userName", "userEmail"]
+      }
+    },
+    "message": { "type": "string" }
+  },
+  "required": ["updatedBuyers", "message"]
+}

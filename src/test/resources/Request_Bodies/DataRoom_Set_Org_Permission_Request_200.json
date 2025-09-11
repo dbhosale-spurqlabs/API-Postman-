@@ -1,0 +1,37 @@
+{
+  "permissions": [
+    {
+      "type": "FOLDER",
+      "id": "{dataRoomFolderId}",
+      "is_active": true,
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": true,
+      "upload_nda": true,
+      "delete": true
+    },
+    {
+      "type": "FILE",
+      "id": "{dataRoomFileResourceID}",
+      "is_active": true,
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": true,
+      "upload_nda": true,
+      "delete": true
+    },
+    {
+      "type": "FOLDER",
+      "id": "{dataRoomChildFolderID}",
+      "is_active": true,
+      "view": false,
+      "download_original": false,
+      "download_pdf": false,
+      "upload": false,
+      "upload_nda": false,
+      "delete": false
+    }
+  ]
+}

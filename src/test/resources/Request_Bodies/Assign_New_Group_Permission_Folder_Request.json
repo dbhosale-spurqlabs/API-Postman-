@@ -1,0 +1,43 @@
+{
+  "permissions": [
+    {
+      "id": "d0ec270c-fd64-4014-9014-2ba4ae6c77f9",
+      "name": "Deal Team",
+      "is_active": true,
+      "permissions": {
+        "is_active": true,
+        "view": true,
+        "download_original": true,
+        "download_pdf": true,
+        "upload": true,
+        "delete": false
+      },
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": true,
+      "delete": false,
+      "type": "GROUP"
+    },
+    {
+      "id": "db63acc1-71c3-4be9-b253-b2587128693d",
+      "name": "All Invitees",
+      "is_active": true,
+      "permissions": {
+        "is_active": true,
+        "view": false,
+        "download_original": false,
+        "download_pdf": false,
+        "upload": false,
+        "delete": false
+      },
+      "view": false,
+      "download_original": false,
+      "download_pdf": false,
+      "upload": false,
+      "delete": false,
+      "type": "GROUP",
+      "upload_nda": true
+    }
+  ]
+}

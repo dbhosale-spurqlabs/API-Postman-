@@ -1,0 +1,13 @@
+{
+  "subject": "Loan Syndication - Invitation for {borrowerName}",
+  "body": "Hello,<br/><br/>Spurqlabs has invited you to participate in the syndicated loan facility for {borrowerName} You may log in to the LoanBook platform, and click on this deal listed on your invitations screen. <br/><br/> <a id=\"invitations\" href=\"\" contentEditable=\"false\" target=\"_blank\">Invitations</a> <br/><br/>If you do not have login credentials to the LoanBook platform, click on the link below and follow the instructions. <br/><br/> <a id=\"register\" href=\"\" contentEditable=\"false\" target=\"_blank\">Register</a> <br/><br/>Responses are expected by 18 Jul 2025. However, if you are not interested in this deal, you may click on the link below to avoid further updates. <br/><br/> <a id=\"decline\" href=\"\" contentEditable=\"false\" >Decline this invitation</a> <br/><br/>Sincerely, <br/><br/>Team LoanBook.",
+  "includeInvitationLetter": true,
+  "investors": [
+    {
+      "investorId": "{lenderMpid}",
+      "users": [
+        "{investor1LendersId}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "envelop": {
+    "identifier": "769b22dd-f711-4a66-a6fb-bfc8609563ee2222222222",
+    "timestamp": 1751632308,
+    "actionType": "AssetsSearch",
+    "parentAction": ""
+  },
+  "payload": {
+    "searchCriteria": [
+      {
+        "attributeName": "borrowerName",
+        "attributeValue": "Abydos 1 Solar BESS"
+      },
+      {
+        "attributeName": "borrowerCountry",
+        "attributeValue": "Egypt"
+      },
+      {
+        "attributeName": "industry",
+        "attributeValue": "Utilities"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+image: maven:3.9.6-eclipse-temurin-17
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Daily Scheduled Test (@api)
+          script:
+            # Print Java version
+            - java -version
+
+            # Install Node.js for Playwright
+            - apt-get update && apt-get install -y curl
+            - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+            - apt-get install -y nodejs
+            - node -v
+            - npm -v
+
+            # Install Playwright globally and its dependencies
+            - npm install -g playwright
+            - playwright install --with-deps
+
+            - echo "Downloading dependencies"
+            - mvn dependency:copy-dependencies -DoutputDirectory=lib
+
+            # Start virtual display
+            - Xvfb :99 -screen 0 1024x768x24 &
+            - export DISPLAY=:99
+
+            - echo "Building project with Maven..."
+            - mvn clean
+            - mvn compile
+
+            - echo "🛠️ Compiling SendMail.java"
+            - javac -cp "lib/*" SendMail.java -d out
+
+            # Run only @api tagged tests
+            - echo "Running API tests..."
+            - mvn test "-Dcucumber.filter.tags=@api" || true
+
+            - echo "📤 Running SendMail..."
+            - java -cp "out:lib/*" SendMail
+
+          artifacts:
+            - test-output/**

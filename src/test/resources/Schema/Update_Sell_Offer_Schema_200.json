@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "state": { "type": "string" },
+    "borrowerName": { "type": "string" },
+    "borrowerCountry": { "type": "string" },
+    "sellOfferSize": { "type": "string" },
+    "currency": { "type": "string" },
+    "sellOfferPrice": { "type": "string" },
+    "documentationType": { "type": "string" },
+    "sellOfferType": { "type": "string" },
+    "maximumTicketSize": { "type": "number" },
+    "minimumTicketSize": { "type": "number" }
+  },
+  "required": ["id", "state", "borrowerName", "borrowerCountry", "sellOfferSize", "currency", "sellOfferPrice", "documentationType", "sellOfferType"]
+}

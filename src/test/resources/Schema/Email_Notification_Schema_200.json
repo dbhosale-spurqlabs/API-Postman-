@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "success": {
+      "type": "string"
+    },
+    "success_message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "notificationEnabled": {
+          "type": "boolean"
+        },
+        "notificationTemplate": {
+          "type": "object",
+          "properties": {
+            "emailIds": {
+              "type": "array",
+              "items": {}
+            },
+            "subject": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "emailIds",
+            "subject",
+            "body"
+          ]
+        }
+      },
+      "required": [
+        "notificationEnabled",
+        "notificationTemplate"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "shortDescription",
+    "longDescription",
+    "timestamp",
+    "success",
+    "success_message",
+    "data"
+  ]
+}

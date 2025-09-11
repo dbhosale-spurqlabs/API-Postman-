@@ -1,0 +1,26 @@
+[
+  {
+    "id": "{dataRoomFolderId}",
+    "type": "FOLDER",
+    "original_name": "DataRoom",
+    "created_at": "2025-07-24T05:20:09.971002Z",
+    "name": "DataRoom1",
+    "is_active": true,
+    "index": "2",
+    "viewed_by": [],
+    "parent_folder": "{dataRoomRootFolderID}",
+    "creator_user_id": "{dataRoomCreatorUserId}",
+    "permissions": {
+      "is_active": true,
+      "view": true,
+      "download_original": true,
+      "download_pdf": true,
+      "upload": true,
+      "delete": true
+    },
+    "notes": [],
+    "fileName": "DataRoom",
+    "obj_type": "folder",
+    "folder_name": "DataRoom"
+  }
+]

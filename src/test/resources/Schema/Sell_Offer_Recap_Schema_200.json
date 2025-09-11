@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["id", "offerStatus", "borrowerName", "sellOfferSize", "currency", "marketSegment", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "offerStatus": {
+      "type": "string",
+      "enum": ["ACTIVE", "CLOSED", "PENDING", "REJECTED"]
+    },
+    "borrowerName": {
+      "type": "string"
+    },
+    "sellOfferSize": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "object",
+      "required": ["code", "symbol"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      }
+    },
+    "marketSegment": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

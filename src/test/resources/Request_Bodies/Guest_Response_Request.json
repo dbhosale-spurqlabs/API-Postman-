@@ -1,0 +1,17 @@
+{
+  "lenderOrganization": "Spurq",
+  "lenderFullName": "Sumit Patil",
+  "lenderEmailId": "sumit@getnada.com",
+  "lenderContactNumber": null,
+  "lenderDesignation": "Teser",
+  "signedNdaDocId": null,
+  "commitmentDocId": null,
+  "lenderCountry": "India",
+  "trancheResponses": [
+    {
+      "id": "{trancheId}",
+      "committedAmount": "1111111111"
+    }
+  ],
+  "notes": ""
+}

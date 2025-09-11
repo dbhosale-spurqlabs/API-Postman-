@@ -1,0 +1,19 @@
+{
+  "userId": "33e02d21-c017-4487-bf49-63a9188450a9",
+  "mpId": "964319ea-e94a-4c4a-97ad-6e82cc512e5e",
+  "borrowerName": "fty",
+  "arrangers": [
+    {
+      "userId": "2c4bb1be-7dcf-4dac-87bf-25d7189aeeae",
+      "mpId": "964319ea-e94a-4c4a-97ad-6e82cc512e5e",
+      "organisation": "Alcentra"
+    },
+    {
+      "userId": "ec9e9d9d-f717-4fb9-91b2-5ac7f56333a6",
+      "mpId": "f15c5915-b7bc-4d6e-960d-8f2373cc51b8",
+      "organisation": "Ab_de_villiers"
+    }
+  ],
+  "lenders": [],
+  "action": "ADD"
+}

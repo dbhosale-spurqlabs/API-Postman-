@@ -1,0 +1,390 @@
+package org.Spurqlabs.Core;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
+import org.Spurqlabs.Utils.*;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.Spurqlabs.Utils.FrameworkConfigReader.getFrameworkConfig;
+
+public class Hooks extends TestContext {
+
+    static Map<String, String> headers = new HashMap<>();
+
+    @BeforeAll
+    public static void executeSetupProcess() throws IOException {
+        try {
+            System.out.println("Starting test setup process...");
+
+            // Get authentication token
+            String token = TokenManager.getToken();
+            if (token == null || token.trim().isEmpty()) {
+                throw new RuntimeException("Failed to get valid authentication token");
+            }
+            System.out.println("Successfully retrieved authentication token");
+
+            headers.clear();
+            headers.put("cookie", token);
+            headers.put("Accept", "application/json");
+            headers.put("Content-Type", "application/json");
+
+            // Step 1: Create Draft
+            String draftMethod = getFrameworkConfig("DraftMethod");
+            String baseUrl = getFrameworkConfig("BaseUrl");
+            String draftUrlPath = getFrameworkConfig("DraftUrl");
+            
+            if (draftMethod == null || baseUrl == null || draftUrlPath == null) {
+                throw new RuntimeException("Missing required configuration: DraftMethod, BaseUrl, or DraftUrl");
+            }
+
+            String draftUrl = baseUrl + draftUrlPath;
+            System.out.println("Draft URL: " + draftUrl);
+            String requestBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftRequestBody");
+            Object draftRequestBody = JsonFileReader.getJsonAsString(requestBodyPath);
+            
+            if (draftRequestBody == null) {
+                throw new RuntimeException("Failed to read draft request body from: " + requestBodyPath);
+            }
+
+            Response draftResponse = APIUtility.sendRequest(draftMethod, draftUrl, headers, null, draftRequestBody);
+            if (draftResponse == null) {
+                throw new RuntimeException("No response received from draft creation request");
+            }
+
+            if (draftResponse.getStatusCode() != 200 && draftResponse.getStatusCode() != 201) {
+                throw new RuntimeException("Draft creation failed with status code: " + draftResponse.getStatusCode() + 
+                    ", Response: " + draftResponse.getBody().asString());
+            }
+
+            String locationId = draftResponse.getHeader("Location");
+            if (locationId == null || locationId.trim().isEmpty()) {
+                throw new RuntimeException("No Location header in draft response. Status code: " + draftResponse.getStatusCode() + 
+                    ", Response: " + draftResponse.getBody().asString());
+            }
+
+            System.out.println("Successfully created draft with Location: " + locationId);
+
+            // Step 2: Primary Setup
+            String primarySetupMethod = getFrameworkConfig("PrimarySetupMethod");
+            if (primarySetupMethod == null) {
+                throw new RuntimeException("PrimarySetupMethod not found in FrameworkConfig");
+            }
+
+            String primarySetupUrlTemplate = getFrameworkConfig("PrimarySetupUrl");
+            if (primarySetupUrlTemplate == null) {
+                throw new RuntimeException("PrimarySetupUrl not found in FrameworkConfig");
+            }
+
+            String primarySetupUrl = baseUrl + primarySetupUrlTemplate.replace("{locationId}", locationId);
+
+            String primarySetupBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("PrimarySetupRequestBody");
+            String primarySetupRequestBodyStr = JsonFileReader.getJsonAsString(primarySetupBodyPath);
+            
+            if (primarySetupRequestBodyStr == null) {
+                throw new RuntimeException("Failed to read primary setup request body from: " + primarySetupBodyPath);
+            }
+
+            JSONObject primarySetupRequestBodyJson = new JSONObject(primarySetupRequestBodyStr);
+            String newBorrowerName = "NewBorrower_" + System.currentTimeMillis();
+            primarySetupRequestBodyJson.put("borrowerName", newBorrowerName);
+
+            Response primarySetupResponse = APIUtility.sendRequest(primarySetupMethod, primarySetupUrl, headers, null, primarySetupRequestBodyJson.toString());
+            
+            if (primarySetupResponse == null) {
+                throw new RuntimeException("No response received from primary setup request");
+            }
+
+            if (primarySetupResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Primary setup failed with status code: " + primarySetupResponse.getStatusCode() + 
+                    ", Response: " + primarySetupResponse.getBody().asString());
+            }
+
+            System.out.println("Successfully completed primary setup");
+
+            // Step 3: Get Deals
+            String getDealsMethod = getFrameworkConfig("GetDealsMethod");
+            String getDealsUrlPath = getFrameworkConfig("GetDealsUrl");
+            
+            if (getDealsMethod == null || getDealsUrlPath == null) {
+                throw new RuntimeException("GetDealsMethod or GetDealsUrl not found in FrameworkConfig");
+            }
+
+            String getDealsUrl = baseUrl + getDealsUrlPath + newBorrowerName;
+            Response getDealsResponse = APIUtility.sendRequest(getDealsMethod, getDealsUrl, headers, null, null);
+            
+            if (getDealsResponse == null) {
+                throw new RuntimeException("No response received from get deals request");
+            }
+
+            if (getDealsResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Get deals failed with status code: " + getDealsResponse.getStatusCode() + 
+                    ", Response: " + getDealsResponse.getBody().asString());
+            }
+
+            // Extract and validate deal details
+            String dealId = getDealsResponse.path("result[0].id");
+            String borrowerName = getDealsResponse.path("result[0].borrowerName");
+            String trancheId = getDealsResponse.path("result[0].tranches[0].id");
+            String investorId = getDealsResponse.path("result[0].tranches[0].trancheResponses[0].investorId");
+            String arrangerEmail = getDealsResponse.path("result[0].arrangers[0].arrangerEmailId");
+            String lenderMpid = getDealsResponse.path("result[0].lenders[0].lenderMp.id");
+            String dataRoomId = getDealsResponse.path("result[0].dataRoomId");
+            String trancheResponseId = getDealsResponse.path("result[0].tranches[0].trancheResponses[0].id");
+
+            // Validate required fields
+            if (dealId == null || borrowerName == null || dataRoomId == null) {
+                throw new RuntimeException("Missing required deal details in response");
+            }
+
+            // Store deal details
+            DealDetailsManager.put("dealId", dealId);
+            DealDetailsManager.put("borrowerName", borrowerName);
+            DealDetailsManager.put("trancheId", trancheId);
+            DealDetailsManager.put("investorId", investorId);
+            DealDetailsManager.put("arrangerEmail", arrangerEmail);
+            DealDetailsManager.put("lenderMpid", lenderMpid);
+            DealDetailsManager.put("dataRoomId", dataRoomId);
+            DealDetailsManager.put("trancheResponseId", trancheResponseId);
+
+            System.out.println("Successfully retrieved and stored deal details");
+            // Store additional deal details
+            DealDetailsManager.put("ndaDocId", getDealsResponse.path("result[0].ndaDocId"));
+            DealDetailsManager.put("dealCreatorMpId", getDealsResponse.path("result[0].mpId"));
+            DealDetailsManager.put("dealCreatorUserId", getDealsResponse.path("result[0].userId"));
+            
+            // Validate and store investor related details
+            Object lenders = getDealsResponse.path("result[0].lenders");
+            if (lenders != null) {
+                Object investor2 = getDealsResponse.path("result[0].lenders[1]");
+                if (investor2 != null) {
+                    DealDetailsManager.put("investor2Id", getDealsResponse.path("result[0].lenders[1].id"));
+                }
+                
+                Object investor1 = getDealsResponse.path("result[0].lenders[0]");
+                if (investor1 != null) {
+                    DealDetailsManager.put("investor1MpId", getDealsResponse.path("result[0].lenders[0].lenderMpId"));
+                    DealDetailsManager.put("investor1LendersId", getDealsResponse.path("result[0].lenders[0].id"));
+                }
+            }
+            
+            System.out.println("Successfully stored additional deal details");
+        } catch (Exception e) {
+            System.err.println("Error in test setup process: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Test setup failed", e);
+        }
+
+    }
+
+    @Before
+    public void beforeScenario(Scenario scenario) {
+        scenarioLogger = scenario;
+        scenarioName = scenario.getName();
+    }
+
+    @Before("@removeInvestor")
+    public void beforeScenarioRemoveInvestor() throws IOException {
+
+        String getDealsMethod = getFrameworkConfig("GetDealsMethod");
+        String jsonString = Files.readString(Paths.get(FrameworkConfigReader.getFrameworkConfig("DealDetails")), StandardCharsets.UTF_8);
+        JSONObject storedValues = new JSONObject(jsonString);
+
+        String getDealsUrl = getFrameworkConfig("BaseUrl") + getFrameworkConfig("GetDealsUrl") + storedValues.getString("borrowerName");
+
+        Response getDealsResponse = APIUtility.sendRequest(getDealsMethod, getDealsUrl, headers, null, null);
+        DealDetailsManager.put("newAddedLenderMpId", getDealsResponse.path("result[0].lenders[2].lenderMp.id"));
+
+    }
+
+    @Before("@setUpDeal")
+    public void beforeScenarioSetUpDeal() throws IOException {
+        try {
+            // Step 1: Create Draft
+            String draftMethod = getFrameworkConfig("DraftMethod");
+            if (draftMethod == null) {
+                throw new RuntimeException("DraftMethod not found in FrameworkConfig");
+            }
+
+            String baseUrl = getFrameworkConfig("BaseUrl");
+            String draftUrlPath = getFrameworkConfig("DraftUrl");
+            if (baseUrl == null || draftUrlPath == null) {
+                throw new RuntimeException("BaseUrl or DraftUrl not found in FrameworkConfig");
+            }
+
+            String draftUrl = baseUrl + draftUrlPath;
+            String requestBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftRequestBody");
+            Object draftRequestBody = JsonFileReader.getJsonAsString(requestBodyPath);
+            
+            if (draftRequestBody == null) {
+                throw new RuntimeException("Failed to read draft request body from: " + requestBodyPath);
+            }
+
+            Response draftResponse = APIUtility.sendRequest(draftMethod, draftUrl, headers, null, draftRequestBody);
+            if (draftResponse == null) {
+                throw new RuntimeException("No response received from draft creation request");
+            }
+
+            if (draftResponse.getStatusCode() != 200 && draftResponse.getStatusCode() != 201) {
+                throw new RuntimeException("Draft creation failed with status code: " + draftResponse.getStatusCode() + 
+                    ", Response: " + draftResponse.getBody().asString());
+            }
+
+            String locationId = draftResponse.getHeader("Location");
+            if (locationId == null || locationId.trim().isEmpty()) {
+                throw new RuntimeException("No Location header in draft response");
+            }
+
+            DealDetailsManager.put("locationId", locationId);
+            System.out.println("Successfully created draft with Location: " + locationId);
+        } catch (Exception e) {
+            System.err.println("Error in @setUpDeal: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Deal setup failed", e);
+        }
+    }
+
+    @Before("@uploadDoc")
+    public void beforeScenarioUploadDoc() {
+        try {
+            // Get configuration values
+            String baseUrl = FrameworkConfigReader.getFrameworkConfig("BaseUrl");
+            String uploadDocUrlPath = FrameworkConfigReader.getFrameworkConfig("UploadDocUrl");
+            String filesPath = FrameworkConfigReader.getFrameworkConfig("Files_Path");
+            String uploadFileName = FrameworkConfigReader.getFrameworkConfig("UploadFileName");
+
+            if (baseUrl == null || uploadDocUrlPath == null || filesPath == null || uploadFileName == null) {
+                throw new RuntimeException("Missing required configuration for file upload");
+            }
+
+            // Build URLs and paths
+            String uploadDocUrl = baseUrl + uploadDocUrlPath;
+            String filePath = filesPath + uploadFileName;
+
+            // Validate file exists
+            File uploadFile = new File(filePath);
+            if (!uploadFile.exists() || !uploadFile.isFile()) {
+                throw new RuntimeException("Upload file not found: " + filePath);
+            }
+
+            // Setup multipart request
+            Map<String, Object> multipartParams = new HashMap<>();
+            multipartParams.put("fileBody", uploadFile);
+            multipartParams.put("fileName", uploadFileName);
+
+            // Send request
+            Response uploadDocResponse = APIUtility.sendMultipartRequest(uploadDocUrl, headers, multipartParams);
+            
+            if (uploadDocResponse == null) {
+                throw new RuntimeException("No response received from upload request");
+            }
+
+            if (uploadDocResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Document upload failed with status code: " + uploadDocResponse.getStatusCode() + 
+                    ", Response: " + uploadDocResponse.getBody().asString());
+            }
+
+            // Extract and validate document ID
+            String documentId = uploadDocResponse.path("data.documentId");
+            if (documentId == null || documentId.trim().isEmpty()) {
+                throw new RuntimeException("No document ID in upload response");
+            }
+
+            DealDetailsManager.put("documentId", documentId);
+            System.out.println("Successfully uploaded document with ID: " + documentId);
+
+        } catch (Exception e) {
+            System.err.println("Error in @uploadDoc: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Document upload failed", e);
+        }
+    }
+
+    @Before("@GetFolderPermission")
+    public void beforeScenarioGetFolderPermission() throws IOException {
+        try {
+            // Get configuration
+            String method = getFrameworkConfig("GetFolderPermissionMethod");
+            String urlTemplate = getFrameworkConfig("GetFolderPermissionUrl");
+            String baseUrl = getFrameworkConfig("BaseUrl");
+            String dealDetailsPath = FrameworkConfigReader.getFrameworkConfig("DealDetails");
+
+            if (method == null || urlTemplate == null || baseUrl == null || dealDetailsPath == null) {
+                throw new RuntimeException("Missing required configuration for folder permission");
+            }
+
+            // Read stored deal details
+            if (!Files.exists(Paths.get(dealDetailsPath))) {
+                throw new RuntimeException("Deal details file not found: " + dealDetailsPath);
+            }
+
+            String dealDetailsJson = Files.readString(Paths.get(dealDetailsPath), StandardCharsets.UTF_8);
+            if (dealDetailsJson == null || dealDetailsJson.trim().isEmpty()) {
+                throw new RuntimeException("Deal details file is empty");
+            }
+
+            JSONObject stored = new JSONObject(dealDetailsJson);
+
+            // Replace placeholders in URL
+            String url = urlTemplate;
+            for (String key : stored.keySet()) {
+                String value = stored.getString(key);
+                if (value != null && !value.trim().isEmpty()) {
+                    url = url.replace("{" + key + "}", value);
+                }
+            }
+
+            // Validate all placeholders are replaced
+            if (url.contains("{") || url.contains("}")) {
+                throw new RuntimeException("Not all placeholders were replaced in URL: " + url);
+            }
+
+            String mainUrl = baseUrl + url;
+            System.out.println("Requesting folder permissions from: " + mainUrl);
+
+            // Send request
+            Response res = APIUtility.sendRequest(method, mainUrl, headers, null, null);
+            
+            if (res == null) {
+                throw new RuntimeException("No response received from folder permission request");
+            }
+
+            if (res.getStatusCode() != 200) {
+                throw new RuntimeException("Folder permission request failed with status code: " + res.getStatusCode() + 
+                    ", Response: " + res.getBody().asString());
+            }
+
+            // Extract and validate resource ID
+            String resourceId = res.path("data.resources[0].id");
+            if (resourceId == null || resourceId.trim().isEmpty()) {
+                throw new RuntimeException("No resource ID in response");
+            }
+
+            DealDetailsManager.put("dataRoomFileResourceID", resourceId);
+            System.out.println("Successfully retrieved folder permission with resource ID: " + resourceId);
+
+        } catch (Exception e) {
+            System.err.println("Error in @GetFolderPermission: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Failed to get folder permission", e);
+        }
+    }
+
+
+    @After
+    public void afterScenario(io.cucumber.java.Scenario scenario) {
+        boolean passed = !scenario.isFailed();
+        ScenarioResultCollector.addResult(scenario.getName(), passed);
+    }
+
+}

@@ -1,0 +1,193 @@
+{
+  "originLoanId": null,
+  "borrowerName": "ABC Technologies Inc",
+  "borrowerCountry": "",
+  "borrowerType": "",
+  "region": "",
+  "industry": "",
+  "sic": "",
+  "parent": "",
+  "guarantor": "",
+  "launchDate": null,
+  "commitmentDate": 1753381800000,
+  "tranches": [
+    {
+      "dealCurrency": "INR",
+      "dealSize": "102310000000",
+      "dealSizeOption": "1000000",
+      "tenorMaturity": 2,
+      "loanPurpose": "",
+      "trancheType": "",
+      "marketSegment": "",
+      "rating": "",
+      "ranking": "",
+      "securityValues": [],
+      "trancheName": "Tranche-1",
+      "interestRateType": "",
+      "interestRate": null,
+      "margin": null,
+      "benchmark": "",
+      "minTicketSize": null,
+      "maxTicketSize": null,
+      "actualDealSizeUnit": ""
+    }
+  ],
+  "documentationType": "",
+  "notes": "",
+  "ndaDocId": "0e3be421-4cce-44e6-b90f-8b577fb14aee",
+  "invitationLetterId": null,
+  "docs": [],
+  "ndaType": "BESPOKE",
+  "ndaResponseType": "USER",
+  "ndaResponseMethod": "ELECTRONIC",
+  "arrangers": [
+    {
+      "arrangerMpId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "arrangerOrganization": "Spurqlabs",
+      "arrangerDesignation": "Head Loan Syndications",
+      "arrangerFullName": "Arranger1 DemoSpurqlabs",
+      "arrangerContactNumber": "",
+      "arrangerEmailId": "arranger1.spq@getnada.com",
+      "arrangerSelectedFromDl": null,
+      "arrangerRoles": [
+        "ARRANGER"
+      ],
+      "userRoles": [
+        "DEAL_CREATOR"
+      ]
+    }
+  ],
+  "arrangerOrgs": [
+    {
+      "id": null,
+      "mpId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "mpName": "Spurqlabs",
+      "countryOfDomicile": "United Kingdom",
+      "titles": [
+        "ARRANGER"
+      ],
+      "users": [
+        {
+          "userEmail": "arranger1.spq@getnada.com",
+          "userFirstName": "Arranger1",
+          "userLastName": "DemoSpurqlabs",
+          "userDesignation": "Head Loan Syndications",
+          "roles": [
+            "DEAL_CREATOR"
+          ]
+        }
+      ]
+    }
+  ],
+  "lenders": [],
+  "investors": [
+    {
+      "mpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+      "mpName": "ADCB",
+      "invitationGroupId": "c9be596f-37e0-4dc4-8eac-147c9ff5dedb",
+      "users": [
+        {
+          "userEmail": "on@inboxbear.com"
+        }
+      ]
+    }
+  ],
+  "inviteOnly": true,
+  "invitees": [
+    {
+      "marketParticipantId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+      "nameOfOrganization": "ADCB",
+      "category": "Bank",
+      "city": "NYK",
+      "countryOfDomicile": "Belarus",
+      "address": null,
+      "regulator": null,
+      "status": "LIVE",
+      "logoUrl": "https://docx-sit.s3.amazonaws.com/private/2b5d8967-d006-4fdb-bd1d-bb181b0c9357/media/highest_1716354675.svg?response-content-disposition=attachment%3B&response-content-type=image%2Fsvg%2Bxml&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZW75R6LMUAJ6HGPR%2F20250704%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250704T042711Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=aa182b3254ff9763bd358960b0df97e6ce3ba49ff85724ce6ebf3edb5b069ffb",
+      "creditRatings": {
+        "moodyRating": "Not Rated",
+        "fitchRating": "Not Rated",
+        "sAndPRating": "Not Rated",
+        "equivalentRating": "Not Rated"
+      },
+      "users": [
+        {
+          "extUserId": "09c5959c-613e-4ad3-af47-e2b719dd9466",
+          "firstName": "APS Updated",
+          "lastName": "Test",
+          "email": "on@inboxbear.com",
+          "userName": "APS Updated Test",
+          "designation": "Tester",
+          "contactNumber": "+918976545678",
+          "department": "",
+          "phone": "+918976545678",
+          "roles": [
+            "USER"
+          ],
+          "last_login": "2025-07-03 11:29:09+00:00",
+          "lastLoginDatetime": "2025-07-03 11:29:09+00:00",
+          "isEmailVerified": true,
+          "isPasswordUpdated": true,
+          "market_participant_id": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+          "user_id": "27340894-c311-4784-8b1e-e413c6d4af19",
+          "mp_is_automatic_live": false,
+          "org_name": "ADCB",
+          "mp_live_from": "2024-03-11 10:13:45.096499+00:00",
+          "registration_date": "2024-03-11 09:47:29.241568+00:00",
+          "mp_status": "LIVE",
+          "created_at": "2025-04-01 06:38:09.847671+00:00",
+          "country": "Belarus",
+          "is_registered": true,
+          "is_trained": false,
+          "include_to_lb_directory": false,
+          "isRequestInitiator": false,
+          "isRequestAcceptor": false,
+          "isCurrentUser": false,
+          "isActive": true,
+          "selected": true,
+          "userRoles": []
+        }
+      ],
+      "partnershipStatus": null,
+      "isRecommendedMP": true,
+      "invitationGroupId": "c9be596f-37e0-4dc4-8eac-147c9ff5dedb"
+    }
+  ],
+  "inviteeDistributionLists": [],
+  "dealTeamDetails": [],
+  "topActiveLenders": [],
+  "marketSoundingData": [],
+  "inviteLenderPermission": "NOT_ALLOWED",
+  "arrangerInvitees": [
+    {
+      "nameOfOrganization": "Spurqlabs",
+      "countryOfDomicile": "United Kingdom",
+      "marketParticipantId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+      "logoUrl": null,
+      "users": [
+        {
+          "firstName": "Arranger1",
+          "lastName": "DemoSpurqlabs",
+          "email": "arranger1.spq@getnada.com",
+          "isMPLive": true,
+          "marketParticipantId": "a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1",
+          "user_id": "0bf311d9-a4f9-4dc3-a6f3-c1f337f0a76c",
+          "roles": [
+            "ADMINISTRATOR"
+          ],
+          "org_name": "Spurqlabs",
+          "org_country": "United Kingdom",
+          "designation": "Head Loan Syndications",
+          "phone_number": "+447839832982",
+          "userRoles": [
+            "DEAL_CREATOR"
+          ],
+          "arrangerRoles": [
+            "ARRANGER"
+          ]
+        }
+      ]
+    }
+  ],
+  "arrangerInviteeDistributionLists": []
+}
