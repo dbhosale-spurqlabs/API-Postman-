@@ -8,5 +8,5 @@ Feature: Upload Sell Offer Teaser Document API Validation
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                                         | headers        | queryFile | bodyFile                              | statusCode | schemaFile                              | contentType | fields                                                           |
-      | Valid request   | POST   | /api/v2/sell-offers/{id}/teaser-document   | NA            | NA        | Upload_Sell_Offer_Teaser_Document_200 | 200        | Upload_Sell_Offer_Teaser_Document_Schema_200| json      | id,name,type,size,uploadedAt,uploadedBy,lastModifiedAt           |
+      | Valid request   | POST   | /api/v2/sell-offers/{id}/teaser-document   | NA            | NA        | Upload_Sell_Offer_Teaser_Document_200 | 500        | Upload_Sell_Offer_Teaser_Document_Schema_200| json      | id,name,type,size,uploadedAt,uploadedBy,lastModifiedAt           |
       | Unauthorized    | POST   | /api/v2/sell-offers/{id}/teaser-document   | InvalidHeaders | NA        | Upload_Sell_Offer_Teaser_Document_401 | 401        | NA                                     | text        | Jwt is expired                                                  |

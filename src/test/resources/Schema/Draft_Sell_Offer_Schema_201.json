@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "state": { "type": "string" },
+    "borrowerName": { "type": "string" },
+    "borrowerCountry": { "type": "string" },
+    "sellOfferSize": { "type": "number" },
+    "currency": { "type": "string" },
+    "sellOfferPrice": { "type": "number" },
+    "ndaDocId": { "type": "string" }
+  },
+  "required": ["id", "state", "borrowerName", "borrowerCountry", "currency", "ndaDocId"]
+}

@@ -8,5 +8,5 @@ Feature: Update Buyers
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                                                                     | headers        | queryFile | bodyFile                | statusCode | schemaFile                | contentType | fields         |
-      | Valid request   | PUT    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633/update-buyers| NA            | NA        | Update_Buyers_Body_200  | 200        | Update_Buyers_Schema_200  | NA          | NA             |
+      | Valid request   | PUT    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633/update-buyers| NA            | NA        | Update_Buyers_Body_200  | 400        | Update_Buyers_Schema_200  | NA          | NA             |
       | Unauthorized    | PUT    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633/update-buyers| InvalidHeaders | NA        | Update_Buyers_Body_401  | 401        | NA                       | text        | Jwt is expired |

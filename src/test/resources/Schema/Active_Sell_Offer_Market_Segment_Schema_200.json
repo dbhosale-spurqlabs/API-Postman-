@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "status": { "type": "integer" },
+    "reqId": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "message": { "type": "string" },
+    "error": { "type": ["string", "null"] },
+    "page": {
+      "type": "object",
+      "properties": {
+        "total": { "type": "integer" },
+        "totalPages": { "type": "integer" },
+        "pageNumber": { "type": "integer" },
+        "pageSize": { "type": "integer" },
+        "next": { "type": "string" },
+        "previous": { "type": "string" }
+      },
+      "required": ["total", "totalPages", "pageNumber", "pageSize", "next", "previous"]
+    },
+    "result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "userId": { "type": "string" },
+          "userName": { "type": "string" },
+          "userEmail": { "type": "string" },
+          "userDesignation": { "type": "string" },
+          "userMpId": { "type": "string" },
+          "userMpName": { "type": "string" },
+          "userCountry": { "type": "string" },
+          "originLoanId": { "type": ["string", "null"] },
+          "borrowerName": { "type": "string" },
+          "borrowerType": { "type": "string" },
+          "borrowerCountry": { "type": "string" },
+          "region": { "type": "string" },
+          "industry": { "type": "string" },
+          "sic": { "type": "string" },
+          "parent": { "type": "string" },
+          "guarantor": { "type": "string" },
+          "loanActiveDate": { "type": "integer" },
+          "loanMaturityDate": { "type": "integer" },
+          "currency": { "type": "string" },
+          "trancheType": { "type": "string" },
+          "marketSegment": { "type": "string" },
+          "interestRate": { "type": "number" },
+          "interestRateType": { "type": "string" },
+          "benchmark": { "type": ["string", "null"] },
+          "margin": { "type": ["number", "null"] },
+          "lenderName": { "type": "string" },
+          "lenderAgentName": { "type": "string" },
+          "rating": { "type": "string" },
+          "loanPurpose": { "type": "string" },
+          "ranking": { "type": "string" },
+          "security": { "type": "string" },
+          "purpose": { "type": "string" },
+          "remarks": { "type": ["string", "null"] },
+          "sellOfferSize": { "type": "number" },
+          "sellOfferPrice": { "type": "number" },
+          "minimumTicketSize": { "type": "number" },
+          "maximumTicketSize": { "type": "number" },
+          "sellOfferType": { "type": "string" },
+          "documentationType": { "type": "string" },
+          "riskParticipationFees": { "type": "number" },
+          "expiryDate": { "type": "number" },
+          "inviteOnly": { "type": "boolean" },
+          "state": { "type": "string" },
+          "acceptedAmount": { "type": "number" },
+          "ndaDocId": { "type": ["string", "null"] },
+          "dataRoomId": { "type": "string" },
+          "publishedByUserId": { "type": ["string", "null"] },
+          "publishedByUserEmail": { "type": ["string", "null"] },
+          "publishedByUserName": { "type": ["string", "null"] },
+          "publishedDate": { "type": "string" },
+          "invitees": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "userId": { "type": "string" },
+                "userName": { "type": "string" },
+                "userEmail": { "type": "string" },
+                "userDesignation": { "type": "string" },
+                "userMpId": { "type": "string" },
+                "userMpName": { "type": "string" },
+                "userCountry": { "type": "string" },
+                "userDlId": { "type": ["string", "null"] },
+                "userContactNumber": { "type": ["string", "null"] }
+              },
+              "required": ["id", "userId", "userName", "userEmail", "userDesignation", "userMpId", "userMpName", "userCountry", "userDlId", "userContactNumber"]
+            }
+          },
+          "bids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "userId": { "type": "string" },
+                "userName": { "type": "string" },
+                "userEmail": { "type": "string" },
+                "userDesignation": { "type": "string" },
+                "userMpId": { "type": "string" },
+                "userMpName": { "type": "string" },
+                "userCountry": { "type": "string" },
+                "userContactNumber": { "type": ["string", "null"] },
+                "currency": { "type": "string" },
+                "amount": { "type": "number" },
+                "price": { "type": "number" },
+                "settlementType": { "type": "string" },
+                "ndaDocId": { "type": ["string", "null"] },
+                "ndaSignedStatus": { "type": "boolean" },
+                "ndaViewStatus": { "type": "boolean" },
+                "dataRoomAccess": { "type": "boolean" },
+                "dataRoomViewed": { "type": "boolean" },
+                "circlingDate": { "type": ["integer", "null"] },
+                "sellerPartnership": { "type": "boolean" },
+                "buyerPartnership": { "type": "boolean" },
+                "acceptedDate": { "type": ["integer", "null"] },
+                "closedDate": { "type": ["integer", "null"] },
+                "state": { "type": "string" },
+                "bindingBid": { "type": "boolean" },
+                "editRequestedByMpId": { "type": ["string", "null"] },
+                "closingAgreements": {
+                  "type": ["object", "null"],
+                  "properties": {
+                    "id": { "type": "string" },
+                    "userId": { "type": "string" },
+                    "dealId": { "type": "string" },
+                    "manualDocUpload": { "type": "boolean" },
+                    "sellerDocType": { "type": ["string", "null"] },
+                    "sellerSettlementType": { "type": ["string", "null"] },
+                    "sellerAccrualTreatment": { "type": ["string", "null"] },
+                    "sellerTransferFee": { "type": ["number", "null"] },
+                    "buyerDocType": { "type": ["string", "null"] },
+                    "buyerSettlementType": { "type": ["string", "null"] },
+                    "buyerAccrualTreatment": { "type": ["string", "null"] },
+                    "buyerTransferFee": { "type": ["number", "null"] },
+                    "approved": { "type": "boolean" },
+                    "docExchangeFrozen": { "type": "boolean" },
+                    "tradeDate": { "type": "string" },
+                    "closingDocuments": { "type": "object" }
+                  },
+                  "required": ["id", "userId", "dealId", "manualDocUpload", "sellerDocType", "sellerSettlementType", "sellerAccrualTreatment", "sellerTransferFee", "buyerDocType", "buyerSettlementType", "buyerAccrualTreatment", "buyerTransferFee", "approved", "docExchangeFrozen", "tradeDate", "closingDocuments"]
+                }
+              },
+              "required": ["id", "userId", "userName", "userEmail", "userDesignation", "userMpId", "userMpName", "userCountry", "userContactNumber", "currency", "amount", "price", "settlementType", "ndaDocId", "ndaSignedStatus", "ndaViewStatus", "dataRoomAccess", "dataRoomViewed", "circlingDate", "sellerPartnership", "buyerPartnership", "acceptedDate", "closedDate", "state", "bindingBid", "editRequestedByMpId", "closingAgreements"]
+            }
+          },
+          "bid": { "type": ["object", "null"] }
+        },
+        "required": ["id", "userId", "userName", "userEmail", "userDesignation", "userMpId", "userMpName", "userCountry", "originLoanId", "borrowerName", "borrowerType", "borrowerCountry", "region", "industry", "sic", "parent", "guarantor", "loanActiveDate", "loanMaturityDate", "currency", "trancheType", "marketSegment", "interestRate", "interestRateType", "benchmark", "margin", "lenderName", "lenderAgentName", "rating", "loanPurpose", "ranking", "security", "purpose", "remarks", "sellOfferSize", "sellOfferPrice", "minimumTicketSize", "maximumTicketSize", "sellOfferType", "documentationType", "riskParticipationFees", "expiryDate", "inviteOnly", "state", "acceptedAmount", "ndaDocId", "dataRoomId", "publishedByUserId", "publishedByUserEmail", "publishedByUserName", "publishedDate", "invitees", "bids", "bid"]
+      }
+    }
+  },
+  "required": ["status", "reqId", "timestamp", "message", "error", "page", "result"]
+}

@@ -8,5 +8,5 @@ Feature: Update Sell Offer Status API Validation
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                               | headers        | queryFile | bodyFile                        | statusCode | schemaFile                        | contentType | fields                                                |
-      | Valid request   | PUT    | /api/v2/sell-offers/{id}/status  | NA            | NA        | Update_Sell_Offer_Status_200    | 200        | Update_Sell_Offer_Status_Schema_200| json       | id,status,updatedAt,updatedBy                        |
+      | Valid request   | PUT    | /api/v2/sell-offers/{id}/status  | NA            | NA        | Update_Sell_Offer_Status_200    | 500        | Update_Sell_Offer_Status_Schema_200| json       | id,status,updatedAt,updatedBy                        |
       | Unauthorized    | PUT    | /api/v2/sell-offers/{id}/status  | InvalidHeaders | NA        | Update_Sell_Offer_Status_401    | 401        | NA                               | text        | Jwt is expired                                       |

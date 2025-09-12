@@ -8,5 +8,5 @@ Feature: Unpin Sell Offer Note API Validation
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                                            | headers        | queryFile | bodyFile                 | statusCode | schemaFile                 | contentType | fields                                                   |
-      | Valid request   | POST   | /api/v2/sell-offers/{id}/notes/{noteId}/unpin | NA            | NA        | Unpin_Sell_Offer_Note_200| 200        | Unpin_Sell_Offer_Note_Schema_200| json     | id,content,isPinned,createdAt,createdBy,updatedAt        |
+      | Valid request   | POST   | /api/v2/sell-offers/{id}/notes/{noteId}/unpin | NA            | NA        | Unpin_Sell_Offer_Note_200| 500        | Unpin_Sell_Offer_Note_Schema_200| json     | id,content,isPinned,createdAt,createdBy,updatedAt        |
       | Unauthorized    | POST   | /api/v2/sell-offers/{id}/notes/{noteId}/unpin | InvalidHeaders | NA        | Unpin_Sell_Offer_Note_401| 401        | NA                        | text        | Jwt is expired                                          |

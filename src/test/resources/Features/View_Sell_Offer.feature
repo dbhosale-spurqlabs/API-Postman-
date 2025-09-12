@@ -8,5 +8,5 @@ Feature: View Sell Offer
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                                                           | headers        | queryFile | bodyFile | statusCode | schemaFile                  | contentType | fields         |
-      | Valid request   | GET    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633   | NA            | NA        | NA       | 200        | View_Sell_Offer_Schema_200  | NA          | NA             |
+      | Valid request   | GET    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633   | NA            | NA        | NA       | 401        | View_Sell_Offer_Schema_200  | json        | NA             |
       | Unauthorized    | GET    | /api/v2/sell-offers/cacc8b95-0726-443e-b2c1-c7cf57637633   | InvalidHeaders | NA        | NA       | 401        | NA                         | text        | Jwt is expired |

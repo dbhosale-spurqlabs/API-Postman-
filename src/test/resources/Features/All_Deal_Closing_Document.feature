@@ -25,7 +25,7 @@ Feature: All Deal Closing Document API Validation
 
     Examples:
       | scenarioName   | method | url                                               | headers | queryFile | bodyFile          | statusCode | schemaFile               | contentType | fields                    |
-      | Valid creation | POST   | /api/v2/loan-syndications/{dealId}/txn-docs/draft | NA      | NA        | Draft_Doc_Request | 200        | Draft_Doc_Schema_200     | json        | notificationEnabled, true |
+  | Valid creation | POST   | /api/v2/loan-syndications/{dealId}/txn-docs/draft | NA      | NA        | Draft_Doc_Request | 200        | Draft_Doc_Schema_200     | json        | notificationEnabled, true |
       | Valid Get      | GET    | /api/v2/loan-syndications/{dealId}/txn-docs/draft | NA      | NA        | NA                | 200        | Get_Draft_DOc_Schema_200 | json        | mpId,{dealCreatorMpId}    |
 
   @api

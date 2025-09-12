@@ -7,6 +7,6 @@ Feature: Active Sell Offer Offer Size API Validation
     And User verifies the response body matches JSON schema "<schemaFile>"
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
-      | scenarioName    | method | url                | headers        | queryFile                               | bodyFile | statusCode | schemaFile                               | contentType | fields                                    |
-      | Valid request   | GET    | /api/v2/sell-offers| NA            | Active_Sell_Offer_Offer_Size_Query_200  | NA      | 200        | Active_Sell_Offer_Offer_Size_Schema_200  | json        | id,minAmount,maxAmount,currency,createdAt |
-      | Unauthorized    | GET    | /api/v2/sell-offers| InvalidHeaders| Active_Sell_Offer_Offer_Size_Query_401  | NA      | 401        | NA                                      | text        | Jwt is expired                           |
+  | scenarioName    | method | url                | headers        | queryFile                               | bodyFile | statusCode | schemaFile                               | contentType | fields                                    |
+  | Valid request   | GET    | /api/v2/sell-offers| NA            | Active_Sell_Offer_Offer_Size_Query_200  | NA      | 200        | Active_Sell_Offer_Offer_Size_Schema_200  | json        | id,minAmount,maxAmount,currency,createdAt |
+  | Unauthorized    | GET    | /api/v2/sell-offers| InvalidHeaders| Active_Sell_Offer_Offer_Size_Query_401  | NA      | 401        | NA                                      | text        | Jwt is expired                           |

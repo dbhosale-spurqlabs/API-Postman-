@@ -2,24 +2,26 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "id": { "type": "string" },
-    "fileName": { "type": "string" },
-    "fileSize": { "type": "integer" },
-    "contentType": { "type": "string" },
-    "uploadedBy": { "type": "string" },
-    "uploadedAt": { "type": "integer" },
-    "versions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "versionNumber": { "type": "integer" },
-          "uploadedAt": { "type": "integer" }
-        },
-        "required": ["id", "versionNumber", "uploadedAt"]
-      }
+    "type": { "type": "string" },
+    "shortDescription": { "type": "string" },
+    "longDescription": { "type": "string" },
+    "index": { "type": "integer" },
+    "success": { "type": "string" },
+    "success_message": { "type": "string" },
+    "data": {
+      "type": "object",
+      "properties": {
+        "documentId": { "type": "string" },
+        "versionNumber": { "type": "integer" },
+        "createdDate": { "type": "string" },
+        "extUserId": { "type": "string" },
+        "fileName": { "type": "string" },
+        "type": { "type": "string" },
+        "s3_bucket": { "type": "string" },
+        "originalFileName": { "type": "string" }
+      },
+      "required": ["documentId", "versionNumber", "createdDate", "extUserId", "fileName", "type", "s3_bucket", "originalFileName"]
     }
   },
-  "required": ["id", "fileName", "fileSize", "contentType", "uploadedBy", "uploadedAt", "versions"]
+  "required": ["type", "shortDescription", "longDescription", "index", "success", "success_message", "data"]
 }

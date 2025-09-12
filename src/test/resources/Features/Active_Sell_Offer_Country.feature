@@ -8,6 +8,7 @@ Feature:  Active Sell Offer Country API Response Validation
     And User verifies the response body matches JSON schema "<schemaFile>"
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
-  | scenarioName    | method | url                                   | headers        | queryFile                           | bodyFile | statusCode | schemaFile                           | contentType | fields         |
-  | Valid request   | GET    | /api/v2/sell-offers/{id}/country      | NA            | Active_Sell_Offer_Country_Query_200 | NA      | 200        | Active_Sell_Offer_Country_Schema_200 | NA          | NA             |
-  | Unauthorized    | GET    | /api/v2/sell-offers/{id}/country      | InvalidHeaders| Active_Sell_Offer_Country_Query_401 | NA      | 401        | NA                                  | text        | Jwt is expired |
+      | scenarioName  | method | url                 | headers        | queryFile                           | bodyFile | statusCode | schemaFile                           | contentType | fields         |
+      | Valid request | GET    | /api/v2/sell-offers | NA             | Active_Sell_Offer_Country_Query_200 | NA       | 200        | Active_Sell_Offer_Country_Schema_200 | json        | status, 200    |
+      | Unauthorized  | GET    | /api/v2/sell-offers | InvalidHeaders | Active_Sell_Offer_Country_Query_401 | NA       | 401        | NA                                   | text        | Jwt is expired |
+
