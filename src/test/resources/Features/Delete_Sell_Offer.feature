@@ -1,6 +1,6 @@
 Feature: Delete Sell Offer
 
-  @api
+  @api  @extractSellOfferId @publishSellOffer
   Scenario Outline: Validate POST Delete Sell Offer API Response for "<scenarioName>" Scenario
     When User sends "<method>" request to "<url>" with headers "<headers>" and query file "<queryFile>" and body file "<bodyFile>"
     Then User verifies the response status code is <statusCode>

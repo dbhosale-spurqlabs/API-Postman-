@@ -1,3 +1,5 @@
+  
+
 package org.Spurqlabs.Core;
 
 import io.cucumber.java.After;
@@ -386,5 +388,82 @@ public class Hooks extends TestContext {
         boolean passed = !scenario.isFailed();
         ScenarioResultCollector.addResult(scenario.getName(), passed);
     }
-
+    /**
+     * Extracts the Sell Offer ID from the Location header after Draft Sell Offer creation,
+     * saves it to DealDetails.json, and makes it available for subsequent scenarios.
+     */
+    @Before("@extractSellOfferId")
+    public void beforeScenarioExtractSellOfferId() throws IOException {
+        try {
+            // Prepare request for Draft Sell Offer
+            String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
+            String baseUrl = getFrameworkConfig("BaseUrl");
+            String draftSellOfferUrl = getFrameworkConfig("DraftSellOfferUrl");
+            String draftSellOfferBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftSellOfferRequestBody");
+            Object draftSellOfferRequestBody = JsonFileReader.getJsonAsString(draftSellOfferBodyPath);
+            if (draftSellOfferRequestBody == null) {
+                throw new RuntimeException("Failed to read Draft Sell Offer request body from: " + draftSellOfferBodyPath);
+            }
+            // Send Draft Sell Offer request
+            Response draftSellOfferResponse = APIUtility.sendRequest(draftSellOfferMethod, baseUrl + draftSellOfferUrl, headers, null, draftSellOfferRequestBody);
+            if (draftSellOfferResponse == null) {
+                throw new RuntimeException("No response received from Draft Sell Offer request");
+            }
+            if (draftSellOfferResponse.getStatusCode() != 201 && draftSellOfferResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Draft Sell Offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() +
+                        ", Response: " + draftSellOfferResponse.getBody().asString());
+            }
+            // Extract id from Location header
+            String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
+            if (sellOfferLocation == null || sellOfferLocation.trim().isEmpty()) {
+                throw new RuntimeException("No Location header in Draft Sell Offer response");
+            }
+            // Extract the id from the Location header (assume last path segment)
+            String[] parts = sellOfferLocation.split("/");
+            String sellOfferId = parts[parts.length - 1];
+            DealDetailsManager.put("id", sellOfferId);
+            System.out.println("Successfully extracted and stored Sell Offer ID: " + sellOfferId);
+        } catch (Exception e) {
+            System.err.println("Error in @extractSellOfferId: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Sell Offer ID extraction failed", e);
+        }
+    }
+      /**
+     * Publishes the Sell Offer before running Delete Sell Offer scenarios.
+     * Tag Delete_Sell_Offer.feature scenario with @publishSellOffer to use this hook.
+     */
+    @Before("@publishSellOffer")
+    public void beforeScenarioPublishSellOffer() throws IOException {
+        try {
+            String publishMethod = getFrameworkConfig("PublishSellOfferMethod");
+            String baseUrl = getFrameworkConfig("BaseUrl");
+            String publishUrlTemplate = getFrameworkConfig("PublishSellOfferUrl");
+            String requestBodyPath = getFrameworkConfig("Request_Bodies") + "Publish_Sell_Offer_Body_200.json";
+            String requestBodyStr = JsonFileReader.getJsonAsString(requestBodyPath);
+            if (requestBodyStr == null) {
+                throw new RuntimeException("Failed to read publish sell offer request body from: " + requestBodyPath);
+            }
+            // Replace {{id}} with the current id from DealDetailsManager
+            String sellOfferId = String.valueOf(DealDetailsManager.get("id"));
+            if (sellOfferId == null || sellOfferId.trim().isEmpty()) {
+                throw new RuntimeException("No Sell Offer ID found in DealDetailsManager");
+            }
+            requestBodyStr = requestBodyStr.replace("{{id}}", sellOfferId);
+            String publishUrl = baseUrl + publishUrlTemplate.replace("{id}", sellOfferId);
+            Response publishResponse = APIUtility.sendRequest(publishMethod, publishUrl, headers, null, requestBodyStr);
+            if (publishResponse == null) {
+                throw new RuntimeException("No response received from publish sell offer request");
+            }
+            if (publishResponse.getStatusCode() != 200 && publishResponse.getStatusCode() != 201) {
+                throw new RuntimeException("Publish Sell Offer failed with status code: " + publishResponse.getStatusCode() +
+                        ", Response: " + publishResponse.getBody().asString());
+            }
+            System.out.println("Successfully published Sell Offer with ID: " + sellOfferId);
+        } catch (Exception e) {
+            System.err.println("Error in @publishSellOffer: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Publish Sell Offer failed", e);
+        }
+    }
 }

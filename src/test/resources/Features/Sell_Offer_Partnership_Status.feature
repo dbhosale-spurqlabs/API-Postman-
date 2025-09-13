@@ -1,6 +1,6 @@
 Feature: Sell Offer Partnership Status API Validation
 
-  @api
+  @api  @extractSellOfferId
   Scenario Outline: Validate GET Sell Offer Partnership Status API Response for "<scenarioName>" Scenario
     When User sends "<method>" request to "<url>" with headers "<headers>" and query file "<queryFile>" and body file "<bodyFile>"
     Then User verifies the response status code is <statusCode>

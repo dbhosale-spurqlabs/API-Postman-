@@ -1,30 +1,83 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["participants"],
   "properties": {
-    "participants": {
+    "type": { "type": "string" },
+    "shortDescription": { "type": "string" },
+    "longDescription": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "success": { "type": "string" },
+    "success_message": { "type": "string" },
+    "page": { "type": ["integer", "null"] },
+    "data": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "firstName", "lastName", "email"],
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
+          "marketParticipantId": { "type": "string" },
+          "nameOfOrganization": { "type": "string" },
+          "category": { "type": ["string", "null"] },
+          "city": { "type": ["string", "null"] },
+          "countryOfDomicile": { "type": ["string", "null"] },
+          "address": { "type": ["string", "null"] },
+          "regulator": { "type": ["string", "null"] },
+          "status": { "type": ["string", "null"] },
+          "logoUrl": { "type": ["string", "null"] },
+          "creditRatings": {
+            "type": "object",
+            "properties": {
+              "moodyRating": { "type": "string" },
+              "fitchRating": { "type": "string" },
+              "sAndPRating": { "type": "string" },
+              "equivalentRating": { "type": "string" }
+            },
+            "required": ["moodyRating", "fitchRating", "sAndPRating", "equivalentRating"]
           },
-          "firstName": {
-            "type": "string"
+          "users": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "extUserId": { "type": "string" },
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "email": { "type": "string" },
+                "userName": { "type": "string" },
+                "designation": { "type": ["string", "null"] },
+                "contactNumber": { "type": ["string", "null"] },
+                "department": { "type": ["string", "null"] },
+                "phone": { "type": ["string", "null"] },
+                "roles": { "type": "array", "items": { "type": "string" } },
+                "last_login": { "type": ["string", "null"] },
+                "lastLoginDatetime": { "type": ["string", "null"] },
+                "isEmailVerified": { "type": "boolean" },
+                "isPasswordUpdated": { "type": "boolean" },
+                "market_participant_id": { "type": "string" },
+                "user_id": { "type": "string" },
+                "mp_is_automatic_live": { "type": "boolean" },
+                "org_name": { "type": "string" },
+                "mp_live_from": { "type": ["string", "null"] },
+                "registration_date": { "type": ["string", "null"] },
+                "mp_status": { "type": ["string", "null"] },
+                "created_at": { "type": ["string", "null"] },
+                "country": { "type": ["string", "null"] },
+                "is_registered": { "type": "boolean" },
+                "is_trained": { "type": "boolean" },
+                "include_to_lb_directory": { "type": "boolean" },
+                "isRequestInitiator": { "type": "boolean" },
+                "isRequestAcceptor": { "type": "boolean" },
+                "isCurrentUser": { "type": "boolean" },
+                "isActive": { "type": "boolean" }
+              },
+              "required": ["extUserId", "firstName", "lastName", "email", "userName", "designation", "contactNumber", "department", "phone", "roles", "last_login", "lastLoginDatetime", "isEmailVerified", "isPasswordUpdated", "market_participant_id", "user_id", "mp_is_automatic_live", "org_name", "mp_live_from", "registration_date", "mp_status", "created_at", "country", "is_registered", "is_trained", "include_to_lb_directory", "isRequestInitiator", "isRequestAcceptor", "isCurrentUser", "isActive"]
+            }
           },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          }
-        }
+          "partnershipStatus": { "type": ["string", "null"] }
+        },
+        "required": ["marketParticipantId", "nameOfOrganization", "category", "city", "countryOfDomicile", "address", "regulator", "status", "logoUrl", "creditRatings", "users", "partnershipStatus"]
       }
     }
   }
+  ,
+  "required": ["type", "shortDescription", "longDescription", "timestamp", "success", "success_message", "page", "data"]
 }

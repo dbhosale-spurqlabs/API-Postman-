@@ -1,3 +1,4 @@
+
 {
   "BaseUrl": "https://sit.loan-book.com",
   "DealCreatorEmail": "arranger1.spq@getnada.com",
@@ -29,6 +30,10 @@
   "getNotesMethod": "GET",
   "GetFolderPermissionMethod": "GET",
   "GetFolderPermissionUrl": "/api/v2/dataroom/{dataRoomId}/permissions"
+
+  ,"DraftSellOfferMethod": "POST"
+  ,"DraftSellOfferUrl": "/api/v2/sell-offers/draft"
+  ,"DraftSellOfferRequestBody": "Draft_Sell_Offer_Body_201.json"
 }
 
 

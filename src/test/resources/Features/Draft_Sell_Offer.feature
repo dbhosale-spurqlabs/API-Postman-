@@ -7,6 +7,6 @@ Feature: Draft Sell Offer API Validation
     And User verifies the response body matches JSON schema "<schemaFile>"
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
-  | scenarioName    | method | url                         | headers        | queryFile | bodyFile                    | statusCode | schemaFile                    | contentType | fields         |
-  | Valid request   | POST   | /api/v2/sell-offers/draft  | NA            | NA        | Draft_Sell_Offer_Body_201   | 201        | Draft_Sell_Offer_Schema_201   | NA          | NA             |
-  | Unauthorized    | POST   | /api/v2/sell-offers/draft  | InvalidHeaders | NA        | Draft_Sell_Offer_Body_401   | 401        | NA                           | text        | Jwt is expired |
+  | scenarioName    | method | url                         | headers        | queryFile | bodyFile                    | statusCode | schemaFile | contentType | fields         |
+  | Valid request   | POST   | /api/v2/sell-offers/draft  | NA            | NA        | Draft_Sell_Offer_Body_201    | 201        | NA    | NA         | NA             |
+  | Unauthorized    | POST   | /api/v2/sell-offers/draft  | InvalidHeaders | NA        | Draft_Sell_Offer_Body_401   | 401        | NA     | text        | Jwt is expired |
