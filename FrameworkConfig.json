@@ -29,11 +29,14 @@
   "EnterNotesRequestBody": "Enter_Notes_Request.json",
   "getNotesMethod": "GET",
   "GetFolderPermissionMethod": "GET",
-  "GetFolderPermissionUrl": "/api/v2/dataroom/{dataRoomId}/permissions"
-
-  ,"DraftSellOfferMethod": "POST"
-  ,"DraftSellOfferUrl": "/api/v2/sell-offers/draft"
-  ,"DraftSellOfferRequestBody": "Draft_Sell_Offer_Body_201.json"
+  "GetFolderPermissionUrl": "/api/v2/dataroom/{dataRoomId}/permissions",
+  "DraftSellOfferMethod": "POST",
+  "DraftSellOfferUrl": "/api/v2/sell-offers/draft",
+  "DraftSellOfferRequestBody": "Draft_Sell_Offer_Body_201.json",
+  "PublishSellOfferMethod": "POST",
+  "PublishSellOfferUrl": "/api/v2/sell-offers/{id}/publish",
+  "SecondarySetupEnabled": "true",
+  "sellOfferId": ""
 }
 
 

@@ -1,6 +1,6 @@
 Feature:  Active Sell Offer Country API Response Validation
 
-  @api10
+  @api
   Scenario Outline: Validate GET Active Sell Offer Country API Response for "<scenarioName>" Scenario
     Given user has a valid sell offer id
     When User sends "<method>" request to "<url>" with headers "<headers>" and query file "<queryFile>" and body file "<bodyFile>"

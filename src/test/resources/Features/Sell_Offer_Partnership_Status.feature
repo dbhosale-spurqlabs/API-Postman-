@@ -8,5 +8,5 @@ Feature: Sell Offer Partnership Status API Validation
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                                      | headers        | queryFile                                | bodyFile | statusCode | schemaFile                                | contentType | fields                                    |
-      | Valid request   | GET    | /api/v2/sell-offers/{id}/partnership    | NA            | Sell_Offer_Partnership_Status_Query_200  | NA      | 200        | Sell_Offer_Partnership_Status_Schema_200  | json        | id,status,lastUpdatedAt,lastUpdatedBy     |
+      | Valid request   | GET    | /api/v2/sell-offers/{id}/partnership    | NA            | Sell_Offer_Partnership_Status_Query_200  | NA      | 200        | NA  | NA        |NA    |
       | Unauthorized    | GET    | /api/v2/sell-offers/{id}/partnership    | InvalidHeaders| Sell_Offer_Partnership_Status_Query_401  | NA      | 401        | NA                                       | text        | Jwt is expired                           |

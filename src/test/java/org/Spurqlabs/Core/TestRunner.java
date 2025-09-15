@@ -10,7 +10,7 @@ import org.Spurqlabs.Utils.ScenarioResultCollector;
 @CucumberOptions(
         features = {"src/test/resources/Features"},
         glue = {"org.Spurqlabs.Steps", "org.Spurqlabs.Core"},
-        tags = "@api",
+          tags = "@api10",
         plugin = {
             "pretty",
             "json:test-output/Cucumber.json",

@@ -181,11 +181,163 @@ public class Hooks extends TestContext {
             }
             
             System.out.println("Successfully stored additional deal details");
+            
+            // Check if secondary setup is enabled
+            String secondarySetupEnabled = getFrameworkConfig("SecondarySetupEnabled");
+            if (secondarySetupEnabled != null && secondarySetupEnabled.equalsIgnoreCase("true")) {
+                try {
+                    System.out.println("Starting secondary seller setup process...");
+                    
+                    // Step 1: Create Draft Sell Offer
+                    String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
+                    if (draftSellOfferMethod == null) {
+                        throw new RuntimeException("DraftSellOfferMethod not found in FrameworkConfig");
+                    }
+
+                    String draftSellOfferUrl = getFrameworkConfig("DraftSellOfferUrl");
+                    if (draftSellOfferUrl == null) {
+                        throw new RuntimeException("DraftSellOfferUrl not found in FrameworkConfig");
+                    }
+
+                    String draftSellOfferBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftSellOfferRequestBody");
+                    String draftSellOfferRequestBodyStr = JsonFileReader.getJsonAsString(draftSellOfferBodyPath);
+                    
+                    if (draftSellOfferRequestBodyStr == null) {
+                        throw new RuntimeException("Failed to read draft sell offer request body from: " + draftSellOfferBodyPath);
+                    }
+
+                    // Modify request body with unique identifiers
+                    JSONObject requestJson = new JSONObject(draftSellOfferRequestBodyStr);
+                    String uniqueBorrowerName = "SecBorrower_" + System.currentTimeMillis();
+                    requestJson.put("borrowerName", uniqueBorrowerName);
+                    
+                    // Send Draft Sell Offer request
+                    Response draftSellOfferResponse = APIUtility.sendRequest(
+                            draftSellOfferMethod, 
+                            baseUrl + draftSellOfferUrl, 
+                            headers, 
+                            null, 
+                            requestJson.toString()
+                    );
+                    
+                    if (draftSellOfferResponse == null) {
+                        throw new RuntimeException("No response received from draft sell offer request");
+                    }
+
+                    if (draftSellOfferResponse.getStatusCode() != 201 && draftSellOfferResponse.getStatusCode() != 200) {
+                        throw new RuntimeException("Draft sell offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() + 
+                                ", Response: " + draftSellOfferResponse.getBody().asString());
+                    }
+
+                    // Extract id from Location header
+                    String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
+                    if (sellOfferLocation == null || sellOfferLocation.trim().isEmpty()) {
+                        throw new RuntimeException("No Location header in draft sell offer response");
+                    }
+
+                    // Extract the id from the Location header (assume last path segment)
+                    String[] parts = sellOfferLocation.split("/");
+                    String secondaryDraftId = parts[parts.length - 1];
+                    
+                    // Store secondary details with the same pattern as primary deal details
+                    DealDetailsManager.put("secondaryDealId", secondaryDraftId);
+                    DealDetailsManager.put("secondaryBorrowerName", uniqueBorrowerName);
+                    
+                    // Also save as secondorydrftid as originally requested (for backward compatibility)
+                    DealDetailsManager.put("secondorydrftid", secondaryDraftId);
+                    System.out.println("Successfully created secondary draft with ID: " + secondaryDraftId);
+                    
+                    // Step 2: Get Sell Offer Details
+                    String getSellOfferMethod = "GET";
+                    String getSellOfferUrl = baseUrl + "/api/v2/sell-offers/" + secondaryDraftId;
+                    
+                    Response getSellOfferResponse = APIUtility.sendRequest(getSellOfferMethod, getSellOfferUrl, headers, null, null);
+                    
+                    if (getSellOfferResponse == null) {
+                        throw new RuntimeException("No response received from get sell offer request");
+                    }
+
+                    if (getSellOfferResponse.getStatusCode() != 200) {
+                        throw new RuntimeException("Get sell offer details failed with status code: " + getSellOfferResponse.getStatusCode() + 
+                                ", Response: " + getSellOfferResponse.getBody().asString());
+                    }
+
+                    // Print response structure for debugging
+                    System.out.println("Secondary sell offer response structure: " + getSellOfferResponse.getBody().asString());
+
+                    // Extract and validate secondary deal details
+                    // Note: The response structure is different from primary setup
+                    // Primary setup extracts from result[0].id, but secondary extracts directly
+                    // Use String.valueOf() to handle cases where the API returns numbers instead of strings
+                    String secondaryDataRoomId = String.valueOf(getSellOfferResponse.path("dataRoomId"));
+                    String secondaryBorrowerCountry = String.valueOf(getSellOfferResponse.path("borrowerCountry"));
+                    String secondarySellOfferSize = String.valueOf(getSellOfferResponse.path("sellOfferSize"));
+                    String secondaryCurrency = String.valueOf(getSellOfferResponse.path("currency"));
+                    String secondarySellOfferType = String.valueOf(getSellOfferResponse.path("sellOfferType"));
+                    String secondaryState = String.valueOf(getSellOfferResponse.path("state"));
+                    
+                    // Check if response has a result array structure similar to primary setup
+                    Object resultArray = getSellOfferResponse.path("result");
+                    if (resultArray != null) {
+                        // If response has a result array, extract from it like primary setup
+                        System.out.println("Detected result array in secondary response, using array structure");
+                        secondaryDataRoomId = String.valueOf(getSellOfferResponse.path("result[0].dataRoomId"));
+                        secondaryBorrowerCountry = String.valueOf(getSellOfferResponse.path("result[0].borrowerCountry"));
+                        secondarySellOfferSize = String.valueOf(getSellOfferResponse.path("result[0].sellOfferSize"));
+                        secondaryCurrency = String.valueOf(getSellOfferResponse.path("result[0].currency"));
+                        secondarySellOfferType = String.valueOf(getSellOfferResponse.path("result[0].sellOfferType"));
+                        secondaryState = String.valueOf(getSellOfferResponse.path("result[0].state"));
+                    }
+                    
+                    // Validate required fields
+                    if (secondaryDataRoomId == null || secondaryDataRoomId.equals("null") ||
+                        secondaryDraftId == null || secondaryDraftId.equals("null") || 
+                        uniqueBorrowerName == null || uniqueBorrowerName.equals("null")) {
+                        throw new RuntimeException("Missing required secondary deal details in response");
+                    }
+                    
+                    // Store secondary data room ID in a consistent way with primary details
+                    DealDetailsManager.put("secondaryDataRoomId", secondaryDataRoomId);
+                    // Also store as secondorydataRoomid as originally requested
+                    DealDetailsManager.put("secondorydataRoomid", secondaryDataRoomId);
+                    
+                    // Store additional details from the response in a consistent naming pattern
+                    DealDetailsManager.put("secondaryBorrowerCountry", secondaryBorrowerCountry);
+                    DealDetailsManager.put("secondarySellOfferSize", secondarySellOfferSize);
+                    DealDetailsManager.put("secondaryCurrency", secondaryCurrency);
+                    DealDetailsManager.put("secondarySellOfferType", secondarySellOfferType);
+                    DealDetailsManager.put("secondaryState", secondaryState);
+                    
+                    // Also store with sec prefix as originally implemented (for backward compatibility)
+                    DealDetailsManager.put("secBorrowerName", uniqueBorrowerName);
+                    DealDetailsManager.put("secBorrowerCountry", secondaryBorrowerCountry);
+                    DealDetailsManager.put("secSellOfferSize", secondarySellOfferSize);
+                    DealDetailsManager.put("secCurrency", secondaryCurrency);
+                    DealDetailsManager.put("secSellOfferType", secondarySellOfferType);
+                    DealDetailsManager.put("secState", secondaryState);
+                    
+                    // Print details of stored secondary details for debugging
+                    System.out.println("Successfully retrieved and stored secondary deal details");
+                    System.out.println("Stored secondary deal details:");
+                    System.out.println(" - secondaryDealId: " + DealDetailsManager.get("secondaryDealId"));
+                    System.out.println(" - secondaryDataRoomId: " + DealDetailsManager.get("secondaryDataRoomId"));
+                    System.out.println(" - secondaryBorrowerName: " + DealDetailsManager.get("secondaryBorrowerName"));
+                    
+                    System.out.println("Secondary seller setup completed successfully");
+                } catch (Exception e) {
+                    System.err.println("Error in secondary seller setup: " + e.getMessage());
+                    e.printStackTrace();
+                    System.err.println("Continuing with test execution despite secondary setup failure");
+                    // Not throwing exception to allow tests to continue even if secondary setup fails
+                }
+            }
         } catch (Exception e) {
             System.err.println("Error in test setup process: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Test setup failed", e);
         }
+
+
 
     }
 
@@ -466,4 +618,46 @@ public class Hooks extends TestContext {
             throw new RuntimeException("Publish Sell Offer failed", e);
         }
     }
+    @Before("@draftSellOfferId")
+public void beforeScenarioDraftSellOfferId() throws IOException {
+    try {
+        String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
+        String baseUrl = getFrameworkConfig("BaseUrl");
+        String draftSellOfferUrl = getFrameworkConfig("DraftSellOfferUrl");
+        String draftSellOfferBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftSellOfferRequestBody");
+        Object draftSellOfferRequestBody = JsonFileReader.getJsonAsString(draftSellOfferBodyPath);
+        if (draftSellOfferRequestBody == null) {
+            throw new RuntimeException("Failed to read Draft Sell Offer request body from: " + draftSellOfferBodyPath);
+        }
+        // Send Draft Sell Offer request
+        Response draftSellOfferResponse = APIUtility.sendRequest(
+            draftSellOfferMethod,
+            baseUrl + draftSellOfferUrl,
+            headers,
+            null,
+            draftSellOfferRequestBody
+        );
+        if (draftSellOfferResponse == null) {
+            throw new RuntimeException("No response received from Draft Sell Offer request");
+        }
+        if (draftSellOfferResponse.getStatusCode() != 201 && draftSellOfferResponse.getStatusCode() != 200) {
+            throw new RuntimeException("Draft Sell Offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() +
+                    ", Response: " + draftSellOfferResponse.getBody().asString());
+        }
+        // Extract id from Location header
+        String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
+        if (sellOfferLocation == null || sellOfferLocation.trim().isEmpty()) {
+            throw new RuntimeException("No Location header in Draft Sell Offer response");
+        }
+        // Extract the id from the Location header (assume last path segment)
+        String[] parts = sellOfferLocation.split("/");
+        String sellOfferId = parts[parts.length - 1];
+        DealDetailsManager.put("sellOfferId", sellOfferId);
+        System.out.println("Successfully extracted and stored Sell Offer ID: " + sellOfferId);
+    } catch (Exception e) {
+        System.err.println("Error in @draftSellOfferId: " + e.getMessage());
+        e.printStackTrace();
+        throw new RuntimeException("Draft Sell Offer ID extraction failed", e);
+    }
+}
 }

@@ -1,0 +1,11 @@
+{
+  "id": "{{id}}",
+  "borrowerName": "",
+  "borrowerCountry": "",
+  "sellOfferSize": -1000,
+  "currency": "INVALID",
+  "sellOfferPrice": -95.5,
+  "documentationType": "INVALID_TYPE",
+  "sellOfferType": "INVALID_TYPE",
+  "state": "INVALID_STATE"
+}

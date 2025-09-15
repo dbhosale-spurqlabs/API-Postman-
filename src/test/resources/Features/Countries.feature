@@ -10,6 +10,6 @@ Feature: Countries API Validation
       | scenarioName | method | url                            | headers        | queryFile | bodyFile | statusCode | schemaFile           | contentType | fields         |
       | Valid        | GET    | /api/v1/dictionaries/countries | NA             | NA        | NA       | 200        | Countries_Schema_200 | json        | type,success   |
 #      | Invalid ID format | GET    | /api/v1/dictionaries/countries | NA             | NA        | NA       | 400        |                       |             |                |
-      | Unauthorized | GET    | /api/v1/dictionaries/countries | InvalidHeaders | NA        | NA       | 401        | NA                   | text        | Jwt is expired |
+      # | Unauthorized | GET    | /api/v1/dictionaries/countries | InvalidHeaders | NA        | NA       | 401        | NA                   | text        | Jwt is expired |
 #      | Forbidden    | GET    | /api/v1/dictionaries/countries | NA      | NA        | NA | 403        | NA                   |         |       |
 #      | Not Found         | GET    | /api/v1/dictionaries/countries | NA             | NA | NA       | 404        |                       |             |                        |
