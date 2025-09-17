@@ -1,31 +1,182 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["folders"],
+  "required": ["id", "borrowerName", "state"],
   "properties": {
+    "id": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "userEmail": {
+      "type": "string"
+    },
+    "userDesignation": {
+      "type": "string"
+    },
+    "userMpId": {
+      "type": "string"
+    },
+    "userMpName": {
+      "type": "string"
+    },
+    "userCountry": {
+      "type": "string"
+    },
+    "originLoanId": {
+      "type": ["string", "null"]
+    },
+    "borrowerName": {
+      "type": "string"
+    },
+    "borrowerType": {
+      "type": "string"
+    },
+    "borrowerCountry": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "sic": {
+      "type": "string"
+    },
+    "parent": {
+      "type": "string"
+    },
+    "guarantor": {
+      "type": "string"
+    },
+    "loanActiveDate": {
+      "type": "integer"
+    },
+    "loanMaturityDate": {
+      "type": "integer"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "trancheType": {
+      "type": "string"
+    },
+    "marketSegment": {
+      "type": ["string", "null"]
+    },
+    "interestRate": {
+      "type": ["integer", "null"]
+    },
+    "interestRateType": {
+      "type": "string"
+    },
+    "benchmark": {
+      "type": ["string", "null"]
+    },
+    "margin": {
+      "type": ["number", "null"]
+    },
+    "lenderName": {
+      "type": "string"
+    },
+    "lenderAgentName": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "loanPurpose": {
+      "type": "string"
+    },
+    "ranking": {
+      "type": "string"
+    },
+    "security": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "remarks": {
+      "type": ["string", "null"]
+    },
+    "sellOfferSize": {
+      "type": "integer"
+    },
+    "sellOfferPrice": {
+      "type": "integer"
+    },
+    "minimumTicketSize": {
+      "type": "integer"
+    },
+    "maximumTicketSize": {
+      "type": "integer"
+    },
+    "sellOfferType": {
+      "type": "string"
+    },
+    "documentationType": {
+      "type": ["string", "null"]
+    },
+    "riskParticipationFees": {
+      "type": "integer"
+    },
+    "expiryDate": {
+      "type": "integer"
+    },
+    "inviteOnly": {
+      "type": "boolean"
+    },
+    "state": {
+      "type": "string"
+    },
+    "acceptedAmount": {
+      "type": "integer"
+    },
+    "ndaDocId": {
+      "type": ["string", "null"]
+    },
+    "dataRoomId": {
+      "type": ["string", "null"]
+    },
+    "publishedByUserId": {
+      "type": ["string", "null"]
+    },
+    "publishedByUserEmail": {
+      "type": ["string", "null"]
+    },
+    "publishedByUserName": {
+      "type": ["string", "null"]
+    },
+    "publishedDate": {
+      "type": ["string", "null"]
+    },
+    "invitees": {
+      "type": "array"
+    },
+    "bids": {
+      "type": "array"
+    },
+    "bid": {
+      "type": ["object", "null"]
+    },
     "folders": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "parentId", "createdAt"],
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parentId": {
-            "type": ["string", "null"],
-            "format": "uuid"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          }
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "parentId": { "type": ["string", "null"] },
+          "createdAt": { "type": "string" }
         }
       }
     }
-  }
+  },
+  "additionalProperties": true
 }

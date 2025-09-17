@@ -9,7 +9,7 @@
       "type": "string"
     },
     "timestamp": {
-      "type": "string"
+      "type": "string" 
     },
     "message": {
       "type": "string"
@@ -127,7 +127,7 @@
               "type": "string"
             },
             "ndaDocId": {
-                  "type": ["string", "null"]
+              "type": ["string", "null"]
             },
             "mine": {
               "type": "boolean"
@@ -968,7 +968,7 @@
                           "type": "null"
                         },
                         "investorProbability": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "dealNdaDocId": {
                           "type": "null"

@@ -1,0 +1,16 @@
+{
+    "loanType": "Term Loan",
+    "currencyCode": "USD",
+    "amount": 1000000,
+    "borrowerName": "Test Borrower",
+    "assetType": "Commercial Real Estate",
+    "draft": true,
+    "isPublished": false,
+    "status": "Draft",
+    "description": "Test draft sell offer",
+    "maturityDate": "2026-09-16",
+    "interestRate": 5.5,
+    "interestRateType": "Fixed",
+    "country": "USA",
+    "city": "New York"
+}

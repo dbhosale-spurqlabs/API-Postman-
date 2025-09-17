@@ -23,9 +23,34 @@ public class JsonFileReader {
     }
 
     public static Map<String, String> getQueryParamsFromJson(String filePath) throws IOException {
-        String jsonContent = new String(Files.readAllBytes(Paths.get(filePath)));
-        return new Gson().fromJson(jsonContent, new TypeToken<Map<String, String>>() {
-        }.getType());
+        if (filePath == null || filePath.trim().isEmpty()) {
+            return null;
+        }
+
+        // Read the content of the file
+        String content = new String(Files.readAllBytes(Paths.get(filePath))).trim();
+        Map<String, String> params = new java.util.HashMap<>();
+
+        try {
+            // First try to parse as JSON
+            if (content.startsWith("{")) {
+                return new Gson().fromJson(content, new TypeToken<Map<String, String>>() {}.getType());
+            }
+        } catch (Exception e) {
+            // If JSON parsing fails, continue to try as query string
+        }
+
+        // Parse as query string (key=value pairs)
+        if (!content.isEmpty()) {
+            for (String pair : content.split("&")) {
+                String[] keyValue = pair.split("=", 2);
+                if (keyValue.length == 2) {
+                    params.put(keyValue[0].trim(), keyValue[1].trim());
+                }
+            }
+        }
+
+        return params;
     }
 
     // Helper to get value from nested JSON using dot/bracket notation

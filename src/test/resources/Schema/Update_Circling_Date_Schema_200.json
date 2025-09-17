@@ -1,39 +1,52 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["id", "circlingDate", "updatedAt", "updatedBy"],
   "properties": {
-    "id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "circlingDate": {
-      "type": "string",
-      "format": "date"
-    },
-    "updatedAt": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updatedBy": {
+    "type": { "type": "string" },
+    "shortDescription": { "type": "string" },
+    "longDescription": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "success": { "type": "string" },
+    "success_message": { "type": "string" },
+    "data": {
       "type": "object",
-      "required": ["id", "firstName", "lastName", "email"],
       "properties": {
-        "id": {
+        "id": { 
           "type": "string",
           "format": "uuid"
         },
-        "firstName": {
-          "type": "string"
+        "circling_date": { 
+          "type": ["string", "null"],
+          "format": "date-time"
         },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
+        "updated_at": { 
           "type": "string",
-          "format": "email"
-        }
-      }
+          "format": "date-time"
+        },
+        "updated_by": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          "required": ["id", "first_name", "last_name", "email"]
+        },
+        "message": { "type": "string" }
+      },
+      "required": ["id", "message"]
     }
-  }
+  },
+  "required": ["type", "data"]
 }

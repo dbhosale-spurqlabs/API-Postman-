@@ -20,6 +20,10 @@ public class TestContextLogger extends TestContext {
         TestContextLogger.setStringContext(data, value);
         data = TestContextLogger.removeSpecialCharsFromString(data);
         value = TestContextLogger.removeDoubleEmptySpaces(value);
-        scenarioLogger.log(data + ":" + value);
+        if (scenarioLogger != null) {
+            scenarioLogger.log(data + ":" + value);
+        } else {
+            System.out.println(data + ":" + value); // Fallback to console logging
+        }
     }
 }

@@ -9,5 +9,5 @@ Feature: Upload NDA
     Then User verifies fields in response: "<contentType>" with content type "<fields>"
     Examples:
       | scenarioName    | method | url                | headers        | queryFile | bodyFile            | statusCode | schemaFile            | contentType | fields         |
-      | Valid request   | POST   | /api/v1/documents  | NA            | NA        | Upload_NDA_Body_200 | 400        | Upload_NDA_Schema_200 | json       | NA             |
+      | Valid request   | POST   | /api/v1/documents  | NA            | NA        | Upload_NDA_Body_200 | 400        | Upload_NDA_Schema_200 | json       | error_description=fileBody data is required |
       | Unauthorized    | POST   | /api/v1/documents  | InvalidHeaders | NA        | Upload_NDA_Body_401 | 401        | NA                   | text        | Jwt is expired |

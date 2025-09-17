@@ -35,13 +35,23 @@
         "members": {
           "type": "array",
           "items": {}
+        },
+        "group_type": {
+          "type": "string"
+        },
+        "deal_statuses": {
+          "type": "array",
+          "items": {}
+        },
+        "organizations": {
+          "type": "array",
+          "items": {}
         }
       },
       "required": [
         "id",
         "name",
-        "is_active",
-        "members"
+        "is_active"
       ]
     }
   },

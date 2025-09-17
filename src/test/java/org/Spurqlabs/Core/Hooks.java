@@ -1,14 +1,4 @@
-  
-
 package org.Spurqlabs.Core;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
-import io.cucumber.java.Scenario;
-import io.restassured.response.Response;
-import org.Spurqlabs.Utils.*;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,23 +8,117 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.Spurqlabs.Utils.APIUtility;
+import org.Spurqlabs.Utils.DealDetailsManager;
+import org.Spurqlabs.Utils.FrameworkConfigReader;
 import static org.Spurqlabs.Utils.FrameworkConfigReader.getFrameworkConfig;
+import org.Spurqlabs.Utils.JsonFileReader;
+import org.Spurqlabs.Utils.ScenarioResultCollector;
+import org.Spurqlabs.Utils.TestContextLogger;
+import org.Spurqlabs.Utils.TokenManager;
+import org.json.JSONObject;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 
 public class Hooks extends TestContext {
+    
+    private static final Map<String, String> headers = new HashMap<>();
+    protected Scenario scenarioLogger;
+    protected String scenarioName;
+    private static String configBaseUrl;
+    private static String draftEndpoint;
+    private static String publishEndpoint;
+    private static String viewEndpoint;
+    private static String configDraftMethod;
 
-    static Map<String, String> headers = new HashMap<>();
+    static {
+        configBaseUrl = getFrameworkConfig("BaseUrl");
+        draftEndpoint = getFrameworkConfig("DraftSellOfferEndpoint");
+        publishEndpoint = getFrameworkConfig("PublishSellOfferEndpoint");
+        viewEndpoint = getFrameworkConfig("ViewSellOfferEndpoint");
+        configDraftMethod = getFrameworkConfig("DraftSellOfferMethod");
+        
+        if (configBaseUrl == null || draftEndpoint == null || publishEndpoint == null || 
+            viewEndpoint == null || configDraftMethod == null) {
+            throw new IllegalStateException("Missing required configuration in Hooks initialization");
+        }
+    }
+    
+    public void extractDraftSellOfferId(Response response) {
+        String locationHeader = response.getHeader("Location");
+        if (locationHeader != null && locationHeader.contains("/sell-offers/")) {
+            String sellOfferId = locationHeader.substring(locationHeader.lastIndexOf("/") + 1);
+            DealDetailsManager.put("sellOfferId", sellOfferId);
+        }
+    }
 
+    public void extractPublishedSellOfferId(Response response) {
+        if (response.getStatusCode() == 200) {
+            // For publish endpoint, we use the same ID that was passed in the URL
+            String sellOfferId = String.valueOf(DealDetailsManager.get("id"));
+            if (sellOfferId != null && !sellOfferId.equals("null") && !sellOfferId.trim().isEmpty()) {
+                DealDetailsManager.put("publishedSellOfferId", sellOfferId);
+                TestContextLogger.scenarioLog("API", "Saved publishedSellOfferId: " + sellOfferId);
+            }
+        }
+    }
+
+    public void extractDataRoomId(Response response) {
+        if (response.getStatusCode() == 200) {
+            JSONObject jsonResponse = new JSONObject(response.getBody().asString());
+            String dataRoomId = jsonResponse.optString("dataRoomId");
+            String id = jsonResponse.optString("id");
+            
+            if (!dataRoomId.isEmpty()) {
+                // Store in memory
+                DealDetailsManager.put("secondoryroomid", dataRoomId); // Store with the key used in feature file
+                TestContextLogger.scenarioLog("API", "Extracted dataRoomId: " + dataRoomId);
+                
+                try {
+                    // Read existing DealDetails.json
+                    String dealDetailsPath = FrameworkConfigReader.getFrameworkConfig("DealDetails");
+                    String jsonContent = new String(Files.readAllBytes(Paths.get(dealDetailsPath)));
+                    JSONObject dealDetails = new JSONObject(jsonContent);
+                    
+                    // Update the JSON with new dataRoomId and publishsellid
+                    dealDetails.put("secondoryroomid", dataRoomId);
+                    if (!id.isEmpty()) {
+                        DealDetailsManager.put("publishsellid", id);
+                        dealDetails.put("publishsellid", id);
+                        TestContextLogger.scenarioLog("API", "Stored ID as publishsellid: " + id);
+                    }
+                    
+                    // Write back to file
+                    Files.write(Paths.get(dealDetailsPath), dealDetails.toString(2).getBytes());
+                    TestContextLogger.scenarioLog("API", "Updated DealDetails.json with dataRoomId and publishsellid");
+                } catch (Exception e) {
+                    TestContextLogger.scenarioLog("ERROR", "Failed to update DealDetails.json: " + e.getMessage());
+                    throw new RuntimeException("Failed to update DealDetails.json", e);
+                }
+            }
+        }
+    }
+
+
+
+ 
+  
+ 
     @BeforeAll
     public static void executeSetupProcess() throws IOException {
         try {
-            System.out.println("Starting test setup process...");
+            TestContextLogger.scenarioLog("API", "Starting test setup process");
 
             // Get authentication token
             String token = TokenManager.getToken();
             if (token == null || token.trim().isEmpty()) {
-                throw new RuntimeException("Failed to get valid authentication token");
+                throw new IllegalStateException("Failed to get valid authentication token");
             }
-            System.out.println("Successfully retrieved authentication token");
+            TestContextLogger.scenarioLog("API", "Successfully retrieved authentication token");
 
             headers.clear();
             headers.put("cookie", token);
@@ -43,58 +127,58 @@ public class Hooks extends TestContext {
 
             // Step 1: Create Draft
             String draftMethod = getFrameworkConfig("DraftMethod");
-            String baseUrl = getFrameworkConfig("BaseUrl");
             String draftUrlPath = getFrameworkConfig("DraftUrl");
             
-            if (draftMethod == null || baseUrl == null || draftUrlPath == null) {
-                throw new RuntimeException("Missing required configuration: DraftMethod, BaseUrl, or DraftUrl");
+            if (configDraftMethod == null || configBaseUrl == null || draftUrlPath == null) {
+                throw new IllegalStateException("Missing required configuration: DraftMethod, BaseUrl, or DraftUrl");
             }
 
-            String draftUrl = baseUrl + draftUrlPath;
-            System.out.println("Draft URL: " + draftUrl);
+            String draftUrl = configBaseUrl + draftUrlPath;
+            TestContextLogger.scenarioLog("API", "Creating draft at: " + draftUrl);
             String requestBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftRequestBody");
             Object draftRequestBody = JsonFileReader.getJsonAsString(requestBodyPath);
             
             if (draftRequestBody == null) {
-                throw new RuntimeException("Failed to read draft request body from: " + requestBodyPath);
+                throw new IllegalStateException("Failed to read draft request body from: " + requestBodyPath);
             }
 
             Response draftResponse = APIUtility.sendRequest(draftMethod, draftUrl, headers, null, draftRequestBody);
             if (draftResponse == null) {
-                throw new RuntimeException("No response received from draft creation request");
+                throw new IllegalStateException("No response received from draft creation request");
             }
 
             if (draftResponse.getStatusCode() != 200 && draftResponse.getStatusCode() != 201) {
-                throw new RuntimeException("Draft creation failed with status code: " + draftResponse.getStatusCode() + 
+                throw new IllegalStateException("Draft creation failed with status code: " + draftResponse.getStatusCode() + 
                     ", Response: " + draftResponse.getBody().asString());
             }
 
             String locationId = draftResponse.getHeader("Location");
             if (locationId == null || locationId.trim().isEmpty()) {
-                throw new RuntimeException("No Location header in draft response. Status code: " + draftResponse.getStatusCode() + 
+                throw new IllegalStateException("No Location header in draft response. Status code: " + draftResponse.getStatusCode() + 
                     ", Response: " + draftResponse.getBody().asString());
             }
 
-            System.out.println("Successfully created draft with Location: " + locationId);
+            TestContextLogger.scenarioLog("API", "Successfully created draft with Location: " + locationId);
 
             // Step 2: Primary Setup
             String primarySetupMethod = getFrameworkConfig("PrimarySetupMethod");
             if (primarySetupMethod == null) {
-                throw new RuntimeException("PrimarySetupMethod not found in FrameworkConfig");
+                throw new IllegalStateException("PrimarySetupMethod not found in FrameworkConfig");
             }
 
             String primarySetupUrlTemplate = getFrameworkConfig("PrimarySetupUrl");
             if (primarySetupUrlTemplate == null) {
-                throw new RuntimeException("PrimarySetupUrl not found in FrameworkConfig");
+                throw new IllegalStateException("PrimarySetupUrl not found in FrameworkConfig");
             }
 
-            String primarySetupUrl = baseUrl + primarySetupUrlTemplate.replace("{locationId}", locationId);
+            String primarySetupUrl = configBaseUrl + primarySetupUrlTemplate.replace("{locationId}", locationId);
+            TestContextLogger.scenarioLog("API", "Setting up primary configuration at: " + primarySetupUrl);
 
             String primarySetupBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("PrimarySetupRequestBody");
             String primarySetupRequestBodyStr = JsonFileReader.getJsonAsString(primarySetupBodyPath);
             
             if (primarySetupRequestBodyStr == null) {
-                throw new RuntimeException("Failed to read primary setup request body from: " + primarySetupBodyPath);
+                throw new IllegalStateException("Failed to read primary setup request body from: " + primarySetupBodyPath);
             }
 
             JSONObject primarySetupRequestBodyJson = new JSONObject(primarySetupRequestBodyStr);
@@ -104,33 +188,34 @@ public class Hooks extends TestContext {
             Response primarySetupResponse = APIUtility.sendRequest(primarySetupMethod, primarySetupUrl, headers, null, primarySetupRequestBodyJson.toString());
             
             if (primarySetupResponse == null) {
-                throw new RuntimeException("No response received from primary setup request");
+                throw new IllegalStateException("No response received from primary setup request");
             }
 
             if (primarySetupResponse.getStatusCode() != 200) {
-                throw new RuntimeException("Primary setup failed with status code: " + primarySetupResponse.getStatusCode() + 
+                throw new IllegalStateException("Primary setup failed with status code: " + primarySetupResponse.getStatusCode() + 
                     ", Response: " + primarySetupResponse.getBody().asString());
             }
 
-            System.out.println("Successfully completed primary setup");
+            TestContextLogger.scenarioLog("API", "Successfully completed primary setup");
 
             // Step 3: Get Deals
             String getDealsMethod = getFrameworkConfig("GetDealsMethod");
             String getDealsUrlPath = getFrameworkConfig("GetDealsUrl");
             
             if (getDealsMethod == null || getDealsUrlPath == null) {
-                throw new RuntimeException("GetDealsMethod or GetDealsUrl not found in FrameworkConfig");
+                throw new IllegalStateException("GetDealsMethod or GetDealsUrl not found in FrameworkConfig");
             }
 
-            String getDealsUrl = baseUrl + getDealsUrlPath + newBorrowerName;
+            String getDealsUrl = configBaseUrl + getDealsUrlPath + newBorrowerName;
+            TestContextLogger.scenarioLog("API", "Retrieving deals from: " + getDealsUrl);
             Response getDealsResponse = APIUtility.sendRequest(getDealsMethod, getDealsUrl, headers, null, null);
             
             if (getDealsResponse == null) {
-                throw new RuntimeException("No response received from get deals request");
+                throw new IllegalStateException("No response received from get deals request");
             }
 
             if (getDealsResponse.getStatusCode() != 200) {
-                throw new RuntimeException("Get deals failed with status code: " + getDealsResponse.getStatusCode() + 
+                throw new IllegalStateException("Get deals failed with status code: " + getDealsResponse.getStatusCode() + 
                     ", Response: " + getDealsResponse.getBody().asString());
             }
 
@@ -159,7 +244,7 @@ public class Hooks extends TestContext {
             DealDetailsManager.put("dataRoomId", dataRoomId);
             DealDetailsManager.put("trancheResponseId", trancheResponseId);
 
-            System.out.println("Successfully retrieved and stored deal details");
+            TestContextLogger.scenarioLog("API", "Successfully retrieved and stored deal details");
             // Store additional deal details
             DealDetailsManager.put("ndaDocId", getDealsResponse.path("result[0].ndaDocId"));
             DealDetailsManager.put("dealCreatorMpId", getDealsResponse.path("result[0].mpId"));
@@ -180,13 +265,13 @@ public class Hooks extends TestContext {
                 }
             }
             
-            System.out.println("Successfully stored additional deal details");
+            TestContextLogger.scenarioLog("API", "Successfully stored additional deal details");
             
             // Check if secondary setup is enabled
             String secondarySetupEnabled = getFrameworkConfig("SecondarySetupEnabled");
             if (secondarySetupEnabled != null && secondarySetupEnabled.equalsIgnoreCase("true")) {
                 try {
-                    System.out.println("Starting secondary seller setup process...");
+                    TestContextLogger.scenarioLog("API", "Starting secondary seller setup process");
                     
                     // Step 1: Create Draft Sell Offer
                     String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
@@ -213,13 +298,13 @@ public class Hooks extends TestContext {
                     
                     // Send Draft Sell Offer request
                     Response draftSellOfferResponse = APIUtility.sendRequest(
-                            draftSellOfferMethod, 
-                            baseUrl + draftSellOfferUrl, 
-                            headers, 
-                            null, 
-                            requestJson.toString()
+                        draftSellOfferMethod, 
+                        configBaseUrl + draftSellOfferUrl, 
+                        headers, 
+                        null, 
+                        requestJson.toString()
                     );
-                    
+
                     if (draftSellOfferResponse == null) {
                         throw new RuntimeException("No response received from draft sell offer request");
                     }
@@ -228,6 +313,9 @@ public class Hooks extends TestContext {
                         throw new RuntimeException("Draft sell offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() + 
                                 ", Response: " + draftSellOfferResponse.getBody().asString());
                     }
+
+                    // Log the full draft sell offer response body for debugging
+                    TestContextLogger.scenarioLog("API", "Draft sell offer response: " + draftSellOfferResponse.getBody().asString());
 
                     // Extract id from Location header
                     String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
@@ -242,14 +330,33 @@ public class Hooks extends TestContext {
                     // Store secondary details with the same pattern as primary deal details
                     DealDetailsManager.put("secondaryDealId", secondaryDraftId);
                     DealDetailsManager.put("secondaryBorrowerName", uniqueBorrowerName);
-                    
                     // Also save as secondorydrftid as originally requested (for backward compatibility)
                     DealDetailsManager.put("secondorydrftid", secondaryDraftId);
-                    System.out.println("Successfully created secondary draft with ID: " + secondaryDraftId);
+                    TestContextLogger.scenarioLog("API", "Successfully created secondary draft with ID: " + secondaryDraftId);
+
+                    // Step 1.5: Publish the Sell Offer
+                    String publishSellOfferMethod = getFrameworkConfig("PublishSellOfferMethod");
+                    String publishSellOfferUrlTemplate = getFrameworkConfig("PublishSellOfferUrl");
+                    String publishSellOfferUrl = configBaseUrl + publishSellOfferUrlTemplate.replace("{id}", secondaryDraftId);
+                    TestContextLogger.scenarioLog("API", "Publishing secondary sell offer. Draft ID: " + secondaryDraftId);
+                    TestContextLogger.scenarioLog("API", "Publish URL: " + publishSellOfferUrl);
+                    // Always send null body for publish request
+                    Response publishResponse = APIUtility.sendRequest(
+                        publishSellOfferMethod,
+                        publishSellOfferUrl,
+                        headers,
+                        null,
+                        null
+                    );
+                    if (publishResponse == null || (publishResponse.getStatusCode() != 200 && publishResponse.getStatusCode() != 201)) {
+                        throw new RuntimeException("Publish Sell Offer failed with status code: " + (publishResponse == null ? "null" : publishResponse.getStatusCode()) +
+                                ", Response: " + (publishResponse == null ? "null" : publishResponse.getBody().asString()));
+                    }
+                    TestContextLogger.scenarioLog("API", "Successfully published secondary Sell Offer with ID: " + secondaryDraftId);
                     
                     // Step 2: Get Sell Offer Details
                     String getSellOfferMethod = "GET";
-                    String getSellOfferUrl = baseUrl + "/api/v2/sell-offers/" + secondaryDraftId;
+                    String getSellOfferUrl = configBaseUrl + "/api/v2/sell-offers/" + secondaryDraftId;
                     
                     Response getSellOfferResponse = APIUtility.sendRequest(getSellOfferMethod, getSellOfferUrl, headers, null, null);
                     
@@ -263,71 +370,90 @@ public class Hooks extends TestContext {
                     }
 
                     // Print response structure for debugging
-                    System.out.println("Secondary sell offer response structure: " + getSellOfferResponse.getBody().asString());
+                    TestContextLogger.scenarioLog("API", "Secondary sell offer response: " + getSellOfferResponse.getBody().asString());
 
-                    // Extract and validate secondary deal details
-                    // Note: The response structure is different from primary setup
-                    // Primary setup extracts from result[0].id, but secondary extracts directly
-                    // Use String.valueOf() to handle cases where the API returns numbers instead of strings
-                    String secondaryDataRoomId = String.valueOf(getSellOfferResponse.path("dataRoomId"));
-                    String secondaryBorrowerCountry = String.valueOf(getSellOfferResponse.path("borrowerCountry"));
-                    String secondarySellOfferSize = String.valueOf(getSellOfferResponse.path("sellOfferSize"));
-                    String secondaryCurrency = String.valueOf(getSellOfferResponse.path("currency"));
-                    String secondarySellOfferType = String.valueOf(getSellOfferResponse.path("sellOfferType"));
-                    String secondaryState = String.valueOf(getSellOfferResponse.path("state"));
-                    
-                    // Check if response has a result array structure similar to primary setup
+                    // Extract and validate secondary deal details in a consistent way with primary setup
+                    // First, check if response has a result array structure and is non-empty
                     Object resultArray = getSellOfferResponse.path("result");
-                    if (resultArray != null) {
-                        // If response has a result array, extract from it like primary setup
+                    String secondaryDealId, secondaryDataRoomId, secondaryBorrowerName, secondaryUserId, secondaryUserName;
+                    String secondaryUserEmail, secondaryUserMpId, secondaryUserMpName, secondaryBorrowerCountry;
+                    String secondarySellOfferSize, secondaryCurrency, secondarySellOfferType, secondaryState;
+                    String secondaryPublishDate, secondaryIndustry, secondaryTrancheType;
+                    if (resultArray instanceof java.util.List && !((java.util.List<?>) resultArray).isEmpty()) {
                         System.out.println("Detected result array in secondary response, using array structure");
+                        secondaryDealId = String.valueOf(getSellOfferResponse.path("result[0].id"));
                         secondaryDataRoomId = String.valueOf(getSellOfferResponse.path("result[0].dataRoomId"));
+                        secondaryBorrowerName = String.valueOf(getSellOfferResponse.path("result[0].borrowerName"));
+                        secondaryUserId = String.valueOf(getSellOfferResponse.path("result[0].userId"));
+                        secondaryUserName = String.valueOf(getSellOfferResponse.path("result[0].userName"));
+                        secondaryUserEmail = String.valueOf(getSellOfferResponse.path("result[0].userEmail"));
+                        secondaryUserMpId = String.valueOf(getSellOfferResponse.path("result[0].userMpId"));
+                        secondaryUserMpName = String.valueOf(getSellOfferResponse.path("result[0].userMpName"));
                         secondaryBorrowerCountry = String.valueOf(getSellOfferResponse.path("result[0].borrowerCountry"));
                         secondarySellOfferSize = String.valueOf(getSellOfferResponse.path("result[0].sellOfferSize"));
                         secondaryCurrency = String.valueOf(getSellOfferResponse.path("result[0].currency"));
                         secondarySellOfferType = String.valueOf(getSellOfferResponse.path("result[0].sellOfferType"));
                         secondaryState = String.valueOf(getSellOfferResponse.path("result[0].state"));
+                        secondaryPublishDate = String.valueOf(getSellOfferResponse.path("result[0].publishedDate"));
+                        secondaryIndustry = String.valueOf(getSellOfferResponse.path("result[0].industry"));
+                        secondaryTrancheType = String.valueOf(getSellOfferResponse.path("result[0].trancheType"));
+                    } else {
+                        // If no result array or it's empty/null, extract directly from response
+                        System.out.println("No result array or result array is empty/null, extracting directly from response root");
+                        secondaryDealId = String.valueOf(getSellOfferResponse.path("id"));
+                        secondaryDataRoomId = String.valueOf(getSellOfferResponse.path("dataRoomId"));
+                        secondaryBorrowerName = String.valueOf(getSellOfferResponse.path("borrowerName"));
+                        secondaryUserId = String.valueOf(getSellOfferResponse.path("userId"));
+                        secondaryUserName = String.valueOf(getSellOfferResponse.path("userName"));
+                        secondaryUserEmail = String.valueOf(getSellOfferResponse.path("userEmail"));
+                        secondaryUserMpId = String.valueOf(getSellOfferResponse.path("userMpId"));
+                        secondaryUserMpName = String.valueOf(getSellOfferResponse.path("userMpName"));
+                        secondaryBorrowerCountry = String.valueOf(getSellOfferResponse.path("borrowerCountry"));
+                        secondarySellOfferSize = String.valueOf(getSellOfferResponse.path("sellOfferSize"));
+                        secondaryCurrency = String.valueOf(getSellOfferResponse.path("currency"));
+                        secondarySellOfferType = String.valueOf(getSellOfferResponse.path("sellOfferType"));
+                        secondaryState = String.valueOf(getSellOfferResponse.path("state"));
+                        secondaryPublishDate = String.valueOf(getSellOfferResponse.path("publishedDate"));
+                        secondaryIndustry = String.valueOf(getSellOfferResponse.path("industry"));
+                        secondaryTrancheType = String.valueOf(getSellOfferResponse.path("trancheType"));
                     }
-                    
                     // Validate required fields
-                    if (secondaryDataRoomId == null || secondaryDataRoomId.equals("null") ||
-                        secondaryDraftId == null || secondaryDraftId.equals("null") || 
-                        uniqueBorrowerName == null || uniqueBorrowerName.equals("null")) {
-                        throw new RuntimeException("Missing required secondary deal details in response");
+                    // Save all secondary details regardless of nulls, and print debug info
+                    String[][] secondaryDetails = {
+                        {"secondaryDealId", secondaryDealId},
+                        {"secondaryDataRoomId", secondaryDataRoomId},
+                        {"secondaryBorrowerName", secondaryBorrowerName},
+                        {"secondaryUserId", secondaryUserId},
+                        {"secondaryUserName", secondaryUserName},
+                        {"secondaryUserEmail", secondaryUserEmail},
+                        {"secondaryUserMpId", secondaryUserMpId},
+                        {"secondaryUserMpName", secondaryUserMpName},
+                        {"secondaryBorrowerCountry", secondaryBorrowerCountry},
+                        {"secondarySellOfferSize", secondarySellOfferSize},
+                        {"secondaryCurrency", secondaryCurrency},
+                        {"secondarySellOfferType", secondarySellOfferType},
+                        {"secondaryState", secondaryState},
+                        {"secondaryPublishDate", secondaryPublishDate},
+                        {"secondaryIndustry", secondaryIndustry},
+                        {"secondaryTrancheType", secondaryTrancheType},
+                        // Backward-compatible keys
+                        {"secondorydataRoomid", secondaryDataRoomId},
+                        {"secBorrowerName", secondaryBorrowerName},
+                        {"secBorrowerCountry", secondaryBorrowerCountry},
+                        {"secSellOfferSize", secondarySellOfferSize},
+                        {"secCurrency", secondaryCurrency},
+                        {"secSellOfferType", secondarySellOfferType},
+                        {"secState", secondaryState}
+                    };
+                    System.out.println("Saving secondary deal details to DealDetailsManager:");
+                    for (String[] entry : secondaryDetails) {
+                        DealDetailsManager.put(entry[0], entry[1]);
+                        System.out.println(" - " + entry[0] + ": " + entry[1]);
                     }
-                    
-                    // Store secondary data room ID in a consistent way with primary details
-                    DealDetailsManager.put("secondaryDataRoomId", secondaryDataRoomId);
-                    // Also store as secondorydataRoomid as originally requested
-                    DealDetailsManager.put("secondorydataRoomid", secondaryDataRoomId);
-                    
-                    // Store additional details from the response in a consistent naming pattern
-                    DealDetailsManager.put("secondaryBorrowerCountry", secondaryBorrowerCountry);
-                    DealDetailsManager.put("secondarySellOfferSize", secondarySellOfferSize);
-                    DealDetailsManager.put("secondaryCurrency", secondaryCurrency);
-                    DealDetailsManager.put("secondarySellOfferType", secondarySellOfferType);
-                    DealDetailsManager.put("secondaryState", secondaryState);
-                    
-                    // Also store with sec prefix as originally implemented (for backward compatibility)
-                    DealDetailsManager.put("secBorrowerName", uniqueBorrowerName);
-                    DealDetailsManager.put("secBorrowerCountry", secondaryBorrowerCountry);
-                    DealDetailsManager.put("secSellOfferSize", secondarySellOfferSize);
-                    DealDetailsManager.put("secCurrency", secondaryCurrency);
-                    DealDetailsManager.put("secSellOfferType", secondarySellOfferType);
-                    DealDetailsManager.put("secState", secondaryState);
-                    
-                    // Print details of stored secondary details for debugging
-                    System.out.println("Successfully retrieved and stored secondary deal details");
-                    System.out.println("Stored secondary deal details:");
-                    System.out.println(" - secondaryDealId: " + DealDetailsManager.get("secondaryDealId"));
-                    System.out.println(" - secondaryDataRoomId: " + DealDetailsManager.get("secondaryDataRoomId"));
-                    System.out.println(" - secondaryBorrowerName: " + DealDetailsManager.get("secondaryBorrowerName"));
-                    
-                    System.out.println("Secondary seller setup completed successfully");
+                    TestContextLogger.scenarioLog("API", "Secondary seller setup completed successfully");
                 } catch (Exception e) {
-                    System.err.println("Error in secondary seller setup: " + e.getMessage());
-                    e.printStackTrace();
-                    System.err.println("Continuing with test execution despite secondary setup failure");
+                    TestContextLogger.scenarioLog("ERROR", "Error in secondary seller setup: " + e.getMessage());
+                    TestContextLogger.scenarioLog("WARNING", "Continuing with test execution despite secondary setup failure");
                     // Not throwing exception to allow tests to continue even if secondary setup fails
                 }
             }
@@ -400,11 +526,94 @@ public class Hooks extends TestContext {
             }
 
             DealDetailsManager.put("locationId", locationId);
-            System.out.println("Successfully created draft with Location: " + locationId);
+            TestContextLogger.scenarioLog("API", "Successfully created draft with Location: " + locationId);
         } catch (Exception e) {
-            System.err.println("Error in @setUpDeal: " + e.getMessage());
-            e.printStackTrace();
+            TestContextLogger.scenarioLog("ERROR", "Error in @setUpDeal: " + e.getMessage());
             throw new RuntimeException("Deal setup failed", e);
+        }
+    }
+
+    @Before("@setupDataRoom")
+    public void beforeScenarioDataRoom() {
+        try {
+            // Step 1: Create draft sell offer by calling existing method
+            beforeScenarioExtractSellOfferId();
+            TestContextLogger.scenarioLog("API", "Successfully created draft sell offer using existing method");
+            
+            // Get the created sell offer ID
+            String sellOfferId = String.valueOf(DealDetailsManager.get("id"));
+            
+            if (sellOfferId == null || sellOfferId.equals("null") || sellOfferId.trim().isEmpty()) {
+                throw new RuntimeException("No valid sellOfferId found after draft creation");
+            }
+            
+            // Also save it as secondorysellid for backward compatibility
+            DealDetailsManager.put("secondorysellid", sellOfferId);
+            TestContextLogger.scenarioLog("API", "Saved secondorysellid: " + sellOfferId);
+            
+            // Step 2: Publish sell offer
+            if (sellOfferId == null || sellOfferId.equals("null") || sellOfferId.trim().isEmpty()) {
+                throw new RuntimeException("No valid sellOfferId found after draft creation");
+            }
+            
+            String publishUrl = configBaseUrl + "/api/v2/sell-offers/draft/" + sellOfferId + "/publish";
+            String publishMethod = "POST";
+            
+            // Get the publish request body from file
+            String publishBodyPath = getFrameworkConfig("Request_Bodies") + "Publish_Sell_Offer_Body_200.json";
+            String publishRequestBody = JsonFileReader.getJsonAsString(publishBodyPath);
+            
+            if (publishRequestBody == null) {
+                throw new RuntimeException("Failed to read publish request body from: " + publishBodyPath);
+            }
+            
+            // Update the ID in the request body
+            JSONObject publishBody = new JSONObject(publishRequestBody);
+            publishBody.put("id", sellOfferId);
+            
+            TestContextLogger.scenarioLog("API", "Publishing sell offer at URL: " + publishUrl);
+            TestContextLogger.scenarioLog("API", "Using sell offer ID: " + sellOfferId);
+            TestContextLogger.scenarioLog("API", "Publish request body: " + publishBody.toString());
+            
+            Response publishResponse = APIUtility.sendRequest(publishMethod, publishUrl, headers, null, publishBody.toString());
+            if (publishResponse == null) {
+                throw new RuntimeException("No response received from publish request");
+            }
+            if (publishResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Publish sell offer failed with status code: " + publishResponse.getStatusCode() + 
+                    ", Response: " + publishResponse.getBody().asString());
+            }
+            // Store published ID on successful 200 response
+            DealDetailsManager.put("publishedSellOfferId", sellOfferId);
+            // Also save as publishedsellid for backward compatibility
+            DealDetailsManager.put("publishedsellid", sellOfferId);
+            TestContextLogger.scenarioLog("API", "Successfully published sell offer with ID: " + sellOfferId);
+
+            // Step 3: Get sell offer details to extract dataRoomId
+            String viewUrl = configBaseUrl + "/api/v2/sell-offers/" + sellOfferId;
+            TestContextLogger.scenarioLog("API", "Fetching sell offer details from URL: " + viewUrl);
+            
+            Response viewResponse = APIUtility.sendRequest("GET", viewUrl, headers, null, null);
+            if (viewResponse == null) {
+                throw new RuntimeException("No response received from view sell offer request");
+            }
+            if (viewResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Get sell offer details failed with status code: " + viewResponse.getStatusCode() + 
+                    ", Response: " + viewResponse.getBody().asString());
+            }
+            extractDataRoomId(viewResponse);
+
+            // Verify we have the required dataRoomId
+            String dataRoomId = String.valueOf(DealDetailsManager.get("dataRoomId"));
+            if (dataRoomId == null || dataRoomId.equals("null") || dataRoomId.trim().isEmpty()) {
+                throw new RuntimeException("Failed to extract dataRoomId from response");
+            }
+
+            TestContextLogger.scenarioLog("API", "Successfully setup DataRoom with ID: " + dataRoomId);
+            
+        } catch (Exception e) {
+            TestContextLogger.scenarioLog("ERROR", "Failed to setup DataRoom: " + e.getMessage());
+            throw new RuntimeException("DataRoom setup failed", e);
         }
     }
 
@@ -455,11 +664,10 @@ public class Hooks extends TestContext {
             }
 
             DealDetailsManager.put("documentId", documentId);
-            System.out.println("Successfully uploaded document with ID: " + documentId);
+            TestContextLogger.scenarioLog("API", "Successfully uploaded document with ID: " + documentId);
 
         } catch (Exception e) {
-            System.err.println("Error in @uploadDoc: " + e.getMessage());
-            e.printStackTrace();
+            TestContextLogger.scenarioLog("ERROR", "Error in @uploadDoc: " + e.getMessage());
             throw new RuntimeException("Document upload failed", e);
         }
     }
@@ -504,7 +712,7 @@ public class Hooks extends TestContext {
             }
 
             String mainUrl = baseUrl + url;
-            System.out.println("Requesting folder permissions from: " + mainUrl);
+            TestContextLogger.scenarioLog("API", "Requesting folder permissions from: " + mainUrl);
 
             // Send request
             Response res = APIUtility.sendRequest(method, mainUrl, headers, null, null);
@@ -525,11 +733,10 @@ public class Hooks extends TestContext {
             }
 
             DealDetailsManager.put("dataRoomFileResourceID", resourceId);
-            System.out.println("Successfully retrieved folder permission with resource ID: " + resourceId);
+            TestContextLogger.scenarioLog("API", "Successfully retrieved folder permission with resource ID: " + resourceId);
 
         } catch (Exception e) {
-            System.err.println("Error in @GetFolderPermission: " + e.getMessage());
-            e.printStackTrace();
+            TestContextLogger.scenarioLog("ERROR", "Error in @GetFolderPermission: " + e.getMessage());
             throw new RuntimeException("Failed to get folder permission", e);
         }
     }
@@ -540,13 +747,24 @@ public class Hooks extends TestContext {
         boolean passed = !scenario.isFailed();
         ScenarioResultCollector.addResult(scenario.getName(), passed);
     }
-    /**
-     * Extracts the Sell Offer ID from the Location header after Draft Sell Offer creation,
-     * saves it to DealDetails.json, and makes it available for subsequent scenarios.
-     */
+
+ 
+
     @Before("@extractSellOfferId")
     public void beforeScenarioExtractSellOfferId() throws IOException {
         try {
+            // Refresh token to prevent 401 errors
+            String token = TokenManager.getToken();
+            if (token == null || token.trim().isEmpty()) {
+                throw new RuntimeException("Failed to get valid authentication token");
+            }
+            TestContextLogger.scenarioLog("API", "Successfully refreshed authentication token for sell offer operations");
+            
+            headers.clear();
+            headers.put("cookie", token);
+            headers.put("Accept", "application/json");
+            headers.put("Content-Type", "application/json");
+            
             // Prepare request for Draft Sell Offer
             String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
             String baseUrl = getFrameworkConfig("BaseUrl");
@@ -574,90 +792,61 @@ public class Hooks extends TestContext {
             String[] parts = sellOfferLocation.split("/");
             String sellOfferId = parts[parts.length - 1];
             DealDetailsManager.put("id", sellOfferId);
-            System.out.println("Successfully extracted and stored Sell Offer ID: " + sellOfferId);
+            TestContextLogger.scenarioLog("API", "Successfully extracted and stored Sell Offer ID: " + sellOfferId);
         } catch (Exception e) {
             System.err.println("Error in @extractSellOfferId: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Sell Offer ID extraction failed", e);
         }
     }
-      /**
-     * Publishes the Sell Offer before running Delete Sell Offer scenarios.
-     * Tag Delete_Sell_Offer.feature scenario with @publishSellOffer to use this hook.
-     */
-    @Before("@publishSellOffer")
-    public void beforeScenarioPublishSellOffer() throws IOException {
+
+      @Before("@publishselloffer")
+    public void beforeScenarioExtractSellOfferIdpublishing() throws IOException {
         try {
-            String publishMethod = getFrameworkConfig("PublishSellOfferMethod");
+            // Refresh token to prevent 401 errors
+            String token = TokenManager.getToken();
+            if (token == null || token.trim().isEmpty()) {
+                throw new RuntimeException("Failed to get valid authentication token");
+            }
+            TestContextLogger.scenarioLog("API", "Successfully refreshed authentication token for sell offer operations");
+            
+            headers.clear();
+            headers.put("cookie", token);
+            headers.put("Accept", "application/json");
+            headers.put("Content-Type", "application/json");
+            
+            // Prepare request for Draft Sell Offer
+            String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
             String baseUrl = getFrameworkConfig("BaseUrl");
-            String publishUrlTemplate = getFrameworkConfig("PublishSellOfferUrl");
-            String requestBodyPath = getFrameworkConfig("Request_Bodies") + "Publish_Sell_Offer_Body_200.json";
-            String requestBodyStr = JsonFileReader.getJsonAsString(requestBodyPath);
-            if (requestBodyStr == null) {
-                throw new RuntimeException("Failed to read publish sell offer request body from: " + requestBodyPath);
+            String draftSellOfferUrl = getFrameworkConfig("DraftSellOfferUrl");
+            String draftSellOfferBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftSellOfferRequestBody");
+            Object draftSellOfferRequestBody = JsonFileReader.getJsonAsString(draftSellOfferBodyPath);
+            if (draftSellOfferRequestBody == null) {
+                throw new RuntimeException("Failed to read Draft Sell Offer request body from: " + draftSellOfferBodyPath);
             }
-            // Replace {{id}} with the current id from DealDetailsManager
-            String sellOfferId = String.valueOf(DealDetailsManager.get("id"));
-            if (sellOfferId == null || sellOfferId.trim().isEmpty()) {
-                throw new RuntimeException("No Sell Offer ID found in DealDetailsManager");
+            // Send Draft Sell Offer request
+            Response draftSellOfferResponse = APIUtility.sendRequest(draftSellOfferMethod, baseUrl + draftSellOfferUrl, headers, null, draftSellOfferRequestBody);
+            if (draftSellOfferResponse == null) {
+                throw new RuntimeException("No response received from Draft Sell Offer request");
             }
-            requestBodyStr = requestBodyStr.replace("{{id}}", sellOfferId);
-            String publishUrl = baseUrl + publishUrlTemplate.replace("{id}", sellOfferId);
-            Response publishResponse = APIUtility.sendRequest(publishMethod, publishUrl, headers, null, requestBodyStr);
-            if (publishResponse == null) {
-                throw new RuntimeException("No response received from publish sell offer request");
+            if (draftSellOfferResponse.getStatusCode() != 201 && draftSellOfferResponse.getStatusCode() != 200) {
+                throw new RuntimeException("Draft Sell Offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() +
+                        ", Response: " + draftSellOfferResponse.getBody().asString());
             }
-            if (publishResponse.getStatusCode() != 200 && publishResponse.getStatusCode() != 201) {
-                throw new RuntimeException("Publish Sell Offer failed with status code: " + publishResponse.getStatusCode() +
-                        ", Response: " + publishResponse.getBody().asString());
+            // Extract id from Location header
+            String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
+            if (sellOfferLocation == null || sellOfferLocation.trim().isEmpty()) {
+                throw new RuntimeException("No Location header in Draft Sell Offer response");
             }
-            System.out.println("Successfully published Sell Offer with ID: " + sellOfferId);
+            // Extract the id from the Location header (assume last path segment)
+            String[] parts = sellOfferLocation.split("/");
+            String sellOfferId = parts[parts.length - 1];
+            DealDetailsManager.put("publishing_id", sellOfferId);
+            TestContextLogger.scenarioLog("API", "Successfully extracted and stored Sell Offer ID: " + sellOfferId);
         } catch (Exception e) {
-            System.err.println("Error in @publishSellOffer: " + e.getMessage());
+            System.err.println("Error in @extractSellOfferId: " + e.getMessage());
             e.printStackTrace();
-            throw new RuntimeException("Publish Sell Offer failed", e);
+            throw new RuntimeException("Sell Offer ID extraction failed", e);
         }
     }
-    @Before("@draftSellOfferId")
-public void beforeScenarioDraftSellOfferId() throws IOException {
-    try {
-        String draftSellOfferMethod = getFrameworkConfig("DraftSellOfferMethod");
-        String baseUrl = getFrameworkConfig("BaseUrl");
-        String draftSellOfferUrl = getFrameworkConfig("DraftSellOfferUrl");
-        String draftSellOfferBodyPath = getFrameworkConfig("Request_Bodies") + getFrameworkConfig("DraftSellOfferRequestBody");
-        Object draftSellOfferRequestBody = JsonFileReader.getJsonAsString(draftSellOfferBodyPath);
-        if (draftSellOfferRequestBody == null) {
-            throw new RuntimeException("Failed to read Draft Sell Offer request body from: " + draftSellOfferBodyPath);
-        }
-        // Send Draft Sell Offer request
-        Response draftSellOfferResponse = APIUtility.sendRequest(
-            draftSellOfferMethod,
-            baseUrl + draftSellOfferUrl,
-            headers,
-            null,
-            draftSellOfferRequestBody
-        );
-        if (draftSellOfferResponse == null) {
-            throw new RuntimeException("No response received from Draft Sell Offer request");
-        }
-        if (draftSellOfferResponse.getStatusCode() != 201 && draftSellOfferResponse.getStatusCode() != 200) {
-            throw new RuntimeException("Draft Sell Offer creation failed with status code: " + draftSellOfferResponse.getStatusCode() +
-                    ", Response: " + draftSellOfferResponse.getBody().asString());
-        }
-        // Extract id from Location header
-        String sellOfferLocation = draftSellOfferResponse.getHeader("Location");
-        if (sellOfferLocation == null || sellOfferLocation.trim().isEmpty()) {
-            throw new RuntimeException("No Location header in Draft Sell Offer response");
-        }
-        // Extract the id from the Location header (assume last path segment)
-        String[] parts = sellOfferLocation.split("/");
-        String sellOfferId = parts[parts.length - 1];
-        DealDetailsManager.put("sellOfferId", sellOfferId);
-        System.out.println("Successfully extracted and stored Sell Offer ID: " + sellOfferId);
-    } catch (Exception e) {
-        System.err.println("Error in @draftSellOfferId: " + e.getMessage());
-        e.printStackTrace();
-        throw new RuntimeException("Draft Sell Offer ID extraction failed", e);
-    }
-}
 }

@@ -1,0 +1,515 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer"
+    },
+    "reqId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "error": {
+      "type": "null"
+    },
+    "page": {
+      "type": "object", 
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        },
+        "pageNumber": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "next": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "total",
+        "totalPages",
+        "pageNumber",
+        "pageSize",
+        "next",
+        "previous"
+      ]
+    },
+    "result": {
+      "type": "array",
+      "items": [{
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "originLoanId": {
+            "type": "null"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "userDesignation": {
+            "type": "string"  
+          },
+          "mpId": {
+            "type": "string"
+          },
+          "mpName": {
+            "type": "string"
+          },
+          "arrangerLegalName": {
+            "type": "null"
+          },
+          "borrowerName": {
+            "type": "string"
+          },
+          "borrowerCountry": {
+            "type": "string"
+          },
+          "borrowerType": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "industry": {
+            "type": "string"
+          },
+          "sic": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "string"
+          },
+          "guarantor": {
+            "type": "string"
+          },
+          "documentationType": {
+            "type": "string"
+          },
+          "commitmentDate": {
+            "type": "integer"
+          },
+          "launchDate": {
+            "type": ["integer", "null"]
+          },
+          "publishedDate": {
+            "type": "integer"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "inviteOnly": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string"
+          },
+          "dataRoomId": {
+            "type": "string"
+          },
+          "ndaDocId": {
+            "type": ["string", "null"]
+          },
+          "mine": {
+            "type": "boolean"
+          },
+          "creatorMp": {
+            "type": "boolean"
+          },
+          "arranger": {
+            "type": "boolean"
+          },
+          "invitationStatus": {
+            "type": ["string", "null"]
+          },
+          "ndaType": {
+            "type": ["string", "null"]
+          },
+          "ndaResponseMethod": {
+            "type": ["string", "null"]
+          },
+          "ndaResponseType": {
+            "type": ["string", "null"]
+          },
+          "inviteLenderPermission": {
+            "type": "string"
+          },
+          "lenders": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "lenderInvitedByUserId": {
+                    "type": "string"
+                  },
+                  "lenderInvitedByUserName": {
+                    "type": "string"
+                  },
+                  "lenderInvitedByUserDesignation": {
+                    "type": "string"
+                  },
+                  "lenderInvitedByMpId": {
+                    "type": "string"
+                  },
+                  "lenderInvitedByMpName": {
+                    "type": "string"
+                  },
+                  "lenderUserId": {
+                    "type": "string"
+                  },
+                  "lenderMpId": {
+                    "type": "string"
+                  },
+                  "lenderOrganization": {
+                    "type": "string"
+                  },
+                  "lenderDesignation": {
+                    "type": "string"
+                  },
+                  "lenderFullName": {
+                    "type": "string"
+                  },
+                  "lenderContactNumber": {
+                    "type": "string"
+                  },
+                  "lenderEmailId": {
+                    "type": "string"
+                  },
+                  "lenderSelectedFromDl": {
+                    "type": "null"
+                  },
+                  "lenderInvitedAt": {
+                    "type": "integer"
+                  },
+                  "invitationStatus": {
+                    "type": ["string", "null"]
+                  },
+                  "dealViewed": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "dealNdaDocId": {
+                    "type": ["string", "null"]
+                  },
+                  "ndaViewed": {
+                    "type": "boolean"
+                  },
+                  "acceptedNdaDocId": {
+                    "type": "null"
+                  },
+                  "ndaAcceptedDate": {
+                    "type": "null"
+                  },
+                  "ndaSignedStatus": {
+                    "type": "boolean"
+                  },
+                  "dataRoomAccess": {
+                    "type": "boolean"
+                  },
+                  "dataRoomViewed": {
+                    "type": "boolean"
+                  },
+                  "invitedByLenderUserId": {
+                    "type": "null"
+                  },
+                  "invitedByLenderUserName": {
+                    "type": "null"
+                  },
+                  "invitedByLenderUserEmail": {
+                    "type": "null"
+                  },
+                  "invitedByLenderMpId": {
+                    "type": "null"
+                  },
+                  "invitedByLenderMpName": {
+                    "type": "null"
+                  },
+                  "lenderMp": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "lenderMpId": {
+                        "type": ["string", "null"]
+                      },
+                      "lenderOrganization": {
+                        "type": "string"
+                      },
+                      "invitationGroupId": {
+                        "type": ["string", "null"]
+                      },
+                      "invitationLetterId": {
+                        "type": ["string", "null"]
+                      },
+                      "investorProbability": {
+                        "type": ["string", "null"]
+                      },
+                      "dealNdaDocId": {
+                        "type": ["string", "null"]
+                      },
+                      "ndaSignedStatus": {
+                        "type": "boolean"
+                      },
+                      "acceptedNdaDocId": {
+                        "type": "null"
+                      },
+                      "ndaAcceptedBy": {
+                        "type": "null"
+                      },
+                      "ndaAcceptedDate": {
+                        "type": "null"
+                      },
+                      "dataRoomAccess": {
+                        "type": "boolean"
+                      },
+                      "ndaSkippedStatus": {
+                        "type": "boolean"
+                      },
+                      "ndaSkippedBy": {
+                        "type": ["string", "null"]
+                      },
+                      "ndaSkippedDate": {
+                        "type": ["integer", "null"]
+                      },
+                      "invitedByUserId": {
+                        "type": "string"
+                      },
+                      "invitedByUserName": {
+                        "type": "string"
+                      },
+                      "invitedByUserEmail": {
+                        "type": "string"
+                      },
+                      "invitedByUserDesignation": {
+                        "type": "string"
+                      },
+                      "invitedByMpId": {
+                        "type": "string"
+                      },
+                      "invitedByMpName": {
+                        "type": "string"
+                      },
+                      "hasArrangerRole": {
+                        "type": "boolean"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "lenderMpId",
+                      "lenderOrganization",
+                      "invitationGroupId",
+                      "invitationLetterId",
+                      "investorProbability", 
+                      "dealNdaDocId",
+                      "ndaSignedStatus",
+                      "acceptedNdaDocId",
+                      "ndaAcceptedBy",
+                      "ndaAcceptedDate",
+                      "dataRoomAccess",
+                      "ndaSkippedStatus",
+                      "ndaSkippedBy",
+                      "ndaSkippedDate",
+                      "invitedByUserId",
+                      "invitedByUserName",
+                      "invitedByUserEmail",
+                      "invitedByUserDesignation",
+                      "invitedByMpId",
+                      "invitedByMpName",
+                      "hasArrangerRole",
+                      "state",
+                      "status"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "lenderInvitedByUserId",
+                  "lenderInvitedByUserName", 
+                  "lenderInvitedByUserDesignation",
+                  "lenderInvitedByMpId",
+                  "lenderInvitedByMpName",
+                  "lenderUserId",
+                  "lenderMpId",
+                  "lenderOrganization",
+                  "lenderDesignation",
+                  "lenderFullName",
+                  "lenderContactNumber",
+                  "lenderEmailId",
+                  "lenderSelectedFromDl",
+                  "lenderInvitedAt",
+                  "invitationStatus",
+                  "dealViewed",
+                  "status",
+                  "dealNdaDocId",
+                  "ndaViewed",
+                  "acceptedNdaDocId", 
+                  "ndaAcceptedDate",
+                  "ndaSignedStatus",
+                  "dataRoomAccess",
+                  "dataRoomViewed",
+                  "invitedByLenderUserId",
+                  "invitedByLenderUserName",
+                  "invitedByLenderUserEmail",
+                  "invitedByLenderMpId",
+                  "invitedByLenderMpName",
+                  "lenderMp"
+                ]
+              }
+            ]
+          },
+          "responses": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "investorId": {
+                    "type": "string" 
+                  },
+                  "lenderUserId": {
+                    "type": ["string", "null"]
+                  },
+                  "lenderUserEmail": {
+                    "type": "string"
+                  },
+                  "lenderUserName": {
+                    "type": ["string", "null"]
+                  },
+                  "lenderUserDesignation": {
+                    "type": ["string", "null"]
+                  },
+                  "lenderMpId": {
+                    "type": ["string", "null"]
+                  },
+                  "lenderUserOrganization": {
+                    "type": "string"
+                  },
+                  "lenderUserCountry": {
+                    "type": ["string", "null"]
+                  },
+                  "notes": {
+                    "type": ["string", "null"]
+                  },
+                  "responseReceivedOn": {
+                    "type": "integer"
+                  },
+                  "commitmentLetterId": {
+                    "type": "null"
+                  },
+                  "commitmentLetterDate": {
+                    "type": ["integer", "null"]
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "initiatedByArranger": {
+                    "type": "boolean"
+                  },
+                  "rejectionReason": {
+                    "type": "string"
+                  },
+                  "otherDocs": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "kycCompletions": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "internalApprovals": {
+                    "type": "array", 
+                    "items": {}
+                  },
+                  "trancheResponses": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "originLoanId",
+          "userId",
+          "userName",
+          "userDesignation", 
+          "mpId",
+          "mpName",
+          "arrangerLegalName",
+          "borrowerName",
+          "borrowerCountry",
+          "borrowerType",
+          "region", 
+          "industry",
+          "sic",
+          "parent",
+          "guarantor", 
+          "documentationType",
+          "commitmentDate",
+          "launchDate",
+          "publishedDate",
+          "notes",
+          "inviteOnly", 
+          "state",
+          "dataRoomId",
+          "ndaDocId",
+          "mine",
+          "creatorMp",
+          "arranger",
+          "invitationStatus",
+          "ndaType",
+          "ndaResponseMethod",
+          "ndaResponseType",
+          "inviteLenderPermission",
+          "lenders",
+          "responses"
+        ]
+      }]
+    }
+  },
+  "required": [
+    "status",
+    "reqId",
+    "timestamp", 
+    "message",
+    "error",
+    "page",
+    "result"
+  ]
+}

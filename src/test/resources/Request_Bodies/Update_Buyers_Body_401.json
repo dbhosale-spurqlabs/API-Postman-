@@ -1,1 +1,252 @@
-{}
+[
+    {
+        "userId": "09392f62-48a1-4080-883f-b32477b61717",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "CEO",
+        "userName": "Harshal Darak",
+        "userContactNumber": "+919723872980",
+        "userEmail": "harshal@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "1164a462-9632-48b4-a739-5ad5b35714be",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "it analyst",
+        "userName": "test spp",
+        "userContactNumber": "+918934875230",
+        "userEmail": "shiitalp@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "046f002a-de29-4b19-b38f-99a3a39c4fbc",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "analyst",
+        "userName": "Test new",
+        "userContactNumber": "+918976554534",
+        "userEmail": "testneww@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "06a3e54a-3f3f-40c4-b307-af13d5019730",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Manager",
+        "userName": "User 1 Test",
+        "userContactNumber": "+919876543224",
+        "userEmail": "un_dealteam@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "d4e66125-7552-4046-929d-d541d71f2b62",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Analyst",
+        "userName": "testcap caps",
+        "userContactNumber": "+918307778654",
+        "userEmail": "casecaps@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "09c5959c-613e-4ad3-af47-e2b719dd9466",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Tester",
+        "userName": "APS Updated Test",
+        "userContactNumber": "+918976545678",
+        "userEmail": "on@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "86dec3ae-a639-464b-aead-9c3766c7c3ef",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "analyst",
+        "userName": "test crm",
+        "userContactNumber": "+918745673465",
+        "userEmail": "testcrm@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "5144dcc2-53e4-4454-a0ca-be9377500562",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "pa",
+        "userName": "test pp",
+        "userContactNumber": "+918767775643",
+        "userEmail": "testuatcaps@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "12400957-7c81-420f-abbd-b5a5e8ab5c94",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "User",
+        "userName": "Shanti jeena",
+        "userContactNumber": "+919191919191",
+        "userEmail": "shanti@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "76921440-4f31-47e4-a851-7ee86feedec9",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Trader",
+        "userName": "Jio pat",
+        "userContactNumber": "+14846556456",
+        "userEmail": "jio@gimpmail.com",
+        "userDlId": null
+    },
+    {
+        "userId": "64100cff-ff53-4a7a-95b2-57aaeae9c2f5",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "vp",
+        "userName": "kamal Jeena",
+        "userContactNumber": "+919765675757",
+        "userEmail": "kamal@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "2809eda3-36ae-416e-9312-371ec9d66689",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "teste",
+        "userName": "testt22 rrr",
+        "userContactNumber": "+14845465465",
+        "userEmail": "tesstt@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "3ee05aad-7a02-4b59-add8-63e05c9b8cef",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "test",
+        "userName": "testadmin ttt",
+        "userContactNumber": "+14845465456",
+        "userEmail": "adminnn@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "1176bce9-1673-4673-b6dc-d4feac1790f6",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "coo",
+        "userName": "jack huma",
+        "userContactNumber": "+919686858589",
+        "userEmail": "jack@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "6233f76a-0f72-4add-9183-f5ed506037be",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Manager",
+        "userName": "Jason White",
+        "userContactNumber": "+14798837868",
+        "userEmail": "jason1@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "3b0a4e25-d0c7-4368-b4e4-0df39bec7250",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "analyst",
+        "userName": "new testt",
+        "userContactNumber": "+918763554534",
+        "userEmail": "TestOrg@GetNADA.com",
+        "userDlId": null
+    },
+    {
+        "userId": "ec2fd924-9faf-4868-8393-6297f5ed9b4b",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "abc",
+        "userName": "testcode test",
+        "userContactNumber": "+14844545656",
+        "userEmail": "abcf@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "29830448-3460-4560-ab9a-17274447d753",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "test",
+        "userName": "morris test",
+        "userContactNumber": "+14844465644",
+        "userEmail": "morris@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "4c2a9e11-5976-4f38-82dc-bb8389c899d6",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "test",
+        "userName": "Ani Test",
+        "userContactNumber": "+14848655454",
+        "userEmail": "anil@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "34ab681f-ee47-4847-87ae-7c1d5828e35e",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "test",
+        "userName": "richa test",
+        "userContactNumber": "+14845678645",
+        "userEmail": "richa@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "3e6392a4-9631-438a-be99-212e178b04b9",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "CEO",
+        "userName": "Amit Goyal",
+        "userContactNumber": "+917372899999",
+        "userEmail": "amit@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "06f0ce83-c8c0-4cb2-bff7-d3d115f542c4",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "analyst",
+        "userName": "sit jultest",
+        "userContactNumber": "+918976586755",
+        "userEmail": "sit10july@getnada.com",
+        "userDlId": null
+    },
+    {
+        "userId": "77f13d18-0651-4015-a1e5-a2036da777a3",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "Investor",
+        "userName": "Shubham Sangar",
+        "userContactNumber": "+918668301314",
+        "userEmail": "ritu@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "7b2f3e8b-4b14-4e88-b7b4-071ee1a7117a",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "CEO",
+        "userName": "Varun ABC",
+        "userContactNumber": "+12402534364",
+        "userEmail": "varunabc@inboxbear.com",
+        "userDlId": null
+    },
+    {
+        "userId": "077fba02-a4aa-4513-9537-918249563d61",
+        "userMpId": "2b5d8967-d006-4fdb-bd1d-bb181b0c9357",
+        "userMpName": "ADCB",
+        "userDesignation": "ad",
+        "userName": "dad da",
+        "userContactNumber": "+919414141414",
+        "userEmail": "m@getnada.com",
+        "userDlId": null
+    }
+]

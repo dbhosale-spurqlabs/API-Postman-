@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["result", "page"],
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "dataRoomId", "status"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dataRoomId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Active"]
+          }
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": ["size", "totalElements", "totalPages", "number"],
+      "properties": {
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        },
+        "number": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
