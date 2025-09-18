@@ -29,11 +29,11 @@ public class Hooks extends TestContext {
     private static final Map<String, String> headers = new HashMap<>();
     protected Scenario scenarioLogger;
     protected String scenarioName;
-    private static String configBaseUrl;
-    private static String draftEndpoint;
-    private static String publishEndpoint;
-    private static String viewEndpoint;
-    private static String configDraftMethod;
+    private static final String configBaseUrl;
+    private static final String draftEndpoint;
+    private static final String publishEndpoint;
+    private static final String viewEndpoint;
+    private static final String configDraftMethod;
 
     static {
         configBaseUrl = getFrameworkConfig("BaseUrl");
@@ -614,6 +614,91 @@ public class Hooks extends TestContext {
         } catch (Exception e) {
             TestContextLogger.scenarioLog("ERROR", "Failed to setup DataRoom: " + e.getMessage());
             throw new RuntimeException("DataRoom setup failed", e);
+        }
+    }
+
+    @Before("@uploadNDA")
+    public void beforeScenarioUploadNDA() {
+        try {
+            // Get configuration values
+            String baseUrl = FrameworkConfigReader.getFrameworkConfig("BaseUrl");
+            String uploadNdaUrlPath = FrameworkConfigReader.getFrameworkConfig("UploadDocUrl");
+            String filesPath = FrameworkConfigReader.getFrameworkConfig("Files_Path");
+            
+            if (baseUrl == null || uploadNdaUrlPath == null || filesPath == null) {
+                throw new RuntimeException("Missing required configuration for NDA upload");
+            }
+
+            // Use the same file as regular document upload
+            String uploadFileName = FrameworkConfigReader.getFrameworkConfig("UploadFileName");
+            if (uploadFileName == null || uploadFileName.trim().isEmpty()) {
+                uploadFileName = "NDA_Document.pdf"; // fallback name
+            }
+
+            // Build URLs and paths
+            String uploadNdaUrl = baseUrl + uploadNdaUrlPath;
+            String filePath = filesPath + uploadFileName;
+
+            // Validate file exists
+            File uploadFile = new File(filePath);
+            if (!uploadFile.exists() || !uploadFile.isFile()) {
+                throw new RuntimeException("Upload file not found: " + filePath);
+            }
+
+            // Setup multipart request
+            Map<String, Object> multipartParams = new HashMap<>();
+            multipartParams.put("fileBody", uploadFile);
+            multipartParams.put("fileName", uploadFileName);
+
+            // Send request
+            Response uploadNdaResponse = APIUtility.sendMultipartRequest(uploadNdaUrl, headers, multipartParams);
+            
+            if (uploadNdaResponse == null) {
+                throw new RuntimeException("No response received from NDA upload request");
+            }
+
+            if (uploadNdaResponse.getStatusCode() != 200) {
+                throw new RuntimeException("NDA upload failed with status code: " + uploadNdaResponse.getStatusCode() + 
+                    ", Response: " + uploadNdaResponse.getBody().asString());
+            }
+
+            // Extract and store document ID
+            String documentId = uploadNdaResponse.path("data.documentId");
+            if (documentId == null || documentId.trim().isEmpty()) {
+                throw new RuntimeException("No document ID in NDA upload response");
+            }
+
+            // Store as secondorydocumentId
+            DealDetailsManager.put("secondorydocumentId", documentId);
+            TestContextLogger.scenarioLog("API", "Successfully uploaded NDA with ID: " + documentId);
+
+            // Update query parameter files with the new document ID
+            updateNdaQueryFiles(documentId);
+
+        } catch (Exception e) {
+            TestContextLogger.scenarioLog("ERROR", "Error in @uploadNDA: " + e.getMessage());
+            throw new RuntimeException("NDA upload failed", e);
+        }
+    }
+
+    private void updateNdaQueryFiles(String documentId) {
+        try {
+            // Update 200 query file
+            JSONObject query200 = new JSONObject();
+            query200.put("ndaDocId", documentId);
+            Files.write(Paths.get("src/test/resources/Query_Parameters/Submit_NDA_Query_200.json"), 
+                       query200.toString(2).getBytes());
+
+            // Update 401 query file with same ID (since we're testing auth, not ID validity)
+            JSONObject query401 = new JSONObject();
+            query401.put("ndaDocId", documentId);
+            Files.write(Paths.get("src/test/resources/Query_Parameters/Submit_NDA_Query_401.json"), 
+                       query401.toString(2).getBytes());
+
+            TestContextLogger.scenarioLog("API", "Updated NDA query files with document ID: " + documentId);
+        } catch (Exception e) {
+            TestContextLogger.scenarioLog("ERROR", "Failed to update NDA query files: " + e.getMessage());
+            throw new RuntimeException("Failed to update NDA query files", e);
         }
     }
 

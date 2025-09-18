@@ -1,21 +1,30 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "required": ["type", "data"],
   "properties": {
-    "id": { "type": "string" },
-    "email": { "type": "string" },
-    "firstName": { "type": "string" },
-    "lastName": { "type": "string" },
-    "designation": { "type": "string" },
-    "phoneNumber": { "type": "string" },
-    "marketParticipantId": { "type": "string" },
-    "marketParticipantName": { "type": "string" },
-    "roles": {
-      "type": "array",
-      "items": { "type": "string" }
-    },
-    "isRegistered": { "type": "boolean" },
-    "isMPLive": { "type": "boolean" }
-  },
-  "required": ["id", "email", "firstName", "lastName", "marketParticipantId", "marketParticipantName", "isRegistered", "isMPLive"]
+    "type": { "type": "string" },
+    "shortDescription": { "type": "string" },
+    "longDescription": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "success": { "type": "string" },
+    "success_message": { "type": "string" },
+    "data": {
+      "type": "object",
+      "required": ["firstName", "lastName", "email", "isMPLive", "marketParticipantId", "user_id", "roles", "org_name", "org_country", "designation", "phone_number"],
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "email": { "type": "string" },
+        "isMPLive": { "type": "boolean" },
+        "marketParticipantId": { "type": "string" },
+        "user_id": { "type": "string" },
+        "roles": { "type": "array", "items": { "type": "string" } },
+        "org_name": { "type": "string" },
+        "org_country": { "type": "string" },
+        "designation": { "type": "string" },
+        "phone_number": { "type": "string" }
+      }
+    }
+  }
 }

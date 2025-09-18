@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "093fc5cd-d077-4399-998b-ba57fe8f8e95",
+		"name": "Secondary API - Buyer Side",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48259869",
+		"_collection_link": "https://discoverdollarqa.postman.co/workspace/LoanBook~8ae35bfc-d782-4386-8c30-feebed5730b2/collection/44681169-093fc5cd-d077-4399-998b-ba57fe8f8e95?action=share&source=collection_link&creator=48259869"
+	},
+	"item": [
+		{
+			"name": "Sell Offer- Invited",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=INVITED",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "INVITED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell offer - ALL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers?page=0&size=10&state=OPEN&type=ALL",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "OPEN"
+						},
+						{
+							"key": "type",
+							"value": "ALL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Offer - Active Bid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/deals?page=0&size=10&state=SUBMITTED",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"deals"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "SUBMITTED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Offer - Pending Bid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/deals?page=0&size=10&state=PENDING_SUBMIT",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"deals"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "PENDING_SUBMIT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place Bid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/8342ee7b-3b9f-4b59-aa2f-a6cf494bd87a",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"8342ee7b-3b9f-4b59-aa2f-a6cf494bd87a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Bid Amount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"price\":\"122222\",\"amount\":\"100000\",\"settlementType\":\"OUTRIGHT_SALE\",\"binding\":false}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/8342ee7b-3b9f-4b59-aa2f-a6cf494bd87a/bids",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"8342ee7b-3b9f-4b59-aa2f-a6cf494bd87a",
+						"bids"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Offer - Non Binding Bid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/deals?page=0&size=10&state=NON_BINDING",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"deals"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "state",
+							"value": "NON_BINDING"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Secondary OrderBook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dealroomId\":\"c50ba391-f1e4-4b29-a5c2-285c23649bca\",\"borrowerName\":\"RR Horizon 2\",\"buyers\":[{\"userId\":\"86804eb8-1258-48ee-9058-50dfeca4932c\",\"mpId\":\"a94a3a08-ba9a-4f0a-8860-e5ee4496c5e1\",\"organisation\":\"Spurqlabs\"}],\"sellers\":[{\"userId\":\"3e6392a4-9631-438a-be99-212e178b04b9\",\"mpId\":\"2b5d8967-d006-4fdb-bd1d-bb181b0c9357\",\"organisation\":\"ADCB\"}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/symphony/dealrooms/secondary/orderbook",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"symphony",
+						"dealrooms",
+						"secondary",
+						"orderbook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buyer Partnership",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"partnershipValue\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/b82641fe-318e-4546-97a7-639184c33a42/buyer-partnership?buyerPartnership=true",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"b82641fe-318e-4546-97a7-639184c33a42",
+						"buyer-partnership"
+					],
+					"query": [
+						{
+							"key": "buyerPartnership",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Circling Date Binding Bid",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"amount\":\"13312313\",\"price\":\"20\",\"settlementType\":\"OUTRIGHT_SALE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/b82641fe-318e-4546-97a7-639184c33a42",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"b82641fe-318e-4546-97a7-639184c33a42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sell Offer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offers/b2422a69-4f98-4362-9f47-6371bd248ed1",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offers",
+						"b2422a69-4f98-4362-9f47-6371bd248ed1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept NDA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/b82641fe-318e-4546-97a7-639184c33a42/nda-doc?ndaDocId=a475424f-660b-4554-b75b-0ad589ddd10c",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"b82641fe-318e-4546-97a7-639184c33a42",
+						"nda-doc"
+					],
+					"query": [
+						{
+							"key": "ndaDocId",
+							"value": "a475424f-660b-4554-b75b-0ad589ddd10c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw Bid",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/b82641fe-318e-4546-97a7-639184c33a42/cancel",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"b82641fe-318e-4546-97a7-639184c33a42",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resubmit Bid",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"amount\":13312313,\"price\":20,\"settlementType\":\"OUTRIGHT_SALE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/b82641fe-318e-4546-97a7-639184c33a42/resubmit",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"b82641fe-318e-4546-97a7-639184c33a42",
+						"resubmit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Closing Instruction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isManualDocUpload\": true,\r\n    \"accrualTreatment\": \"NO_ACCRUED_INTERESTS\",\r\n    \"docType\": \"LMA_PAR\",\r\n    \"settlementType\": \"OUTRIGHT_SALE\",\r\n    \"transferFee\": \"PAID_BY_SELLER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/dc8f3e99-8395-48ff-83e7-9dbff595bf49/closing-instructions",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"dc8f3e99-8395-48ff-83e7-9dbff595bf49",
+						"closing-instructions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Document Generator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bidId\":\"dc8f3e99-8395-48ff-83e7-9dbff595bf49\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v1/documents/generator/lma",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"documents",
+						"generator",
+						"lma"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download Trade Ticket",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "{{Accept}}",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{crmBaseUrl}}/api/v2/sell-offer-bids/dc8f3e99-8395-48ff-83e7-9dbff595bf49/trade-ticket/download",
+					"host": [
+						"{{crmBaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"sell-offer-bids",
+						"dc8f3e99-8395-48ff-83e7-9dbff595bf49",
+						"trade-ticket",
+						"download"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

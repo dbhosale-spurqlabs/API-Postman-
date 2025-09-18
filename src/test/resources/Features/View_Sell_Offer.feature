@@ -1,6 +1,6 @@
 Feature: View Sell Offer
 
-        @api10 @setupDataRoom
+        @api @setupDataRoom
         Scenario Outline: Validate GET View Sell Offer API Response for "<scenarioName>" Scenario
              When User sends "<method>" request to "<url>" with headers "<headers>" and query file "<queryFile>" and body file "<bodyFile>"
              Then User verifies the response status code is <statusCode>
